@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- Warm soft background -->
+  <rect width="600" height="400" fill="url(#kind-bg)"/>
+
+  <!-- Floor circle (soft mat area) -->
+  <ellipse cx="300" cy="300" rx="220" ry="60" fill="#FDE68A" opacity="0.35"/>
+
+  <!-- === 6 Children in a circle === -->
+  <!-- Child 1 — top (rose shirt) -->
+  <g transform="translate(270, 100)">
+    <circle cx="30" cy="22" r="16" fill="#FDE68A"/>
+    <ellipse cx="30" cy="22" rx="14" ry="8" fill="#DC2626" opacity="0.15" transform="translate(0,-12)"/>
+    <ellipse cx="30" cy="60" rx="14" ry="20" fill="#FB7185"/>
+    <circle cx="25" cy="20" r="2.5" fill="#92400E" opacity="0.7"/>
+    <circle cx="35" cy="20" r="2.5" fill="#92400E" opacity="0.7"/>
+    <path d="M24 28 Q30 34 36 28" stroke="#92400E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Pigtails -->
+    <circle cx="16" cy="14" r="6" fill="#92400E"/>
+    <circle cx="44" cy="14" r="6" fill="#92400E"/>
+    <!-- Arms reaching sideways -->
+    <path d="M16 55 Q-5 60 -18 58" stroke="#FB7185" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M44 55 Q63 60 78 58" stroke="#FB7185" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Child 2 — top-right (blue shirt) -->
+  <g transform="translate(390, 140)">
+    <circle cx="25" cy="22" r="15" fill="#FDE68A"/>
+    <ellipse cx="25" cy="60" rx="13" ry="19" fill="#60A5FA"/>
+    <circle cx="20" cy="20" r="2.5" fill="#92400E" opacity="0.7"/>
+    <circle cx="30" cy="20" r="2.5" fill="#92400E" opacity="0.7"/>
+    <path d="M19 28 Q25 33 31 28" stroke="#92400E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M-10 55 Q-28 52 -40 55" stroke="#60A5FA" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M50 50 Q65 44 75 47" stroke="#60A5FA" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Child 3 — right (green shirt) -->
+  <g transform="translate(430, 220)">
+    <circle cx="20" cy="20" r="15" fill="#FCD34D"/>
+    <ellipse cx="20" cy="57" rx="12" ry="18" fill="#34D399"/>
+    <circle cx="15" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <circle cx="25" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <path d="M14 26 Q20 31 26 26" stroke="#92400E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M-15 50 Q-30 48 -42 52" stroke="#34D399" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M45 48 Q58 44 68 48" stroke="#34D399" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Child 4 — bottom-right (yellow shirt) -->
+  <g transform="translate(370, 295)">
+    <circle cx="25" cy="20" r="15" fill="#FDE68A"/>
+    <ellipse cx="25" cy="57" rx="12" ry="18" fill="#FBBF24"/>
+    <circle cx="20" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <circle cx="30" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <path d="M19 26 Q25 31 31 26" stroke="#92400E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M-8 52 Q-22 55 -38 53" stroke="#FBBF24" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M48 50 Q60 54 70 52" stroke="#FBBF24" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Child 5 — bottom-left (purple shirt) -->
+  <g transform="translate(160, 295)">
+    <circle cx="25" cy="20" r="15" fill="#FCD34D"/>
+    <ellipse cx="25" cy="57" rx="12" ry="18" fill="#A78BFA"/>
+    <circle cx="20" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <circle cx="30" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <path d="M19 26 Q25 31 31 26" stroke="#92400E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M-8 52 Q-22 55 -38 53" stroke="#A78BFA" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M48 50 Q60 54 70 52" stroke="#A78BFA" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Child 6 — left (orange shirt) -->
+  <g transform="translate(105, 220)">
+    <circle cx="25" cy="20" r="16" fill="#FDE68A"/>
+    <ellipse cx="25" cy="58" rx="13" ry="19" fill="#F97316"/>
+    <circle cx="19" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <circle cx="31" cy="18" r="2.5" fill="#92400E" opacity="0.7"/>
+    <path d="M18 27 Q25 32 32 27" stroke="#92400E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M-12 52 Q-25 50 -38 54" stroke="#F97316" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M50 52 Q63 48 75 52" stroke="#F97316" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Center — craft/activity items -->
+  <!-- Paper hearts scattered in center -->
+  <path d="M290 220 C290 214 283 211 280 214 C277 211 270 214 270 220 C270 225 280 232 280 232 C280 232 290 225 290 220 Z"
+    fill="#FB7185" opacity="0.8"/>
+  <path d="M320 215 C320 210 314 207 311 210 C308 207 302 210 302 215 C302 219 311 225 311 225 C311 225 320 219 320 215 Z"
+    fill="#F97316" opacity="0.75"/>
+  <path d="M310 240 C310 235 305 233 302 235 C299 233 294 235 294 240 C294 244 302 249 302 249 C302 249 310 244 310 240 Z"
+    fill="#FBBF24" opacity="0.8"/>
+  <!-- Star sparkles -->
+  <path d="M255 200 L257 194 L259 200 L253 196 L263 196 Z" fill="#FBBF24"/>
+  <path d="M340 205 L342 199 L344 205 L338 201 L348 201 Z" fill="#FB7185"/>
+  <path d="M300 195 L302 190 L304 195 L298 192 L306 192 Z" fill="#A78BFA"/>
+  <!-- Crayons -->
+  <rect x="275" y="255" width="6" height="22" rx="2" fill="#EF4444" transform="rotate(-20 278 266)"/>
+  <rect x="290" y="258" width="6" height="22" rx="2" fill="#3B82F6" transform="rotate(5 293 269)"/>
+  <rect x="308" y="252" width="6" height="22" rx="2" fill="#22C55E" transform="rotate(15 311 263)"/>
+
+  <!-- Floating sparkles around the scene -->
+  <circle cx="80"  cy="80"  r="4" fill="#FBBF24" opacity="0.6"/>
+  <circle cx="520" cy="70"  r="3" fill="#FB7185" opacity="0.6"/>
+  <circle cx="540" cy="180" r="4" fill="#A78BFA" opacity="0.5"/>
+  <circle cx="60"  cy="300" r="3" fill="#34D399" opacity="0.5"/>
+  <circle cx="530" cy="320" r="3" fill="#FBBF24" opacity="0.5"/>
+
+  <defs>
+    <radialGradient id="kind-bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#FFF7ED"/>
+      <stop offset="60%"  stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDDCAA"/>
+    </radialGradient>
+  </defs>
+</svg>

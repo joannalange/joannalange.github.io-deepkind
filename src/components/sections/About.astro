@@ -1,0 +1,52 @@
+---
+import ProtocolTag from '@ui/ProtocolTag.astro';
+import content from '@data/content.json';
+const { header, protocol, status, title, paragraphs } = content.about;
+
+// Parse **bold** markdown in paragraph text
+function parseBold(text: string): string {
+  return text.replace(/\*\*(.+?)\*\*/g, '<strong class="about-highlight">$1</strong>');
+}
+---
+
+<section class="about-section section-padding" id="about" aria-label="O nas">
+  <div class="site-container">
+    <div class="about-grid">
+
+      <!-- Text -->
+      <div class="about-text reveal">
+        <div class="about-meta">
+          <ProtocolTag label={protocol} color="dim" />
+          <ProtocolTag label={status} color="amber" />
+        </div>
+
+        <h2 class="text-headline gradient-cyan-purple">{title}</h2>
+
+        <div class="about-body">
+          {paragraphs.map(p => (
+            <p set:html={parseBold(p)} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="about-illustration reveal reveal-delay-2">
+        <img
+          src="/assets/about-illustration.svg"
+          alt="Technologia i człowiek — ilustracja"
+          width="480"
+          height="480"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>

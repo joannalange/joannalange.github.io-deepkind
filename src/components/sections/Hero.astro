@@ -1,0 +1,58 @@
+---
+import Button from '@ui/Button.astro';
+import ProtocolTag from '@ui/ProtocolTag.astro';
+import content from '@data/content.json';
+const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } = content.hero;
+---
+
+<section class="hero" id="home" aria-label="Hero">
+
+  <!-- Background SVG -->
+  <div class="hero__bg" aria-hidden="true">
+    <img
+      src="/assets/hero-bg.svg"
+      alt=""
+      class="hero__bg-svg animate-pulse-slow"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="site-container">
+    <div class="hero__content">
+
+      <!-- Text column -->
+      <div class="hero__text stagger">
+        <ProtocolTag label={protocol} color="cyan" />
+
+        <h1 class="text-display hero__title animate-fade-up">
+          <span class="hero__title-prefix">{titlePrefix}</span>
+          <span class="hero__title-highlight gradient-cyan-purple">{titleHighlight}</span>
+          <span class="hero__title-suffix">{titleSuffix}</span>
+        </h1>
+
+        <p class="hero__description text-body animate-fade-up">
+          {description}
+        </p>
+
+        <div class="hero__cta animate-fade-up">
+          <Button label={cta} href="#projects" variant="filled-primary" arrow />
+          <Button label="O nas" href="#about" variant="outline-light" />
+        </div>
+      </div>
+
+      <!-- Empty right col — SVG bg fills this space on desktop -->
+      <div aria-hidden="true"></div>
+
+    </div>
+  </div>
+
+  <!-- Strata divider -->
+  <div class="site-container">
+    <div class="strata-divider">
+      <div class="strata-divider__line"></div>
+      <span class="text-label text-cyan" style="white-space:nowrap">STRATA_01</span>
+      <div class="strata-divider__line strata-divider__line--right"></div>
+    </div>
+  </div>
+
+</section>

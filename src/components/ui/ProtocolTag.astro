@@ -1,0 +1,8 @@
+---
+interface Props {
+  label: string;
+  color?: 'cyan' | 'purple' | 'rose' | 'amber' | 'dim' | 'light';
+}
+const { label, color = 'dim' } = Astro.props;
+---
+<span class={`tag tag--${color}`}>{label}</span>

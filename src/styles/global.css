@@ -1,0 +1,247 @@
+@import "@fontsource-variable/inter-tight";
+@import "@fontsource-variable/geist";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+@theme {
+  /* --- Backgrounds --- */
+  --color-bg-base:         #FAFAF8;
+  --color-bg-dark:         #0C0E1A;
+  --color-bg-darkest:      #07080F;
+  --color-bg-surface:      #F0EFEC;
+  --color-bg-surface-dark: #131726;
+  --color-bg-card-dark:    #1A1D30;
+
+  /* --- Brand --- */
+  --color-primary:    #3730A3;
+  --color-primary-lt: #4F46E5;
+  --color-cyan:       #00E5FF;
+  --color-cyan-dim:   #00B8CC;
+  --color-purple:     #7C3AED;
+  --color-purple-lt:  #9D5FFF;
+  --color-rose:       #FB7185;
+  --color-rose-dim:   #F43F5E;
+  --color-amber:      #FBBF24;
+
+  /* --- Text --- */
+  --color-text:       #0C0E1A;
+  --color-text-dim:   #6B7280;
+  --color-text-light: #E8E8F4;
+  --color-text-muted: #9CA3AF;
+
+  /* --- Borders --- */
+  --color-border:      rgba(0, 0, 0, 0.08);
+  --color-border-dark: rgba(255, 255, 255, 0.07);
+  --color-border-cyan: rgba(0, 229, 255, 0.25);
+  --color-border-purple: rgba(124, 58, 237, 0.35);
+  --color-border-rose: rgba(251, 113, 133, 0.3);
+
+  /* --- Typography --- */
+  --font-display: "Inter Tight Variable", sans-serif;
+  --font-sans:    "Geist Variable", sans-serif;
+  --font-mono:    "Geist Mono", monospace;
+
+  /* --- Fluid type scale --- */
+  --text-xs:   clamp(0.7rem,  0.65rem + 0.25vw, 0.75rem);
+  --text-sm:   clamp(0.8rem,  0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.9rem,  0.85rem + 0.3vw,  1rem);
+  --text-lg:   clamp(1rem,    0.95rem + 0.35vw, 1.125rem);
+  --text-xl:   clamp(1.1rem,  1rem + 0.5vw,     1.25rem);
+  --text-2xl:  clamp(1.25rem, 1.1rem + 0.75vw,  1.5rem);
+  --text-3xl:  clamp(1.5rem,  1.25rem + 1.25vw, 2rem);
+  --text-4xl:  clamp(2rem,    1.5rem + 2.5vw,   3rem);
+  --text-5xl:  clamp(2.5rem,  1.75rem + 3.75vw, 4rem);
+  --text-6xl:  clamp(3rem,    2rem + 5vw,        5.5rem);
+
+  /* --- Spacing --- */
+  --spacing-section: clamp(5rem, 8vw, 10rem);
+  --spacing-card:    clamp(1.5rem, 3vw, 2.5rem);
+
+  /* --- Layout --- */
+  --width-max: 1440px;
+  --radius-card: 1rem;
+  --radius-sm:   0.5rem;
+  --radius-tag:  0.25rem;
+
+  /* --- Transitions --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   BASE RESETS & DEFAULTS
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-bg-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.site-container {
+  width: 100%;
+  max-width: var(--width-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 5rem);
+}
+
+.section-padding {
+  padding-block: var(--spacing-section);
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.text-headline {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-subheading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.text-body {
+  font-size: var(--text-lg);
+  line-height: 1.7;
+}
+
+.text-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   COLOR UTILITIES
+   ============================================================ */
+.text-cyan   { color: var(--color-cyan); }
+.text-purple { color: var(--color-purple-lt); }
+.text-rose   { color: var(--color-rose); }
+.text-amber  { color: var(--color-amber); }
+.text-dim    { color: var(--color-text-dim); }
+.text-muted  { color: var(--color-text-muted); }
+.text-light  { color: var(--color-text-light); }
+
+.bg-dark     { background-color: var(--color-bg-dark); }
+.bg-darkest  { background-color: var(--color-bg-darkest); }
+.bg-surface  { background-color: var(--color-bg-surface); }
+
+/* ============================================================
+   GRADIENT UTILITIES
+   ============================================================ */
+.gradient-cyan-purple {
+  background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-purple-lt) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-purple-rose {
+  background: linear-gradient(135deg, var(--color-purple-lt) 0%, var(--color-rose) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   ANIMATION
+   ============================================================ */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.03); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scan {
+  from { background-position: 0 0; }
+  to   { background-position: 0 100px; }
+}
+
+.animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }
+.animate-float      { animation: float 8s ease-in-out infinite; }
+.animate-fade-up    { animation: fade-up 0.6s var(--ease-out-expo) both; }
+
+/* Staggered fade-up delays for children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 100ms; }
+.stagger > *:nth-child(3) { animation-delay: 200ms; }
+.stagger > *:nth-child(4) { animation-delay: 300ms; }
+.stagger > *:nth-child(5) { animation-delay: 400ms; }
+
+/* Scroll-reveal: elements start hidden, JS adds .revealed */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s var(--ease-out-expo),
+              transform 0.65s var(--ease-out-expo);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }

@@ -1,0 +1,20 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  cta: string;
+  url: string;
+  side: 'left' | 'right';
+}
+const { title, description, cta, url, side } = Astro.props;
+
+const buttonVariant = side === 'left' ? 'outline-cyan' : 'filled-primary';
+---
+
+<div class="support-card">
+  <h3 class="support-card__title">{title}</h3>
+  <p class="support-card__description">{description}</p>
+  <Button label={cta} href={url} variant={buttonVariant} arrow />
+</div>

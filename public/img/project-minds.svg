@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- Background gradient — warm amber/orange energy -->
+  <rect width="600" height="400" fill="url(#minds-bg)"/>
+
+  <!-- Sun/energy rays -->
+  <g opacity="0.15" stroke="#FBBF24" stroke-width="1">
+    <line x1="300" y1="200" x2="60"  y2="20"/>
+    <line x1="300" y1="200" x2="160" y2="0"/>
+    <line x1="300" y1="200" x2="260" y2="0"/>
+    <line x1="300" y1="200" x2="360" y2="0"/>
+    <line x1="300" y1="200" x2="460" y2="0"/>
+    <line x1="300" y1="200" x2="560" y2="20"/>
+    <line x1="300" y1="200" x2="600" y2="100"/>
+    <line x1="300" y1="200" x2="20"  y2="120"/>
+  </g>
+
+  <!-- Ground -->
+  <ellipse cx="300" cy="390" rx="280" ry="40" fill="#F59E0B" opacity="0.12"/>
+
+  <!-- === CHILD figure (left, playful pose) === -->
+  <g transform="translate(155, 90)">
+    <!-- Jump shadow -->
+    <ellipse cx="45" cy="250" rx="28" ry="8" fill="#92400E" opacity="0.2"/>
+    <!-- Body (jumping) -->
+    <ellipse cx="45" cy="145" rx="20" ry="28" fill="url(#child-body)"/>
+    <!-- Head -->
+    <circle cx="45" cy="100" r="22" fill="#FDE68A"/>
+    <!-- Hair -->
+    <path d="M23 95 Q30 75 45 72 Q60 75 67 95 Q62 82 45 80 Q28 82 23 95 Z" fill="#92400E"/>
+    <!-- Smile face -->
+    <circle cx="38" cy="98" r="3" fill="#92400E" opacity="0.7"/>
+    <circle cx="52" cy="98" r="3" fill="#92400E" opacity="0.7"/>
+    <path d="M37 108 Q45 116 53 108" stroke="#92400E" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Left arm up -->
+    <path d="M25 130 Q0 100 -8 80" stroke="url(#child-body)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Right arm out -->
+    <path d="M65 135 Q90 120 100 110" stroke="url(#child-body)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Left leg bent -->
+    <path d="M35 170 Q20 200 15 230" stroke="url(#child-body)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Right leg kick -->
+    <path d="M55 170 Q75 200 85 220" stroke="url(#child-body)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Shoes -->
+    <ellipse cx="15" cy="234" rx="12" ry="7" fill="#EF4444" transform="rotate(-15 15 234)"/>
+    <ellipse cx="85" cy="222" rx="12" ry="7" fill="#EF4444" transform="rotate(20 85 222)"/>
+    <!-- Star sparkles around child -->
+    <path d="M -20 60 L-17 52 L-14 60 L-22 55 L-12 55 Z" fill="#FBBF24" opacity="0.8"/>
+    <path d="M 100 70 L102 63 L104 70 L97 66 L107 66 Z" fill="#FBBF24" opacity="0.7"/>
+    <path d="M -5 180 L-3 174 L-1 180 L-7 177 L1 177 Z" fill="#FB7185" opacity="0.7"/>
+  </g>
+
+  <!-- Divider line (split-screen) -->
+  <line x1="300" y1="20" x2="300" y2="380" stroke="white" stroke-width="2" opacity="0.2" stroke-dasharray="8 6"/>
+
+  <!-- === PARENT figure (right, lunging) === -->
+  <g transform="translate(330, 80)">
+    <!-- Shadow -->
+    <ellipse cx="85" cy="265" rx="38" ry="10" fill="#1E1B4B" opacity="0.18"/>
+    <!-- Body (lunge pose) -->
+    <ellipse cx="75" cy="145" rx="22" ry="30" fill="url(#parent-body)"/>
+    <!-- Head -->
+    <circle cx="75" cy="98" r="24" fill="#FDE68A"/>
+    <!-- Hair (short) -->
+    <ellipse cx="75" cy="83" rx="22" ry="10" fill="#7C3AED"/>
+    <!-- Face -->
+    <circle cx="67" cy="96" r="3" fill="#4C1D95" opacity="0.7"/>
+    <circle cx="83" cy="96" r="3" fill="#4C1D95" opacity="0.7"/>
+    <path d="M66 107 Q75 113 84 107" stroke="#4C1D95" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Left arm extended forward -->
+    <path d="M55 128 Q25 115 10 108" stroke="url(#parent-body)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Right arm back -->
+    <path d="M95 132 Q118 120 130 115" stroke="url(#parent-body)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Front leg (lunge) -->
+    <path d="M65 172 Q50 210 35 255" stroke="url(#parent-body)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Back leg -->
+    <path d="M85 172 Q100 210 115 255" stroke="url(#parent-body)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Shoes -->
+    <ellipse cx="35" cy="259" rx="16" ry="8" fill="#4C1D95" transform="rotate(-8 35 259)"/>
+    <ellipse cx="115" cy="259" rx="16" ry="8" fill="#4C1D95" transform="rotate(5 115 259)"/>
+    <!-- Sweat drops (effort) -->
+    <path d="M108 85 Q110 78 115 80 Q118 87 112 88 Z" fill="#93C5FD" opacity="0.6"/>
+    <path d="M118 95 Q120 89 124 91 Q126 97 121 98 Z" fill="#93C5FD" opacity="0.5"/>
+  </g>
+
+  <!-- Label chips -->
+  <rect x="30" y="20" width="110" height="26" rx="4" fill="#F59E0B" opacity="0.9"/>
+  <text x="85" y="37" font-family="monospace" font-size="10" letter-spacing="0.06em" text-anchor="middle" fill="#1C1917" font-weight="600">KIDS ZONE</text>
+
+  <rect x="460" y="20" width="110" height="26" rx="4" fill="#7C3AED" opacity="0.9"/>
+  <text x="515" y="37" font-family="monospace" font-size="10" letter-spacing="0.06em" text-anchor="middle" fill="white" font-weight="600">ADULT GYM</text>
+
+  <!-- Bottom rhythm pulse line -->
+  <polyline points="20,370 60,370 70,355 80,385 90,362 100,370 580,370"
+    stroke="#FBBF24" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+
+  <defs>
+    <linearGradient id="minds-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FEF3C7"/>
+      <stop offset="50%"  stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+    <linearGradient id="child-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#FB923C"/>
+    </linearGradient>
+    <linearGradient id="parent-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#6D28D9"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+</svg>

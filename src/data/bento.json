@@ -1,0 +1,40 @@
+{
+  "header": "Obszary Działań",
+  "areas": [
+    {
+      "id": "tech",
+      "title": "Odpowiedzialne technologie",
+      "description": "Analiza etyczna algorytmów i systemów autonomicznych. Budujemy mosty między logiką a empatią.",
+      "tag": "TECH_AUDIT",
+      "variant": "wide"
+    },
+    {
+      "id": "nature",
+      "title": "Natura",
+      "description": "Ochrona biosfery poprzez technologiczną precyzję.",
+      "tag": "BIOSPHERE",
+      "variant": "standard"
+    },
+    {
+      "id": "neuro",
+      "title": "Neuroatypowość",
+      "description": "Projektowanie systemów wspierających różnorodność poznawczą.",
+      "tag": "COGNITIVE",
+      "variant": "standard"
+    },
+    {
+      "id": "agency",
+      "title": "Kobieca sprawczość",
+      "description": "Wzmocnienie roli kobiet w kształtowaniu przyszłości AI.",
+      "tag": "AGENCY",
+      "variant": "lead"
+    },
+    {
+      "id": "empathy",
+      "title": "Życzliwość i Empatia",
+      "description": "Wdrażanie wartości humanistycznych w kod.",
+      "tag": "ETHICS",
+      "variant": "standard"
+    }
+  ]
+}

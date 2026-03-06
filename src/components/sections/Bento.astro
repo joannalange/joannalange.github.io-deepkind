@@ -1,0 +1,31 @@
+---
+import BentoCard from '@ui/BentoCard.astro';
+import ProtocolTag from '@ui/ProtocolTag.astro';
+import content from '@data/content.json';
+const { header, protocol, areas } = content.bento;
+---
+
+<section class="bento-section section-padding" id="bento" aria-label="Obszary działań">
+  <div class="site-container">
+
+    <header class="section-header">
+      <ProtocolTag label={protocol} color="cyan" />
+      <h2 class="text-headline text-light">{header}</h2>
+    </header>
+
+    <div class="bento-grid">
+      {areas.map((area, i) => (
+        <BentoCard
+          id={area.id}
+          tag={area.tag}
+          title={area.title}
+          description={area.description}
+          variant={area.variant as 'wide' | 'standard' | 'lead'}
+          theme={area.theme as 'cyan' | 'purple' | 'rose'}
+          revealDelay={Math.min(i + 1, 4)}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>

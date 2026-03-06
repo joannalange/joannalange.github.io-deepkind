@@ -1,0 +1,57 @@
+---
+import content from '@data/content.json';
+const { description, legal, connect, copyright, location } = content.footer;
+---
+
+<footer class="footer section-padding">
+  <div class="site-container">
+
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="/assets/logo.svg" alt="DeepKind" width="140" height="28" />
+        <p class="footer-brand__description">{description}</p>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <p class="footer-col__heading">Prawne</p>
+        <ul class="footer-links">
+          {legal.map(item => (
+            <li>
+              <a href={item.url} class="footer-link">{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div class="footer-col">
+        <p class="footer-col__heading">Connect</p>
+        <ul class="footer-links">
+          {connect.map(item => (
+            <li>
+              <a
+                href={item.url}
+                class="footer-link"
+                target={item.url.startsWith('http') ? '_blank' : undefined}
+                rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Location -->
+      <div class="footer-col">
+        <p class="footer-col__heading">Location</p>
+        <p class="footer-location">{location}</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">{copyright}</p>
+    </div>
+
+  </div>
+</footer>

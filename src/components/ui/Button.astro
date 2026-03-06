@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: string;
+  href: string;
+  variant?: 'filled-primary' | 'outline-cyan' | 'outline-light';
+  arrow?: boolean;
+}
+const { label, href, variant = 'filled-primary', arrow = false } = Astro.props;
+---
+<a href={href} class={`btn btn--${variant}`}>
+  {label}
+  {arrow && <span aria-hidden="true">→</span>}
+</a>

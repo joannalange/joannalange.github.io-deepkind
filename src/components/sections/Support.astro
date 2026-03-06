@@ -1,0 +1,40 @@
+---
+import SupportCard from '@ui/SupportCard.astro';
+import ProtocolTag from '@ui/ProtocolTag.astro';
+import content from '@data/content.json';
+const { header, subtext, options } = content.support;
+---
+
+<section class="support-section section-padding" id="support" aria-label="Włącz się">
+  <div class="site-container">
+
+    <div class="support-intro">
+      <ProtocolTag label="CALL_TO_ACTION" color="cyan" />
+      <h2 class="text-headline text-light">{header}</h2>
+      <p class="support-intro__subtext">{subtext}</p>
+    </div>
+
+    <div class="support-split">
+      <div class="reveal">
+        <SupportCard
+          title={options[0].title}
+          description={options[0].description}
+          cta={options[0].cta}
+          url={options[0].url}
+          side="left"
+        />
+      </div>
+      <div class="support-divider" aria-hidden="true"></div>
+      <div class="reveal reveal-delay-2">
+        <SupportCard
+          title={options[1].title}
+          description={options[1].description}
+          cta={options[1].cta}
+          url={options[1].url}
+          side="right"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>

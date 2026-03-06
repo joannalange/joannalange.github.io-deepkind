@@ -1,0 +1,52 @@
+---
+import ProtocolTag from './ProtocolTag.astro';
+
+interface Props {
+  id: string;
+  tag: string;
+  title: string;
+  description: string;
+  variant: 'wide' | 'standard' | 'lead';
+  theme: 'cyan' | 'purple' | 'rose';
+  revealDelay?: number;
+}
+const { id, tag, title, description, variant, theme, revealDelay } = Astro.props;
+
+const watermarkMap: Record<string, string> = {
+  tech:    '/assets/bento-tech.svg',
+  nature:  '/assets/bento-nature.svg',
+  neuro:   '/assets/bento-neuro.svg',
+  agency:  '/assets/bento-agency.svg',
+  empathy: '/assets/bento-empathy.svg',
+};
+
+const tagColorMap: Record<string, 'cyan' | 'purple' | 'rose' | 'amber'> = {
+  cyan:   'cyan',
+  purple: 'purple',
+  rose:   'rose',
+};
+
+const isTech = id === 'tech';
+---
+
+<article class:list={[
+  'bento-card',
+  `bento-card--${variant}`,
+  `bento-card--${theme}`,
+  isTech && 'bento-card--tech-bg',
+  'reveal',
+  revealDelay && `reveal-delay-${revealDelay}`,
+]}>
+  <div class="bento-card__body">
+    <ProtocolTag label={tag} color={tagColorMap[theme] ?? 'light'} />
+    <h3 class="bento-card__title">{title}</h3>
+    <p class="bento-card__description">{description}</p>
+  </div>
+  <img
+    src={watermarkMap[id]}
+    alt=""
+    aria-hidden="true"
+    class="bento-card__watermark"
+    loading="lazy"
+  />
+</article>

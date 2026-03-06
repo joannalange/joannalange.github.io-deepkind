@@ -1,0 +1,34 @@
+---
+import ProtocolTag from './ProtocolTag.astro';
+
+interface Props {
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  cta: string;
+  accentColor?: 'rose' | 'cyan' | 'purple' | 'amber';
+}
+const { title, category, description, image, cta, accentColor = 'cyan' } = Astro.props;
+
+// Derive SVG fallback path from the webp path
+const svgFallback = image.replace(/\.\w+$/, '.svg');
+---
+
+<article class={`project-card project-card--${accentColor} reveal`}>
+  <div class="project-card__image-wrap">
+    <img
+      src={image}
+      alt={title}
+      class="project-card__image"
+      loading="lazy"
+      onerror={`this.onerror=null;this.src='${svgFallback}'`}
+    />
+  </div>
+  <div class="project-card__body">
+    <ProtocolTag label={category} color="dim" />
+    <h3 class="project-card__title">{title}</h3>
+    <p class="project-card__description">{description}</p>
+    <span class="project-card__cta">{cta} →</span>
+  </div>
+</article>

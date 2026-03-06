@@ -1,0 +1,124 @@
+---
+import content from '@data/content.json';
+const { links, sourceCode } = content.navigation;
+---
+
+<header class="nav-bar" id="nav">
+  <div class="site-container">
+    <nav class="nav-inner" aria-label="Główna nawigacja">
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="DeepKind — strona główna">
+        <img
+          src="/assets/logo.svg"
+          alt="DeepKind"
+          class="nav-logo-img"
+          width="160"
+          height="32"
+        />
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" id="nav-links">
+        {links.map(link => (
+          <li>
+            <a href={link.url} class="nav-link">{link.name}</a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Right: source code CTA + hamburger -->
+      <div class="nav-actions">
+        <a
+          href={sourceCode.url}
+          class="btn btn--outline-light nav-source"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={sourceCode.name}
+        >
+          {sourceCode.name}
+        </a>
+        <button
+          class="nav-hamburger"
+          id="nav-toggle"
+          aria-label="Otwórz menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+        </button>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Scroll → frosted glass effect
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile hamburger toggle
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle?.addEventListener('click', () => {
+    const isOpen = navLinks?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu');
+  });
+
+  // Close on link click
+  navLinks?.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  .nav-logo-img {
+    height: 28px;
+    width: auto;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  .nav-source {
+    padding: 0.45em 1.1em;
+    font-size: var(--text-xs);
+  }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger__line {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--color-text-muted);
+    transition: background 0.15s;
+  }
+
+  .nav-hamburger:hover .nav-hamburger__line {
+    background: var(--color-text-light);
+  }
+</style>
