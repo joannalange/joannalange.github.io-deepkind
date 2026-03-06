@@ -7,12 +7,16 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } =
 
 <section class="hero" id="home" aria-label="Hero">
 
-  <!-- Background SVG -->
+  <!-- Background blobs + SVG -->
   <div class="hero__bg" aria-hidden="true">
+    <div class="hero__blob hero__blob--rose"></div>
+    <div class="hero__blob hero__blob--cyan"></div>
+    <div class="hero__blob hero__blob--amber"></div>
+    <div class="hero__blob hero__blob--purple"></div>
     <img
       src="/assets/hero-bg.svg"
       alt=""
-      class="hero__bg-svg animate-pulse-slow"
+      class="hero__bg-svg"
     />
   </div>
 
@@ -22,7 +26,7 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } =
 
       <!-- Text column -->
       <div class="hero__text stagger">
-        <ProtocolTag label={protocol} color="cyan" />
+        <ProtocolTag label={protocol} color="indigo" />
 
         <h1 class="text-display hero__title animate-fade-up">
           <span class="hero__title-prefix">{titlePrefix}</span>
@@ -30,17 +34,17 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } =
           <span class="hero__title-suffix">{titleSuffix}</span>
         </h1>
 
-        <p class="hero__description text-body animate-fade-up">
+        <p class="hero__description animate-fade-up">
           {description}
         </p>
 
         <div class="hero__cta animate-fade-up">
           <Button label={cta} href="#projects" variant="filled-primary" arrow />
-          <Button label="O nas" href="#about" variant="outline-light" />
+          <Button label="O nas" href="#about" variant="outline-dark" />
         </div>
       </div>
 
-      <!-- Empty right col — SVG bg fills this space on desktop -->
+      <!-- Right col — SVG fills this on desktop -->
       <div aria-hidden="true"></div>
 
     </div>
@@ -50,7 +54,7 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } =
   <div class="site-container">
     <div class="strata-divider">
       <div class="strata-divider__line"></div>
-      <span class="text-label text-cyan" style="white-space:nowrap">STRATA_01</span>
+      <span class="text-label" style="color:var(--color-text-dim);white-space:nowrap">STRATA_01</span>
       <div class="strata-divider__line strata-divider__line--right"></div>
     </div>
   </div>
