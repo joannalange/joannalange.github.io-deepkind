@@ -1,19 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-  <!-- Leaf / organic vein structure -->
-  <!-- Main stem -->
-  <path d="M 60 110 Q 60 80 60 60 Q 58 40 50 20"
-    stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none" stroke-linecap="round"/>
-  <!-- Vein branches left -->
-  <path d="M 58 85 Q 40 78 28 72" stroke="currentColor" stroke-width="1" opacity="0.35" fill="none" stroke-linecap="round"/>
-  <path d="M 60 70 Q 42 62 30 55" stroke="currentColor" stroke-width="1" opacity="0.35" fill="none" stroke-linecap="round"/>
-  <path d="M 59 55 Q 44 48 36 40" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none" stroke-linecap="round"/>
-  <path d="M 57 40 Q 48 33 44 24" stroke="currentColor" stroke-width="0.75" opacity="0.25" fill="none" stroke-linecap="round"/>
-  <!-- Vein branches right -->
-  <path d="M 61 80 Q 78 73 90 68" stroke="currentColor" stroke-width="1" opacity="0.35" fill="none" stroke-linecap="round"/>
-  <path d="M 62 65 Q 78 57 88 50" stroke="currentColor" stroke-width="1" opacity="0.35" fill="none" stroke-linecap="round"/>
-  <path d="M 61 50 Q 74 43 82 36" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none" stroke-linecap="round"/>
-  <path d="M 58 35 Q 68 28 74 22" stroke="currentColor" stroke-width="0.75" opacity="0.25" fill="none" stroke-linecap="round"/>
-  <!-- Leaf outline (large organic shape) -->
-  <path d="M 50 20 Q 20 50 35 90 Q 55 115 60 110 Q 65 115 85 90 Q 100 50 70 20 Q 60 12 50 20 Z"
-    stroke="currentColor" stroke-width="1" opacity="0.2" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Leaf veins — purple -->
+  <path d="M60 110 Q60 80 60 60 Q58 40 50 20"
+    stroke="#7C3AED" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M58 85 Q40 78 28 72" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M60 70 Q42 62 30 55" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M59 55 Q44 48 36 40" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M57 40 Q48 33 44 24" stroke="#7C3AED" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M61 80 Q78 73 90 68" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M62 65 Q78 57 88 50" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M61 50 Q74 43 82 36" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M58 35 Q68 28 74 22" stroke="#7C3AED" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M50 20 Q20 50 35 90 Q55 115 60 110 Q65 115 85 90 Q100 50 70 20 Q60 12 50 20 Z"
+    stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.5"/>
 </svg>

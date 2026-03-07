@@ -1,101 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" fill="none" aria-hidden="true">
-  <!-- Large colored circles — vivid shapes on white -->
-  <circle cx="380" cy="320" r="200" fill="url(#h-rose)" opacity="0.18"/>
-  <circle cx="480" cy="460" r="150" fill="url(#h-cyan)" opacity="0.22"/>
-  <circle cx="240" cy="460" r="120" fill="url(#h-amber)" opacity="0.20"/>
-  <circle cx="540" cy="220" r="100" fill="url(#h-purple)" opacity="0.18"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none" aria-hidden="true">
 
-  <!-- Orbital rings — colorful strokes -->
-  <ellipse cx="380" cy="360" rx="270" ry="135"
-    stroke="url(#ring-a)" stroke-width="2" opacity="0.4"
-    transform="rotate(-28 380 360)" fill="none"/>
-  <ellipse cx="380" cy="360" rx="210" ry="105"
-    stroke="url(#ring-b)" stroke-width="1.5" opacity="0.3"
-    transform="rotate(-28 380 360)" fill="none"/>
-  <ellipse cx="380" cy="360" rx="150" ry="75"
-    stroke="#00B8CC" stroke-width="1.5" opacity="0.35"
-    transform="rotate(-28 380 360)" fill="none"
-    stroke-dasharray="6 10"/>
-  <ellipse cx="380" cy="360" rx="90" ry="45"
-    stroke="#7C3AED" stroke-width="1" opacity="0.3"
-    transform="rotate(-28 380 360)" fill="none"
-    stroke-dasharray="3 7"/>
+  <!-- 1. Large rose disc — top-right anchor -->
+  <circle cx="490" cy="125" r="195" fill="#FB7185" opacity="0.88"/>
 
-  <!-- Orbital dots -->
-  <circle cx="130" cy="285" r="6"  fill="#00B8CC"/>
-  <circle cx="630" cy="435" r="5"  fill="#FB7185"/>
-  <circle cx="228" cy="180" r="4"  fill="#7C3AED"/>
-  <circle cx="532" cy="540" r="4"  fill="#FBBF24"/>
-  <circle cx="620" cy="260" r="3"  fill="#00B8CC" opacity="0.6"/>
+  <!-- 2. Bold indigo ring — centre composition -->
+  <circle cx="295" cy="340" r="155" stroke="#3730A3" stroke-width="50" fill="none" opacity="0.85"/>
 
-  <!-- Connector lines from dots inward -->
-  <line x1="130" y1="285" x2="350" y2="355" stroke="#00B8CC"  stroke-width="1" opacity="0.2"/>
-  <line x1="630" y1="435" x2="410" y2="365" stroke="#FB7185"  stroke-width="1" opacity="0.18"/>
-  <line x1="228" y1="180" x2="355" y2="335" stroke="#7C3AED"  stroke-width="1" opacity="0.18"/>
+  <!-- 3. Solid cyan circle — lower-left, well inside bounds -->
+  <circle cx="105" cy="460" r="100" fill="#00E5FF" opacity="0.82"/>
 
-  <!-- Central glow -->
-  <circle cx="380" cy="360" r="55" fill="url(#h-core)" opacity="0.5"/>
-  <circle cx="380" cy="360" r="28" fill="url(#h-core)" opacity="0.7"/>
-  <circle cx="380" cy="360" r="10" fill="#fff" opacity="0.9"/>
+  <!-- 4. Solid amber circle — accent, lower-right -->
+  <circle cx="490" cy="430" r="58"  fill="#FBBF24" opacity="0.90"/>
 
-  <!-- Geometric accent shapes -->
-  <!-- Triangle top-right -->
-  <polygon points="580,80 620,160 540,160"
-    fill="none" stroke="#FB7185" stroke-width="2" opacity="0.35"/>
-  <!-- Small squares -->
-  <rect x="170" y="550" width="24" height="24" rx="4"
-    fill="none" stroke="#FBBF24" stroke-width="2" opacity="0.45"
-    transform="rotate(20 182 562)"/>
-  <rect x="600" y="150" width="18" height="18" rx="3"
-    fill="#00B8CC" opacity="0.25"
-    transform="rotate(12 609 159)"/>
-  <!-- Plus marks -->
-  <path d="M110 480 h14 M117 473 v14" stroke="#7C3AED" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
-  <path d="M640 340 h12 M646 334 v12" stroke="#FB7185" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
-  <path d="M280 620 h10 M285 615 v10" stroke="#FBBF24" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <!-- 5. Purple arc — right edge, bottom quarter -->
+  <path d="M 600 390 A 155 155 0 0 0 445 545"
+    stroke="#7C3AED" stroke-width="50" fill="none" opacity="0.82" stroke-linecap="round"/>
 
-  <!-- Scattered dots (constellation) -->
-  <circle cx="80"  cy="140" r="2" fill="#7C3AED" opacity="0.5"/>
-  <circle cx="190" cy="80"  r="2.5" fill="#00B8CC" opacity="0.5"/>
-  <circle cx="500" cy="100" r="2" fill="#FB7185" opacity="0.5"/>
-  <circle cx="660" cy="200" r="2" fill="#FBBF24" opacity="0.5"/>
-  <circle cx="660" cy="500" r="2.5" fill="#7C3AED" opacity="0.4"/>
-  <circle cx="100" cy="580" r="2" fill="#FB7185" opacity="0.4"/>
-  <circle cx="440" cy="620" r="2" fill="#00B8CC" opacity="0.4"/>
-
-  <!-- Rose arc accent -->
-  <path d="M 200 560 Q 300 490 380 530 Q 460 570 540 510"
-    stroke="#FB7185" stroke-width="2.5" opacity="0.25" fill="none"
-    stroke-linecap="round"/>
-
-  <defs>
-    <radialGradient id="h-rose" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#FB7185"/>
-      <stop offset="100%" stop-color="#FB7185" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="h-cyan" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#00E5FF"/>
-      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="h-amber" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#FBBF24"/>
-      <stop offset="100%" stop-color="#FBBF24" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="h-purple" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="ring-a" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#00B8CC"/>
-      <stop offset="100%" stop-color="#FB7185"/>
-    </linearGradient>
-    <linearGradient id="ring-b" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#FBBF24"/>
-    </linearGradient>
-    <radialGradient id="h-core" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#4F46E5"/>
-      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
 </svg>

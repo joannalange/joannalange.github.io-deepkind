@@ -11,18 +11,16 @@ interface Props {
 }
 const { title, category, description, image, cta, accentColor = 'cyan' } = Astro.props;
 
-// Derive SVG fallback path from the webp path
-const svgFallback = image.replace(/\.\w+$/, '.svg');
+const imgSrc = image;
 ---
 
 <article class={`project-card project-card--${accentColor} reveal`}>
   <div class="project-card__image-wrap">
     <img
-      src={image}
+      src={imgSrc}
       alt={title}
       class="project-card__image"
       loading="lazy"
-      onerror={`this.onerror=null;this.src='${svgFallback}'`}
     />
   </div>
   <div class="project-card__body">

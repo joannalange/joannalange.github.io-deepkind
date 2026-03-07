@@ -1,25 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-  <!-- Neural network / connected nodes -->
-  <!-- Node positions: A(20,60) B(45,25) C(45,95) D(75,40) E(75,80) F(100,60) -->
-  <!-- Edges -->
-  <line x1="20"  y1="60" x2="45"  y2="25" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="20"  y1="60" x2="45"  y2="95" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="45"  y1="25" x2="75"  y2="40" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="45"  y1="95" x2="75"  y2="80" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="75"  y1="40" x2="100" y2="60" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="75"  y1="80" x2="100" y2="60" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="45"  y1="25" x2="45"  y2="95" stroke="currentColor" stroke-width="0.75" opacity="0.2"/>
-  <line x1="75"  y1="40" x2="75"  y2="80" stroke="currentColor" stroke-width="0.75" opacity="0.2"/>
-  <line x1="45"  y1="25" x2="75"  y2="80" stroke="currentColor" stroke-width="0.5"  opacity="0.15"/>
-  <line x1="45"  y1="95" x2="75"  y2="40" stroke="currentColor" stroke-width="0.5"  opacity="0.15"/>
-  <!-- Nodes -->
-  <circle cx="20"  cy="60" r="5"   fill="currentColor" opacity="0.5"/>
-  <circle cx="45"  cy="25" r="4"   fill="currentColor" opacity="0.5"/>
-  <circle cx="45"  cy="95" r="4"   fill="currentColor" opacity="0.5"/>
-  <circle cx="75"  cy="40" r="5"   fill="currentColor" opacity="0.7"/>
-  <circle cx="75"  cy="80" r="4.5" fill="currentColor" opacity="0.6"/>
-  <circle cx="100" cy="60" r="5"   fill="currentColor" opacity="0.5"/>
-  <!-- Pulse rings on center nodes -->
-  <circle cx="75" cy="40" r="10" stroke="currentColor" stroke-width="0.75" opacity="0.2" fill="none"/>
-  <circle cx="75" cy="80" r="9"  stroke="currentColor" stroke-width="0.75" opacity="0.15" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Neural network — indigo -->
+  <line x1="20"  y1="60" x2="45"  y2="25" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="20"  y1="60" x2="45"  y2="95" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="45"  y1="25" x2="75"  y2="40" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="45"  y1="95" x2="75"  y2="80" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="75"  y1="40" x2="100" y2="60" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="75"  y1="80" x2="100" y2="60" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="45"  y1="25" x2="45"  y2="95" stroke="#4F46E5" stroke-width="1" opacity="0.5"/>
+  <line x1="75"  y1="40" x2="75"  y2="80" stroke="#4F46E5" stroke-width="1" opacity="0.5"/>
+  <line x1="45"  y1="25" x2="75"  y2="80" stroke="#4F46E5" stroke-width="1" opacity="0.35"/>
+  <line x1="45"  y1="95" x2="75"  y2="40" stroke="#4F46E5" stroke-width="1" opacity="0.35"/>
+  <circle cx="20"  cy="60" r="6"   fill="#4F46E5"/>
+  <circle cx="45"  cy="25" r="5"   fill="#4F46E5"/>
+  <circle cx="45"  cy="95" r="5"   fill="#4F46E5"/>
+  <circle cx="75"  cy="40" r="6.5" fill="#4F46E5"/>
+  <circle cx="75"  cy="80" r="6"   fill="#4F46E5"/>
+  <circle cx="100" cy="60" r="6"   fill="#4F46E5"/>
+  <circle cx="75" cy="40" r="13" stroke="#4F46E5" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <circle cx="75" cy="80" r="11" stroke="#4F46E5" stroke-width="1"   fill="none" opacity="0.3"/>
 </svg>

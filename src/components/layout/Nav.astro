@@ -1,6 +1,6 @@
 ---
 import content from '@data/content.json';
-const { links, sourceCode } = content.navigation;
+const { links } = content.navigation;
 ---
 
 <header class="nav-bar" id="nav">
@@ -27,17 +27,8 @@ const { links, sourceCode } = content.navigation;
         ))}
       </ul>
 
-      <!-- Right: source code CTA + hamburger -->
+      <!-- Right: hamburger (mobile) -->
       <div class="nav-actions">
-        <a
-          href={sourceCode.url}
-          class="btn btn--outline-light nav-source"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={sourceCode.name}
-        >
-          {sourceCode.name}
-        </a>
         <button
           class="nav-hamburger"
           id="nav-toggle"
@@ -93,11 +84,6 @@ const { links, sourceCode } = content.navigation;
     align-items: center;
     gap: 1rem;
     flex-shrink: 0;
-  }
-
-  .nav-source {
-    padding: 0.45em 1.1em;
-    font-size: var(--text-xs);
   }
 
   .nav-hamburger {

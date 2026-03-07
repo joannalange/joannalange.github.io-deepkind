@@ -4,14 +4,10 @@
       { "name": "Projekty", "url": "#projects" },
       { "name": "O nas", "url": "#about" },
       { "name": "Działaj", "url": "#support" }
-    ],
-    "sourceCode": {
-      "name": "SOURCE_CODE",
-      "url": "https://github.com/friendly-ai-agent"
-    }
+    ]
   },
   "hero": {
-    "protocol": "DEEPKIND // PROTOCOL_001",
+    "protocol": "DEEPKIND // FUNDACJA",
     "titlePrefix": "Życzliwość to",
     "titleHighlight": "Energia,",
     "titleSuffix": "która porusza świat!",
@@ -24,7 +20,7 @@
     "areas": [
       {
         "id": "tech",
-        "tag": "Protocol // Tech",
+        "tag": "Deep // Tech",
         "title": "Odpowiedzialne Technologie",
         "description": "Analiza etyczna algorytmów i systemów autonomicznych. Budujemy mosty między logiką a empatią.",
         "variant": "wide",
@@ -35,7 +31,7 @@
       },
       {
         "id": "nature",
-        "tag": "Protocol // Nature",
+        "tag": "Deep // Nature",
         "title": "Troska o przyrodę",
         "description": "Pokazujemy, że technologia i troska o planetę mogą iść w parze.",
         "variant": "standard",
@@ -47,7 +43,7 @@
       },
       {
         "id": "neuro",
-        "tag": "Protocol // Neuro",
+        "tag": "Deep // Neuro",
         "title": "Neuroatypowość",
         "description": "Projektowanie systemów wspierających różnorodność poznawczą.",
         "variant": "standard",
@@ -82,7 +78,7 @@
   },
   "about": {
     "header": "O nas",
-    "protocol": "MANIFESTO_002",
+    "protocol": "MANIFEST",
     "status": "OBSERVED_DATA",
     "title": "Technologia z ludzką twarzą.",
     "paragraphs": [
@@ -143,7 +139,7 @@
     ]
   },
   "footer": {
-    "description": "Merging Humanity with Technology. Built for the 25%.",
+    "description": "Merging Humanity with Technology. Built for everyone.",
     "legal": [
       { "name": "Polityka prywatności", "url": "#" },
       { "name": "Regulamin", "url": "#" },
