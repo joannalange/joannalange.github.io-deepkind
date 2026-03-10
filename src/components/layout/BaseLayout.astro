@@ -1,6 +1,7 @@
 ---
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
+import SkipLink from '@ui/SkipLink.astro';
 import '@styles/global.css';
 import '@styles/components.css';
 
@@ -61,8 +62,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
+    <SkipLink />
     <Nav />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
