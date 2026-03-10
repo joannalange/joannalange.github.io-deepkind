@@ -1,6 +1,6 @@
 ---
 import content from '@data/content';
-const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } = content.hero;
+const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta, secondaryCta, stats } = content.hero;
 ---
 
 <section class="hero" id="home" aria-label="Hero">
@@ -31,7 +31,7 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } =
 
         <div class="hero__actions animate-fade-up">
           <a href="#projects" class="btn btn--primary">{cta} →</a>
-          <a href="#about"    class="btn btn--ghost-light">O nas</a>
+          <a href={secondaryCta.href} class="btn btn--ghost-light">{secondaryCta.label}</a>
         </div>
 
       </div>
@@ -50,20 +50,15 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } =
 
     <!-- Stats strip -->
     <div class="hero__stats">
-      <div class="hero__stat">
-        <strong class="hero__stat-num">5</strong>
-        <span class="hero__stat-label">obszarów działań</span>
-      </div>
-      <span class="hero__stat-sep" aria-hidden="true">·</span>
-      <div class="hero__stat">
-        <strong class="hero__stat-num">4</strong>
-        <span class="hero__stat-label">aktywne projekty</span>
-      </div>
-      <span class="hero__stat-sep" aria-hidden="true">·</span>
-      <div class="hero__stat">
-        <strong class="hero__stat-num">PL</strong>
-        <span class="hero__stat-label">Polska</span>
-      </div>
+      {stats.map((stat, i) => (
+        <>
+          {i > 0 && <span class="hero__stat-sep" aria-hidden="true">·</span>}
+          <div class="hero__stat">
+            <strong class="hero__stat-num">{stat.value}</strong>
+            <span class="hero__stat-label">{stat.label}</span>
+          </div>
+        </>
+      ))}
     </div>
 
   </div>

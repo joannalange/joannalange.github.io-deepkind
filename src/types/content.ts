@@ -23,6 +23,16 @@ export interface Navigation {
 
 // ── Hero ───────────────────────────────────────────────────────────────────
 
+export interface HeroStat {
+  value: string;
+  label: string;
+}
+
+export interface HeroSecondaryAction {
+  label: string;
+  href: string;
+}
+
 export interface Hero {
   protocol: string;
   titlePrefix: string;
@@ -30,6 +40,8 @@ export interface Hero {
   titleSuffix: string;
   description: string;
   cta: string;
+  secondaryCta: HeroSecondaryAction;
+  stats: HeroStat[];
 }
 
 // ── Bento / Areas ──────────────────────────────────────────────────────────

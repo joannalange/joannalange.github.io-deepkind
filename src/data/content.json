@@ -12,7 +12,13 @@
     "titleHighlight": "Energia,",
     "titleSuffix": "która porusza świat!",
     "description": "Tworzymy inicjatywy, które łączą ludzi, technologię i troskę, tworząc ruch, który inspiruje do życia z energią, empatią i uważnością.",
-    "cta": "Eksploruj projekty"
+    "cta": "Eksploruj projekty",
+    "secondaryCta": { "label": "O nas", "href": "#about" },
+    "stats": [
+      { "value": "5",  "label": "obszarów działań" },
+      { "value": "4",  "label": "aktywne projekty" },
+      { "value": "PL", "label": "Polska" }
+    ]
   },
   "bento": {
     "header": "Obszary działań",
