@@ -69,8 +69,8 @@ export interface About {
   status: string;
   title: string;
   /**
-   * Body paragraphs. May contain **bold** markdown syntax,
-   * which About.astro converts to <strong> tags via parseBold().
+   * Body paragraphs. May contain inline HTML (e.g. <strong> tags).
+   * Rendered via set:html — only safe because content.json is developer-controlled.
    */
   paragraphs: string[];
 }

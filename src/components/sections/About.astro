@@ -1,10 +1,6 @@
 ---
 import content from '@data/content';
-const { header, protocol, status, title, paragraphs } = content.about;
-
-function parseBold(text: string): string {
-  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-}
+const { protocol, status, title, paragraphs } = content.about;
 ---
 
 <section class="about" id="about" aria-label="O nas">
@@ -23,7 +19,7 @@ function parseBold(text: string): string {
 
         <div class="about__body">
           {paragraphs.map(p => (
-            <p set:html={parseBold(p)} />
+            <p set:html={p} />
           ))}
         </div>
 
