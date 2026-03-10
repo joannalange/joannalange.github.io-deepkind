@@ -17,7 +17,7 @@ const { title, category, description, image, cta, url, accent = 'violet', featur
     <div class="project-featured__img-wrap">
       <!-- eager + fetchpriority: this image is the LCP element -->
       <img src={image} alt={title} class="project-featured__img"
-           loading="eager" fetchpriority="high" />
+           loading="eager" fetchpriority="high" width="900" height="600" />
     </div>
     <div class="project-featured__body">
       <span class="s-label s-label--violet">{category}</span>
@@ -29,7 +29,7 @@ const { title, category, description, image, cta, url, accent = 'violet', featur
 ) : (
   <a href={url} class={`project-card project-card--${accent} reveal`}>
     <div class="project-card__img-wrap">
-      <img src={image} alt={title} class="project-card__img" loading="lazy" />
+      <img src={image} alt={title} class="project-card__img" loading="lazy" width="600" height="400" />
     </div>
     <div class="project-card__stripe" aria-hidden="true"></div>
     <div class="project-card__body">

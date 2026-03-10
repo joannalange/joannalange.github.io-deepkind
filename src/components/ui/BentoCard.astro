@@ -40,12 +40,16 @@ const spanMap = { wide: 'area-card--wide', standard: 'area-card--standard', lead
   <h3 class="area-card__title">{title}</h3>
   <p class="area-card__desc">{description}</p>
 
-  <img
-    src={markMap[id]}
-    alt=""
-    aria-hidden="true"
-    class="area-card__mark"
-    loading="lazy"
-  />
+  {markMap[id] && (
+    <img
+      src={markMap[id]}
+      alt=""
+      aria-hidden="true"
+      class="area-card__mark"
+      loading="lazy"
+      width="120"
+      height="120"
+    />
+  )}
 
 </article>

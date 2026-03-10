@@ -17,8 +17,14 @@ export interface NavLink {
   url: string;
 }
 
+export interface NavCta {
+  label: string;
+  href: string;
+}
+
 export interface Navigation {
   links: NavLink[];
+  cta: NavCta;
 }
 
 // ── Hero ───────────────────────────────────────────────────────────────────
@@ -84,6 +90,9 @@ export interface ProjectItem {
   /** Path relative to /public — e.g. "/img/project-minds.webp" */
   image: string;
   cta: string;
+  /** Link target — use "#" until the project has a real page */
+  url: string;
+  accent: AccentColor;
 }
 
 export interface Projects {
@@ -94,11 +103,15 @@ export interface Projects {
 
 // ── Support ────────────────────────────────────────────────────────────────
 
+export type SupportTheme = 'volunteer' | 'donate';
+
 export interface SupportOption {
   title: string;
   description: string;
   cta: string;
   url: string;
+  /** Controls panel gradient and button colour — maps to .support-panel--{theme} */
+  theme: SupportTheme;
 }
 
 export interface Support {

@@ -4,6 +4,7 @@ import Footer from './Footer.astro';
 import SkipLink from '@ui/SkipLink.astro';
 import '@styles/global.css';
 import '@styles/components.css';
+import content from '@data/content';
 
 interface Props {
   title?: string;
@@ -49,14 +50,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
       "alternateName": "DeepKind",
       "url": "https://deepkind.org",
       "logo": "https://deepkind.org/assets/logo.svg",
-      "description": "Tworzymy inicjatywy łączące ludzi, technologię i troskę. Merging Humanity with Technology.",
-      "email": "hello@deepkind.org",
+      "description": content.footer.description,
+      "email": content.footer.connect.find(l => l.url.startsWith('mailto:'))?.url.replace('mailto:', ''),
       "inLanguage": "pl",
       "areaServed": "PL",
-      "sameAs": [
-        "https://github.com/friendly-ai-agent"
-      ]
+      "sameAs": content.footer.connect.filter(l => !l.url.startsWith('mailto:') && l.url !== '#').map(l => l.url)
     })} />
+
+    <!-- Theme color (matches dark nav / hero) -->
+    <meta name="theme-color" content="#0C0E1A" />
 
     <!-- Favicon (inline SVG) -->
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
@@ -70,5 +72,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
     <Footer />
   </body>
 
-  <script src="../../scripts/reveal.ts"></script>
+  <script src="@scripts/reveal.ts"></script>
 </html>

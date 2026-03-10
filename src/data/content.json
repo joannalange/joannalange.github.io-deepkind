@@ -4,7 +4,8 @@
       { "name": "Projekty", "url": "#projects" },
       { "name": "O nas", "url": "#about" },
       { "name": "Działaj", "url": "#support" }
-    ]
+    ],
+    "cta": { "label": "Działaj", "href": "#support" }
   },
   "hero": {
     "protocol": "DEEPKIND // FUNDACJA",

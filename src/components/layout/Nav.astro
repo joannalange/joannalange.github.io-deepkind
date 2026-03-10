@@ -1,6 +1,6 @@
 ---
 import content from '@data/content';
-const { links } = content.navigation;
+const { links, cta } = content.navigation;
 ---
 
 <header class="nav" id="nav">
@@ -18,7 +18,7 @@ const { links } = content.navigation;
       </ul>
 
       <div class="nav__actions">
-        <a href="#support" class="nav__cta">Działaj</a>
+        <a href={cta.href} class="nav__cta">{cta.label}</a>
         <button
           class="nav__hamburger"
           id="nav-toggle"
