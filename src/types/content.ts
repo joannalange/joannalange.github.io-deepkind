@@ -52,18 +52,7 @@ export interface BentoArea {
   title: string;
   description: string;
   variant: BentoVariant;
-  /** @deprecated Legacy field from previous Tailwind implementation — not read by any component */
-  theme?: string;
-  /** @deprecated Legacy Tailwind grid class — layout is derived from `variant` */
-  gridSpan?: string;
-  /** @deprecated Legacy Tailwind class */
-  bg?: string;
-  /** @deprecated Legacy Tailwind class */
-  border?: string;
-  /** @deprecated Legacy Tailwind class */
-  hoverBg?: string;
-  /** @deprecated Legacy Tailwind class */
-  direction?: string;
+  accent: AccentColor;
 }
 
 export interface Bento {

@@ -30,10 +30,7 @@
         "title": "Odpowiedzialne Technologie",
         "description": "Analiza etyczna algorytmów i systemów autonomicznych. Budujemy mosty między logiką a empatią.",
         "variant": "wide",
-        "theme": "cyan",
-        "gridSpan": "md:col-span-8",
-        "bg": "bg-brand-surface-dark",
-        "border": "border-white/5"
+        "accent": "violet"
       },
       {
         "id": "nature",
@@ -41,11 +38,7 @@
         "title": "Troska o przyrodę",
         "description": "Pokazujemy, że technologia i troska o planetę mogą iść w parze.",
         "variant": "standard",
-        "theme": "purple",
-        "gridSpan": "md:col-span-4",
-        "bg": "bg-[var(--purple-10)]",
-        "border": "border-[var(--purple-20)]",
-        "hoverBg": "hover:bg-[var(--purple-20)]"
+        "accent": "mint"
       },
       {
         "id": "neuro",
@@ -53,10 +46,7 @@
         "title": "Neuroatypowość",
         "description": "Projektowanie systemów wspierających różnorodność poznawczą.",
         "variant": "standard",
-        "theme": "cyan",
-        "gridSpan": "md:col-span-4",
-        "bg": "bg-brand-surface",
-        "border": "border-white/5"
+        "accent": "coral"
       },
       {
         "id": "agency",
@@ -64,9 +54,7 @@
         "title": "Kobieca Sprawczość",
         "description": "Wzmacniamy kobiety, które chcą działać po swojemu — z odwagą.",
         "variant": "lead",
-        "theme": "purple",
-        "gridSpan": "md:col-span-4",
-        "bg": "bento-lead-strata"
+        "accent": "gold"
       },
       {
         "id": "empathy",
@@ -74,11 +62,7 @@
         "title": "Życzliwość i Empatia",
         "description": "Budujemy kulturę współodczuwania.",
         "variant": "standard",
-        "theme": "rose",
-        "gridSpan": "md:col-span-4",
-        "direction": "flex-col justify-between",
-        "bg": "bg-brand-surface-light",
-        "border": "border-white/5"
+        "accent": "rose"
       }
     ]
   },

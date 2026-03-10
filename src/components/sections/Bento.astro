@@ -2,15 +2,6 @@
 import BentoCard from '@ui/BentoCard.astro';
 import content from '@data/content';
 const { header, protocol, areas } = content.bento;
-
-// Map each area id to its new accent color
-const accentMap: Record<string, 'violet' | 'mint' | 'coral' | 'gold' | 'rose'> = {
-  tech:    'violet',
-  nature:  'mint',
-  neuro:   'coral',
-  agency:  'gold',
-  empathy: 'rose',
-};
 ---
 
 <section class="areas" id="bento" aria-label="Obszary działań">
@@ -28,8 +19,8 @@ const accentMap: Record<string, 'violet' | 'mint' | 'coral' | 'gold' | 'rose'> =
           tag={area.tag}
           title={area.title}
           description={area.description}
-          variant={area.variant as 'wide' | 'standard' | 'lead'}
-          accent={accentMap[area.id] ?? 'violet'}
+          variant={area.variant}
+          accent={area.accent}
           index={i}
           revealDelay={Math.min(i + 1, 4)}
         />
