@@ -159,10 +159,24 @@
 
 .hero__cta-line {
   display: block;
+  position: relative;
   height: 1px;
   background: currentColor;
   flex-shrink: 0;
   transition: width 0.45s var(--ease-expo);
+}
+
+/* Ball at the right end of the line — on the text side */
+.hero__cta-line::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .hero__cta--primary {
