@@ -85,28 +85,36 @@
         "category": "Ciało i umysł w jednym rytmie",
         "description": "Program zajęć dla dzieci i opiekunów, którzy ćwiczą równolegle — każde w swojej przestrzeni, ale w tym samym rytmie.",
         "image": "/img/project-minds.webp",
-        "cta": "SZCZEGÓŁY"
+        "cta": "SZCZEGÓŁY",
+        "url": "#",
+        "accent": "violet"
       },
       {
         "title": "Kindness Lab",
         "category": "Eksperyment z dobrem",
         "description": "Dzieci uczą się przez doświadczenie, więc uczymy dobra w praktyce. Kindness Lab to warsztaty, w których empatia, współpraca i troska o innych stają się częścią szkolnej codzienności.",
         "image": "/img/project-kindness.webp",
-        "cta": "DOKUMENTACJA"
+        "cta": "DOKUMENTACJA",
+        "url": "#",
+        "accent": "mint"
       },
       {
         "title": "Deep & Kind Retreat",
         "category": "Zresetuj się w trybie naturalnym",
         "description": "Wyjazdy dla kobiet z branży technologicznej, które chcą na chwilę wylogować się z codziennego tempa i połączyć z tym, co naprawdę ważne.",
         "image": "/img/project-retreat.webp",
-        "cta": "HARMONOGRAM"
+        "cta": "HARMONOGRAM",
+        "url": "#",
+        "accent": "coral"
       },
       {
         "title": "GrowUP Hackathon",
         "category": "Młodzi hakują dorosłość",
-        "description": "GrowUP Hackaton pod hasłem „Hakuj dorosłość – wymyśl lepsze jutro!” – to inicjatywa grupy studentów działającej w ramach Fundacji DeepKind.",
+        "description": "GrowUP Hackaton pod hasłem \u201EHakuj doros\u0142o\u015B\u0107 \u2013 wymy\u015Bl lepsze jutro!\u201D \u2013 to inicjatywa grupy student\u00F3w dzia\u0142aj\u0105cej w ramach Fundacji DeepKind.",
         "image": "/img/project-hackathon.webp",
-        "cta": "ZGŁOSZENIA"
+        "cta": "ZGŁOSZENIA",
+        "url": "#",
+        "accent": "gold"
       }
     ]
   },
@@ -118,13 +126,15 @@
         "title": "Zostań Wolontariuszem",
         "description": "Podziel się swoją wiedzą i czasem. Szukamy mentorów, programistów i pasjonatów edukacji.",
         "cta": "DOŁĄCZ",
-        "url": "#"
+        "url": "#",
+        "theme": "volunteer"
       },
       {
         "title": "Wesprzyj Finansowo",
         "description": "Twoje darowizny pozwalają nam realizować bezpłatne warsztaty i programy dla dzieci i kobiet.",
         "cta": "WPŁAĆ",
-        "url": "#"
+        "url": "#",
+        "theme": "donate"
       }
     ]
   },

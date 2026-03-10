@@ -5,16 +5,19 @@ interface Props {
   description: string;
   image: string;
   cta: string;
+  url: string;
   accent?: 'violet' | 'mint' | 'coral' | 'gold' | 'rose';
   featured?: boolean;
 }
-const { title, category, description, image, cta, accent = 'violet', featured = false } = Astro.props;
+const { title, category, description, image, cta, url, accent = 'violet', featured = false } = Astro.props;
 ---
 
 {featured ? (
-  <a href="#" class="project-featured reveal">
+  <a href={url} class="project-featured reveal">
     <div class="project-featured__img-wrap">
-      <img src={image} alt={title} class="project-featured__img" loading="lazy" />
+      <!-- eager + fetchpriority: this image is the LCP element -->
+      <img src={image} alt={title} class="project-featured__img"
+           loading="eager" fetchpriority="high" />
     </div>
     <div class="project-featured__body">
       <span class="s-label s-label--violet">{category}</span>
@@ -24,7 +27,7 @@ const { title, category, description, image, cta, accent = 'violet', featured = 
     </div>
   </a>
 ) : (
-  <a href="#" class={`project-card project-card--${accent} reveal`}>
+  <a href={url} class={`project-card project-card--${accent} reveal`}>
     <div class="project-card__img-wrap">
       <img src={image} alt={title} class="project-card__img" loading="lazy" />
     </div>

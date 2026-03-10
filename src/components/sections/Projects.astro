@@ -2,8 +2,6 @@
 import ProjectCard from '@ui/ProjectCard.astro';
 import content from '@data/content';
 const { header, protocol, items } = content.projects;
-
-const gridAccents = ['mint', 'coral', 'gold'] as const;
 ---
 
 <section class="projects" id="projects" aria-label="Projekty">
@@ -21,19 +19,21 @@ const gridAccents = ['mint', 'coral', 'gold'] as const;
       description={items[0].description}
       image={items[0].image}
       cta={items[0].cta}
+      url={items[0].url}
       featured={true}
     />
 
-    <!-- Grid: remaining three -->
+    <!-- Grid: remaining projects -->
     <div class="projects__grid">
-      {items.slice(1).map((item, i) => (
+      {items.slice(1).map(item => (
         <ProjectCard
           title={item.title}
           category={item.category}
           description={item.description}
           image={item.image}
           cta={item.cta}
-          accent={gridAccents[i % gridAccents.length]}
+          url={item.url}
+          accent={item.accent}
         />
       ))}
     </div>
