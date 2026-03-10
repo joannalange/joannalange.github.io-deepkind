@@ -44,15 +44,27 @@ const { links, cta } = content.navigation;
 
   const toggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
+
+  function closeMenu() {
+    navLinks?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Otwórz menu');
+  }
+
   toggle?.addEventListener('click', () => {
     const isOpen = navLinks?.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu');
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks?.classList.contains('open')) {
+      closeMenu();
+      toggle?.focus();
+    }
+  });
+
   navLinks?.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>

@@ -118,9 +118,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
@@ -145,15 +148,6 @@ a { color: inherit; text-decoration: none; }
 
 .section-pad { padding-block: var(--section-y); }
 
-/* ── Typography ─────────────────────────────────────── */
-.t-label {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1;
-}
-
 /* ── Gradient text ──────────────────────────────────── */
 .grad-energy {
   background: linear-gradient(130deg, var(--color-coral) 0%, var(--color-gold) 55%, var(--color-mint) 100%);
@@ -170,6 +164,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ── Scroll-reveal ──────────────────────────────────── */
+/*
+ * reveal/revealed are motion-safe: the JS observer only fires when
+ * prefers-reduced-motion is no-preference (see reveal.ts).
+ * The CSS rule is kept so elements always end in their visible state.
+ */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -180,6 +179,17 @@ a { color: inherit; text-decoration: none; }
 .reveal-delay-2            { transition-delay: 150ms; }
 .reveal-delay-3            { transition-delay: 225ms; }
 .reveal-delay-4            { transition-delay: 300ms; }
+
+/* Users who prefer no motion: skip all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.revealed      { opacity: 1; transform: none; transition: none; }
+  .animate-fade-up      { animation: none; opacity: 1; transform: none; }
+  .animate-float        { animation: none; }
+  .hero__aurora         { animation: none; }
+  .hero__orb            { animation: none; }
+  .hero__live-dot       { animation: none; }
+}
 
 /* ── Keyframes ──────────────────────────────────────── */
 @keyframes fade-up {
