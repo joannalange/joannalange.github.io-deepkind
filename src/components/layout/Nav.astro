@@ -3,42 +3,32 @@ import content from '@data/content.json';
 const { links } = content.navigation;
 ---
 
-<header class="nav-bar" id="nav">
-  <div class="site-container">
-    <nav class="nav-inner" aria-label="Główna nawigacja">
+<header class="nav" id="nav">
+  <div class="wrap">
+    <nav class="nav__inner" aria-label="Główna nawigacja">
 
-      <!-- Logo -->
-      <a href="/" class="nav-logo" aria-label="DeepKind — strona główna">
-        <img
-          src="/assets/logo.svg"
-          alt="DeepKind"
-          class="nav-logo-img"
-          width="160"
-          height="32"
-        />
+      <a href="/" class="nav__logo" aria-label="DeepKind — strona główna">
+        <img src="/assets/logo.svg" alt="DeepKind" class="nav__logo-img" width="160" height="32" />
       </a>
 
-      <!-- Desktop links -->
-      <ul class="nav-links" id="nav-links">
+      <ul class="nav__links" id="nav-links">
         {links.map(link => (
-          <li>
-            <a href={link.url} class="nav-link">{link.name}</a>
-          </li>
+          <li><a href={link.url} class="nav__link">{link.name}</a></li>
         ))}
       </ul>
 
-      <!-- Right: hamburger (mobile) -->
-      <div class="nav-actions">
+      <div class="nav__actions">
+        <a href="#support" class="nav__cta">Działaj</a>
         <button
-          class="nav-hamburger"
+          class="nav__hamburger"
           id="nav-toggle"
           aria-label="Otwórz menu"
           aria-expanded="false"
           aria-controls="nav-links"
         >
-          <span class="nav-hamburger__line"></span>
-          <span class="nav-hamburger__line"></span>
-          <span class="nav-hamburger__line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
         </button>
       </div>
 
@@ -47,15 +37,11 @@ const { links } = content.navigation;
 </header>
 
 <script>
-  // Scroll → frosted glass effect
   const nav = document.getElementById('nav');
-  const onScroll = () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 20);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
 
-  // Mobile hamburger toggle
   const toggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
   toggle?.addEventListener('click', () => {
@@ -63,48 +49,10 @@ const { links } = content.navigation;
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu');
   });
-
-  // Close on link click
-  navLinks?.querySelectorAll('.nav-link').forEach(link => {
+  navLinks?.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       toggle?.setAttribute('aria-expanded', 'false');
     });
   });
 </script>
-
-<style>
-  .nav-logo-img {
-    height: 28px;
-    width: auto;
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-shrink: 0;
-  }
-
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-  }
-
-  .nav-hamburger__line {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--color-text-dim);
-    transition: background 0.15s;
-  }
-
-  .nav-hamburger:hover .nav-hamburger__line {
-    background: var(--color-text);
-  }
-</style>

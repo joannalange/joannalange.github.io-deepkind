@@ -32,6 +32,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
     <meta property="og:description" content={description} />
     <meta property="og:url"         content={canonicalURL} />
     <meta property="og:locale"      content="pl_PL" />
+    <meta property="og:image"       content={new URL('/img/hero-bg.webp', canonicalURL).href} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={new URL('/img/hero-bg.webp', canonicalURL).href} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "DeepKind Foundation",
+      "alternateName": "DeepKind",
+      "url": "https://deepkind.org",
+      "logo": "https://deepkind.org/assets/logo.svg",
+      "description": "Tworzymy inicjatywy łączące ludzi, technologię i troskę. Merging Humanity with Technology.",
+      "email": "hello@deepkind.org",
+      "inLanguage": "pl",
+      "areaServed": "PL",
+      "sameAs": [
+        "https://github.com/friendly-ai-agent"
+      ]
+    })} />
 
     <!-- Favicon (inline SVG) -->
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />

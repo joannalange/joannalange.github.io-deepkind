@@ -3,37 +3,36 @@ import content from '@data/content.json';
 const { description, legal, connect, copyright, location } = content.footer;
 ---
 
-<footer class="footer section-padding">
-  <div class="site-container">
+<footer class="footer">
+  <div class="wrap">
 
-    <div class="footer-top">
+    <div class="footer__top">
+
       <!-- Brand -->
-      <div class="footer-brand">
-        <img src="/assets/logo.svg" alt="DeepKind" width="140" height="28" />
-        <p class="footer-brand__description">{description}</p>
+      <div>
+        <img src="/assets/logo.svg" alt="DeepKind" class="footer__logo-img" width="140" height="28" />
+        <p class="footer__tagline">{description}</p>
       </div>
 
       <!-- Legal -->
-      <div class="footer-col">
-        <p class="footer-col__heading">Prawne</p>
-        <ul class="footer-links">
+      <div>
+        <p class="footer__col-heading">Prawne</p>
+        <ul class="footer__links">
           {legal.map(item => (
-            <li>
-              <a href={item.url} class="footer-link">{item.name}</a>
-            </li>
+            <li><a href={item.url} class="footer__link">{item.name}</a></li>
           ))}
         </ul>
       </div>
 
       <!-- Connect -->
-      <div class="footer-col">
-        <p class="footer-col__heading">Connect</p>
-        <ul class="footer-links">
+      <div>
+        <p class="footer__col-heading">Connect</p>
+        <ul class="footer__links">
           {connect.map(item => (
             <li>
               <a
                 href={item.url}
-                class="footer-link"
+                class="footer__link"
                 target={item.url.startsWith('http') ? '_blank' : undefined}
                 rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
               >{item.name}</a>
@@ -43,14 +42,17 @@ const { description, legal, connect, copyright, location } = content.footer;
       </div>
 
       <!-- Location -->
-      <div class="footer-col">
-        <p class="footer-col__heading">Location</p>
-        <p class="footer-location">{location}</p>
+      <div>
+        <p class="footer__col-heading">Location</p>
+        <p class="footer__location" style="margin-top:0">{location}</p>
       </div>
+
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">{copyright}</p>
+    <div class="footer__rainbow" aria-hidden="true"></div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">{copyright}</p>
     </div>
 
   </div>

@@ -1,39 +1,43 @@
 ---
-import SupportCard from '@ui/SupportCard.astro';
-import ProtocolTag from '@ui/ProtocolTag.astro';
 import content from '@data/content.json';
-const { header, subtext, options } = content.support;
+const { options } = content.support;
 ---
 
-<section class="support-section section-padding" id="support" aria-label="Włącz się">
-  <div class="site-container">
+<section id="support" aria-label="Włącz się">
+  <div class="support">
 
-    <div class="support-intro">
-      <ProtocolTag label="CALL_TO_ACTION" color="cyan" />
-      <h2 class="text-headline gradient-purple-rose">{header}</h2>
-      <p class="support-intro__subtext">{subtext}</p>
+    <!-- Volunteer panel -->
+    <div class="support-panel support-panel--volunteer reveal">
+      <span class="support-panel__watermark" aria-hidden="true">DOŁĄCZ</span>
+
+      <div class="support-panel__icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="10" r="5" stroke="white" stroke-width="2"/>
+          <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 10c1.7 0 3 1.3 3 3s-1.3 3-3 3" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M8 10c-1.7 0-3 1.3-3 3s1.3 3 3 3"  stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <h2 class="support-panel__title">{options[0].title}</h2>
+      <p  class="support-panel__desc">{options[0].description}</p>
+      <a href={options[0].url} class="support-panel__btn">{options[0].cta} →</a>
     </div>
 
-    <div class="support-split">
-      <div class="reveal">
-        <SupportCard
-          title={options[0].title}
-          description={options[0].description}
-          cta={options[0].cta}
-          url={options[0].url}
-          side="left"
-        />
+    <!-- Donate panel -->
+    <div class="support-panel support-panel--donate reveal reveal-delay-2">
+      <span class="support-panel__watermark" aria-hidden="true">WPŁAĆ</span>
+
+      <div class="support-panel__icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 6 L19 13 L27 13 L21 18 L23 26 L16 21 L9 26 L11 18 L5 13 L13 13 Z"
+            stroke="white" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
       </div>
-      <div class="support-divider" aria-hidden="true"></div>
-      <div class="reveal reveal-delay-2">
-        <SupportCard
-          title={options[1].title}
-          description={options[1].description}
-          cta={options[1].cta}
-          url={options[1].url}
-          side="right"
-        />
-      </div>
+
+      <h2 class="support-panel__title">{options[1].title}</h2>
+      <p  class="support-panel__desc">{options[1].description}</p>
+      <a href={options[1].url} class="support-panel__btn">{options[1].cta} →</a>
     </div>
 
   </div>

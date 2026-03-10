@@ -1,53 +1,48 @@
 ---
-import ProtocolTag from '@ui/ProtocolTag.astro';
 import content from '@data/content.json';
 const { header, protocol, status, title, paragraphs } = content.about;
 
-// Parse **bold** markdown in paragraph text
 function parseBold(text: string): string {
-  return text.replace(/\*\*(.+?)\*\*/g, '<strong class="about-highlight">$1</strong>');
+  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
 ---
 
-<section class="about-section section-padding" id="about" aria-label="O nas">
-  <div class="about-deco-quote" aria-hidden="true">"</div>
-  <div class="site-container">
-    <div class="about-grid">
+<section class="about" id="about" aria-label="O nas">
+  <div class="wrap">
+    <div class="about__layout">
 
       <!-- Text -->
-      <div class="about-text reveal">
-        <div class="about-meta">
-          <ProtocolTag label={protocol} color="dim" />
-          <ProtocolTag label={status} color="amber" />
+      <div class="about__text reveal">
+
+        <div class="about__meta">
+          <span class="s-label s-label--dim">{protocol}</span>
+          <span class="s-label s-label--gold">{status}</span>
         </div>
 
-        <h2 class="text-headline gradient-cyan-purple">{title}</h2>
+        <h2 class="about__headline grad-calm">{title}</h2>
 
-        <div class="about-body">
+        <div class="about__body">
           {paragraphs.map(p => (
             <p set:html={parseBold(p)} />
           ))}
         </div>
+
       </div>
 
-      <!-- Illustration -->
-      <div class="about-illustration reveal reveal-delay-2">
+      <!-- Photo with floating accent card -->
+      <div class="about__photo-wrap reveal reveal-delay-2">
         <img
-          src="/assets/about-illustration.svg"
-          alt="Technologia i człowiek — ilustracja"
-          width="480"
-          height="480"
+          src="/img/about-abstract.png"
+          alt="Życzliwość tworzy fale"
+          class="about__photo"
           loading="lazy"
         />
+        <div class="about__accent" aria-hidden="true">
+          <span class="about__accent-num">∞</span>
+          <span class="about__accent-label">Możliwości</span>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
-
-<style>
-  .about-highlight {
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-</style>

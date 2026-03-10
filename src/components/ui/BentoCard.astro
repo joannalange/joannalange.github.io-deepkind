@@ -1,18 +1,17 @@
 ---
-import ProtocolTag from './ProtocolTag.astro';
-
 interface Props {
   id: string;
   tag: string;
   title: string;
   description: string;
   variant: 'wide' | 'standard' | 'lead';
-  theme: 'cyan' | 'purple' | 'rose';
+  accent: 'violet' | 'mint' | 'coral' | 'gold' | 'rose';
+  index: number;
   revealDelay?: number;
 }
-const { id, tag, title, description, variant, theme, revealDelay } = Astro.props;
+const { id, tag, title, description, variant, accent, index, revealDelay } = Astro.props;
 
-const watermarkMap: Record<string, string> = {
+const markMap: Record<string, string> = {
   tech:    '/assets/bento-tech.svg',
   nature:  '/assets/bento-nature.svg',
   neuro:   '/assets/bento-neuro.svg',
@@ -20,33 +19,33 @@ const watermarkMap: Record<string, string> = {
   empathy: '/assets/bento-empathy.svg',
 };
 
-const tagColorMap: Record<string, 'cyan' | 'purple' | 'rose' | 'amber'> = {
-  cyan:   'cyan',
-  purple: 'purple',
-  rose:   'rose',
-};
-
-const isTech = id === 'tech';
+const isTech  = id === 'tech';
+const isLead  = id === 'agency';
+const spanMap = { wide: 'area-card--wide', standard: 'area-card--standard', lead: 'area-card--lead' };
 ---
 
 <article class:list={[
-  'bento-card',
-  `bento-card--${variant}`,
-  `bento-card--${theme}`,
-  isTech && 'bento-card--tech-bg',
+  'area-card',
+  `area-card--${accent}`,
+  spanMap[variant],
+  isTech && 'area-card--tech-grid',
+  isLead && 'area-card--agency-lead',
   'reveal',
   revealDelay && `reveal-delay-${revealDelay}`,
 ]}>
-  <div class="bento-card__body">
-    <ProtocolTag label={tag} color={tagColorMap[theme] ?? 'light'} />
-    <h3 class="bento-card__title">{title}</h3>
-    <p class="bento-card__description">{description}</p>
-  </div>
+
+  <span class="area-card__num" aria-hidden="true">0{index + 1}</span>
+
+  <div class="area-card__tag">{tag}</div>
+  <h3 class="area-card__title">{title}</h3>
+  <p class="area-card__desc">{description}</p>
+
   <img
-    src={watermarkMap[id]}
+    src={markMap[id]}
     alt=""
     aria-hidden="true"
-    class="bento-card__watermark"
+    class="area-card__mark"
     loading="lazy"
   />
+
 </article>

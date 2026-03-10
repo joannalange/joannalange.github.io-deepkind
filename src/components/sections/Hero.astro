@@ -1,58 +1,70 @@
 ---
-import Button from '@ui/Button.astro';
-import ProtocolTag from '@ui/ProtocolTag.astro';
 import content from '@data/content.json';
 const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta } = content.hero;
 ---
 
 <section class="hero" id="home" aria-label="Hero">
 
-  <!-- Background geometric shapes -->
-  <div class="hero__bg" aria-hidden="true">
-    <img
-      src="/assets/hero-bg.svg"
-      alt=""
-      class="hero__bg-svg"
-    />
-  </div>
+  <!-- Aurora gradient -->
+  <div class="hero__aurora" aria-hidden="true"></div>
+  <div class="hero__noise"  aria-hidden="true"></div>
 
-  <!-- Content -->
-  <div class="site-container">
-    <div class="hero__content">
+  <div class="wrap hero__wrap">
+
+    <div class="hero__layout">
 
       <!-- Text column -->
       <div class="hero__text stagger">
-        <ProtocolTag label={protocol} color="indigo" />
 
-        <h1 class="text-display hero__title animate-fade-up">
-          <span class="hero__title-prefix">{titlePrefix}</span>
-          <span class="hero__title-highlight gradient-cyan-purple">{titleHighlight}</span>
-          <span class="hero__title-suffix">{titleSuffix}</span>
+        <div class="hero__eyebrow animate-fade-up">
+          <span class="hero__live-dot" aria-hidden="true"></span>
+          {protocol}
+        </div>
+
+        <h1 class="hero__title animate-fade-up">
+          <span class="hero__title-pre">{titlePrefix}</span>
+          <em class="hero__title-em grad-energy">{titleHighlight}</em>
+          <span class="hero__title-post">{titleSuffix}</span>
         </h1>
 
-        <p class="hero__description animate-fade-up">
-          {description}
-        </p>
+        <p class="hero__desc animate-fade-up">{description}</p>
 
-        <div class="hero__cta animate-fade-up">
-          <Button label={cta} href="#projects" variant="filled-primary" arrow />
-          <Button label="O nas" href="#about" variant="outline-dark" />
+        <div class="hero__actions animate-fade-up">
+          <a href="#projects" class="btn btn--primary">{cta} →</a>
+          <a href="#about"    class="btn btn--ghost-light">O nas</a>
         </div>
+
       </div>
 
-      <!-- Right col — SVG fills this on desktop -->
-      <div aria-hidden="true"></div>
+      <!-- Illustration column -->
+      <div class="hero__visual" aria-hidden="true">
+        <img
+          src="/assets/hero-illustration.svg"
+          alt=""
+          class="hero__orb"
+          loading="eager"
+        />
+      </div>
 
     </div>
-  </div>
 
-  <!-- Strata divider -->
-  <div class="site-container">
-    <div class="strata-divider">
-      <div class="strata-divider__line"></div>
-      <span class="text-label" style="color:var(--color-text-dim);white-space:nowrap">STRATA_01</span>
-      <div class="strata-divider__line strata-divider__line--right"></div>
+    <!-- Stats strip -->
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <strong class="hero__stat-num">5</strong>
+        <span class="hero__stat-label">obszarów działań</span>
+      </div>
+      <span class="hero__stat-sep" aria-hidden="true">·</span>
+      <div class="hero__stat">
+        <strong class="hero__stat-num">4</strong>
+        <span class="hero__stat-label">aktywne projekty</span>
+      </div>
+      <span class="hero__stat-sep" aria-hidden="true">·</span>
+      <div class="hero__stat">
+        <strong class="hero__stat-num">PL</strong>
+        <span class="hero__stat-label">Polska</span>
+      </div>
     </div>
-  </div>
 
+  </div>
 </section>

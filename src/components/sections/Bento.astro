@@ -1,20 +1,27 @@
 ---
 import BentoCard from '@ui/BentoCard.astro';
-import ProtocolTag from '@ui/ProtocolTag.astro';
 import content from '@data/content.json';
 const { header, protocol, areas } = content.bento;
+
+// Map each area id to its new accent color
+const accentMap: Record<string, 'violet' | 'mint' | 'coral' | 'gold' | 'rose'> = {
+  tech:    'violet',
+  nature:  'mint',
+  neuro:   'coral',
+  agency:  'gold',
+  empathy: 'rose',
+};
 ---
 
-<section class="bento-section section-padding" id="bento" aria-label="Obszary działań">
-  <div class="site-container">
+<section class="areas" id="bento" aria-label="Obszary działań">
+  <div class="wrap">
 
-    <header class="section-header">
-      <ProtocolTag label={protocol} color="indigo" />
-      <h2 class="text-headline">{header}</h2>
-      <img src="/assets/bento-deco.svg" alt="" class="bento-deco" aria-hidden="true" loading="lazy"/>
+    <header class="areas__header reveal">
+      <span class="s-label s-label--light">{protocol}</span>
+      <h2 class="areas__title">{header}</h2>
     </header>
 
-    <div class="bento-grid">
+    <div class="areas__grid">
       {areas.map((area, i) => (
         <BentoCard
           id={area.id}
@@ -22,7 +29,8 @@ const { header, protocol, areas } = content.bento;
           title={area.title}
           description={area.description}
           variant={area.variant as 'wide' | 'standard' | 'lead'}
-          theme={area.theme as 'cyan' | 'purple' | 'rose'}
+          accent={accentMap[area.id] ?? 'violet'}
+          index={i}
           revealDelay={Math.min(i + 1, 4)}
         />
       ))}
