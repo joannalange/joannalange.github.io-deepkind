@@ -11,8 +11,9 @@ const { links, cta } = content.navigation;
         <img src="/assets/logo.svg" alt="DeepKind" class="nav__logo-img" width="160" height="32" />
       </a>
 
+      <!-- All links except the last, which is promoted to the CTA pill -->
       <ul class="nav__links" id="nav-links">
-        {links.map(link => (
+        {links.slice(0, -1).map(link => (
           <li><a href={link.url} class="nav__link">{link.name}</a></li>
         ))}
       </ul>

@@ -62,7 +62,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 1.25rem;
-  border-left: 5px solid var(--color-violet);
+  /* --featured-accent is set inline on the parent <a> from ProjectCard.astro */
+  border-left: 5px solid var(--featured-accent, var(--color-violet));
 }
 
 .project-featured__title {
@@ -88,7 +89,7 @@
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-violet);
+  color: var(--featured-accent, var(--color-violet));
   font-weight: 500;
   transition: gap 0.2s ease;
 }
@@ -189,7 +190,7 @@
 @media (max-width: 1100px) {
   .project-featured { grid-template-columns: 1fr; min-height: auto; }
   .project-featured__img-wrap { aspect-ratio: 16 / 9; }
-  .project-featured__body { border-left: none; border-top: 5px solid var(--color-violet); }
+  .project-featured__body { border-left: none; border-top: 5px solid var(--featured-accent, var(--color-violet)); }
   .projects__grid { grid-template-columns: repeat(2, 1fr); }
 }
 

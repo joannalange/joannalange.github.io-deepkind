@@ -13,14 +13,14 @@ const { title, category, description, image, cta, url, accent = 'violet', featur
 ---
 
 {featured ? (
-  <a href={url} class="project-featured reveal">
+  <a href={url} class="project-featured reveal" style={`--featured-accent: var(--color-${accent})`}>
     <div class="project-featured__img-wrap">
       <!-- eager + fetchpriority: this image is the LCP element -->
       <img src={image} alt={title} class="project-featured__img"
            loading="eager" fetchpriority="high" width="900" height="600" />
     </div>
     <div class="project-featured__body">
-      <span class="s-label s-label--violet">{category}</span>
+      <span class={`s-label s-label--${accent}`}>{category}</span>
       <h3 class="project-featured__title">{title}</h3>
       <p class="project-featured__desc">{description}</p>
       <span class="project-featured__cta">{cta} →</span>
