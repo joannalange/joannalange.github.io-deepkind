@@ -1,0 +1,103 @@
+/* ── About section (.about) ────────────────────────────────────────────── */
+
+.about {
+  background: var(--color-bg-base);
+  padding-block: var(--section-y);
+  position: relative;
+}
+
+.about__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.about__meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.about__headline {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-text);
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.about__body p {
+  color: var(--color-text-dim);
+  font-size: var(--text-lg);
+  line-height: 1.78;
+}
+
+.about__body strong {
+  color: var(--color-violet);
+  font-weight: 600;
+}
+
+/* Photo side */
+.about__photo-wrap {
+  position: relative;
+}
+
+.about__photo {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  box-shadow: 0 32px 80px rgba(26,16,56,0.15);
+}
+
+/* Floating accent card on photo */
+.about__accent {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  background: var(--color-violet);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  box-shadow: 0 16px 48px rgba(124,92,252,0.35);
+}
+
+.about__accent-num {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.about__accent-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .about__layout { grid-template-columns: 1fr; }
+  .about__photo-wrap { max-width: 480px; }
+  .about__accent { left: auto; right: 1rem; }
+}

@@ -1,0 +1,110 @@
+/* ── Support section (.support, .support-panel) ────────────────────────── */
+
+.support {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.support-panel {
+  padding: clamp(3rem, 6vw, 6rem) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.support-panel--volunteer {
+  background: linear-gradient(145deg, #FF4F6B 0%, #FF85A1 60%, #FF6B6B 100%);
+}
+
+.support-panel--donate {
+  background: linear-gradient(145deg, #5E3FD8 0%, #7C5CFC 50%, #2D1B8A 100%);
+}
+
+/* Decorative large text watermark */
+.support-panel__watermark {
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 14vw, 18rem);
+  font-weight: 900;
+  color: white;
+  opacity: 0.05;
+  line-height: 0.85;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.06em;
+}
+
+.support-panel__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.support-panel__title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.support-panel__desc {
+  color: rgba(255,255,255,0.72);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  max-width: 38ch;
+}
+
+.support-panel__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.85em 2em;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  transition: transform 0.2s var(--ease-back), box-shadow 0.2s ease,
+              background 0.2s ease;
+}
+.support-panel__btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.support-panel--volunteer .support-panel__btn {
+  background: white;
+  color: #FF4F6B;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+.support-panel--volunteer .support-panel__btn:hover {
+  box-shadow: 0 14px 36px rgba(0,0,0,0.2);
+}
+
+.support-panel--donate .support-panel__btn {
+  background: white;
+  color: #5E3FD8;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+}
+.support-panel--donate .support-panel__btn:hover {
+  box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .support { grid-template-columns: 1fr; }
+}

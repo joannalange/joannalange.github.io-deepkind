@@ -1,0 +1,32 @@
+/* ── Section label tag (.s-label) ──────────────────────────────────────── */
+
+.s-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.35em 0.9em 0.35em 0.7em;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid currentColor;
+  line-height: 1;
+  white-space: nowrap;
+}
+.s-label::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.s-label--violet { color: var(--color-violet); }
+.s-label--mint   { color: var(--color-mint); }
+.s-label--coral  { color: var(--color-coral); }
+.s-label--gold   { color: color-mix(in srgb, var(--color-gold) 85%, #000 15%); }
+.s-label--rose   { color: var(--color-rose); }
+.s-label--dim    { color: var(--color-text-dim);  border-color: rgba(26,16,56,0.15); }
+.s-label--light  { color: rgba(237,232,255,0.55); border-color: rgba(237,232,255,0.22); }
+.s-label--ghost  { color: var(--color-text-ghost);border-color: rgba(237,232,255,0.12); }
