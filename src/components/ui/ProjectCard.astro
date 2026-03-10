@@ -1,5 +1,6 @@
 ---
 interface Props {
+  index: number;
   title: string;
   category: string;
   description: string;
@@ -7,36 +8,20 @@ interface Props {
   cta: string;
   url: string;
   accent?: 'violet' | 'mint' | 'coral' | 'gold' | 'rose';
-  featured?: boolean;
 }
-const { title, category, description, image, cta, url, accent = 'violet', featured = false } = Astro.props;
+const { index, title, category, description, image, cta, url, accent = 'violet' } = Astro.props;
+const num = String(index).padStart(2, '0');
 ---
 
-{featured ? (
-  <a href={url} class="project-featured reveal" style={`--featured-accent: var(--color-${accent})`}>
-    <div class="project-featured__img-wrap">
-      <!-- eager + fetchpriority: this image is the LCP element -->
-      <img src={image} alt={title} class="project-featured__img"
-           loading="eager" fetchpriority="high" width="900" height="600" />
-    </div>
-    <div class="project-featured__body">
-      <span class={`s-label s-label--${accent}`}>{category}</span>
-      <h3 class="project-featured__title">{title}</h3>
-      <p class="project-featured__desc">{description}</p>
-      <span class="project-featured__cta">{cta} →</span>
-    </div>
-  </a>
-) : (
-  <a href={url} class={`project-card project-card--${accent} reveal`}>
-    <div class="project-card__img-wrap">
-      <img src={image} alt={title} class="project-card__img" loading="lazy" width="600" height="400" />
-    </div>
-    <div class="project-card__stripe" aria-hidden="true"></div>
-    <div class="project-card__body">
-      <span class={`s-label s-label--${accent}`}>{category}</span>
-      <h3 class="project-card__title">{title}</h3>
-      <p class="project-card__desc">{description}</p>
-      <span class="project-card__cta">{cta} →</span>
-    </div>
-  </a>
-)}
+<a href={url} class={`project-row project-row--${accent} reveal`}>
+  <span class="project-row__num" aria-hidden="true">{num}</span>
+  <div class="project-row__thumb">
+    <img src={image} alt="" role="presentation" loading="lazy" width="80" height="80" />
+  </div>
+  <div class="project-row__content">
+    <h3 class="project-row__title">{title}</h3>
+    <p class="project-row__desc">{description}</p>
+  </div>
+  <span class={`s-label s-label--${accent} project-row__cat`}>{category}</span>
+  <span class="project-row__cta">{cta} →</span>
+</a>

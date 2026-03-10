@@ -12,22 +12,10 @@ const { header, protocol, items } = content.projects;
       <h2 class="projects__title">{header}</h2>
     </header>
 
-    <!-- Featured first project -->
-    <ProjectCard
-      title={items[0].title}
-      category={items[0].category}
-      description={items[0].description}
-      image={items[0].image}
-      cta={items[0].cta}
-      url={items[0].url}
-      accent={items[0].accent}
-      featured={true}
-    />
-
-    <!-- Grid: remaining projects -->
-    <div class="projects__grid">
-      {items.slice(1).map(item => (
+    <div class="projects__index" role="list">
+      {items.map((item, i) => (
         <ProjectCard
+          index={i + 1}
           title={item.title}
           category={item.category}
           description={item.description}
