@@ -6,62 +6,46 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta, se
 
 <section class="hero" id="home" aria-label="Hero">
 
-  <!-- Aurora gradient -->
+  <!-- Ambient background layers -->
   <div class="hero__aurora" aria-hidden="true"></div>
   <div class="hero__noise"  aria-hidden="true"></div>
 
+  <!-- Architectural ring decoration -->
+  <div class="hero__ring"   aria-hidden="true"></div>
+
   <div class="wrap hero__wrap">
 
-    <div class="hero__layout">
+    <div class="hero__eyebrow animate-fade-up">
+      <span class="hero__live-dot" aria-hidden="true"></span>
+      {protocol}
+    </div>
 
-      <!-- Text column -->
-      <div class="hero__text stagger">
+    <h1 class="hero__title animate-fade-up">
+      <span class="hero__title-pre">{titlePrefix}</span>
+      <em class="hero__title-em">{titleHighlight}</em>
+      <span class="hero__title-post">{titleSuffix}</span>
+    </h1>
 
-        <div class="hero__eyebrow animate-fade-up">
-          <span class="hero__live-dot" aria-hidden="true"></span>
-          {protocol}
-        </div>
-
-        <h1 class="hero__title animate-fade-up">
-          <span class="hero__title-pre">{titlePrefix}</span>
-          <em class="hero__title-em grad-energy">{titleHighlight}</em>
-          <span class="hero__title-post">{titleSuffix}</span>
-        </h1>
-
-        <p class="hero__desc animate-fade-up">{description}</p>
-
-        <div class="hero__actions animate-fade-up">
+    <div class="hero__lower animate-fade-up">
+      <div class="hero__desc-col">
+        <p class="hero__desc">{description}</p>
+        <div class="hero__actions">
           <Button href="#projects" label={cta} variant="primary" arrow />
           <Button href={secondaryCta.href} label={secondaryCta.label} variant="ghost-light" />
         </div>
-
       </div>
 
-      <!-- Illustration column -->
-      <div class="hero__visual" aria-hidden="true">
-        <img
-          src="/assets/hero-illustration.svg"
-          alt=""
-          class="hero__orb"
-          loading="eager"
-          width="500"
-          height="500"
-        />
+      <div class="hero__stats" role="list">
+        {stats.map((stat, i) => (
+          <>
+            {i > 0 && <span class="hero__stat-sep" aria-hidden="true" />}
+            <div class="hero__stat" role="listitem">
+              <strong class="hero__stat-num">{stat.value}</strong>
+              <span class="hero__stat-label">{stat.label}</span>
+            </div>
+          </>
+        ))}
       </div>
-
-    </div>
-
-    <!-- Stats strip -->
-    <div class="hero__stats">
-      {stats.map((stat, i) => (
-        <>
-          {i > 0 && <span class="hero__stat-sep" aria-hidden="true">·</span>}
-          <div class="hero__stat">
-            <strong class="hero__stat-num">{stat.value}</strong>
-            <span class="hero__stat-label">{stat.label}</span>
-          </div>
-        </>
-      ))}
     </div>
 
   </div>
