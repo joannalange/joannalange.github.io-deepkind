@@ -27,6 +27,6 @@
 .s-label--coral  { color: var(--color-coral); }
 .s-label--gold   { color: color-mix(in srgb, var(--color-gold) 85%, #000 15%); }
 .s-label--rose   { color: var(--color-rose); }
-.s-label--dim    { color: var(--color-text-dim);  border-color: rgba(26,16,56,0.15); }
-.s-label--light  { color: rgba(237,232,255,0.55); border-color: rgba(237,232,255,0.22); }
-.s-label--ghost  { color: var(--color-text-ghost);border-color: rgba(237,232,255,0.12); }
+.s-label--dim    { color: var(--color-text-dim);  border-color: var(--ink-15); }
+.s-label--light  { color: var(--on-dark-55);      border-color: var(--on-dark-22); }
+.s-label--ghost  { color: var(--color-text-ghost);border-color: var(--on-dark-12); }

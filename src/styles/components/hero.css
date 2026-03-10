@@ -10,15 +10,15 @@
   overflow: hidden;
 }
 
-/* Aurora mesh gradient background */
+/* Aurora mesh gradient — intentionally uses one-off artistic rgba values */
 .hero__aurora {
   position: absolute;
   inset: -20%;
   background:
     radial-gradient(ellipse 80% 60% at 75% 15%, rgba(124, 92, 252, 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 55% at 95% 55%, rgba(255, 95, 87, 0.28) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 55% at 95% 55%, rgba(255, 95, 87, 0.28)  0%, transparent 50%),
     radial-gradient(ellipse 45% 45% at 15% 85%, rgba(14, 201, 154, 0.22) 0%, transparent 48%),
-    radial-gradient(ellipse 70% 70% at 50% 50%, rgba(255, 200, 71, 0.06) 0%, transparent 55%);
+    radial-gradient(ellipse 70% 70% at 50% 50%, rgba(255, 200, 71, 0.06)  0%, transparent 55%);
   animation: aurora-drift 24s ease-in-out infinite;
   pointer-events: none;
 }
@@ -61,7 +61,7 @@
   font-size: var(--text-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(237,232,255,0.5);
+  color: var(--on-dark-50);
 }
 
 .hero__live-dot {
@@ -83,7 +83,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 3.25rem);
   font-weight: 400;
-  color: rgba(237,232,255,0.55);
+  color: var(--on-dark-55);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -109,7 +109,7 @@
 }
 
 .hero__desc {
-  color: rgba(237,232,255,0.6);
+  color: var(--on-dark-60);
   font-size: var(--text-lg);
   line-height: 1.75;
   max-width: 46ch;
@@ -130,6 +130,7 @@
   position: relative;
 }
 
+/* Orb drop-shadow uses accent rgba values intentionally */
 .hero__orb {
   width: 100%;
   max-width: 500px;
@@ -144,7 +145,7 @@
   align-items: center;
   gap: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(237,232,255,0.08);
+  border-top: 1px solid var(--on-dark-08);
 }
 
 .hero__stat {
@@ -167,11 +168,11 @@
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(237,232,255,0.4);
+  color: var(--on-dark-40);
 }
 
 .hero__stat-sep {
-  color: rgba(237,232,255,0.2);
+  color: var(--on-dark-20);
   font-size: 1.5rem;
   align-self: center;
 }

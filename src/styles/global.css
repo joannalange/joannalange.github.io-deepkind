@@ -62,6 +62,58 @@
   --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* ── Alpha-variant tokens ───────────────────────────── */
+/*
+ * Three base colors appear throughout the design at varying opacity.
+ * Defining them as variables keeps CSS changes in one place.
+ *
+ * on-dark-*  : #EDE8FF (--color-text-light) on dark surfaces
+ * ink-*      : #1A1038 (--color-text) as shadows/borders on light surfaces
+ * white-*    : #FFFFFF frosted-glass elements on dark surfaces
+ */
+:root {
+  /* Light text hierarchy on dark backgrounds */
+  --on-dark-90: rgba(237,232,255,0.90);
+  --on-dark-75: rgba(237,232,255,0.75);
+  --on-dark-70: rgba(237,232,255,0.70);
+  --on-dark-60: rgba(237,232,255,0.60);
+  --on-dark-55: rgba(237,232,255,0.55);
+  --on-dark-50: rgba(237,232,255,0.50);
+  --on-dark-40: rgba(237,232,255,0.40);
+  --on-dark-30: rgba(237,232,255,0.30);
+  --on-dark-25: rgba(237,232,255,0.25);
+  --on-dark-22: rgba(237,232,255,0.22);
+  --on-dark-20: rgba(237,232,255,0.20);
+  --on-dark-18: rgba(237,232,255,0.18);
+  --on-dark-12: rgba(237,232,255,0.12);
+  --on-dark-10: rgba(237,232,255,0.10);
+  --on-dark-08: rgba(237,232,255,0.08);
+  --on-dark-07: rgba(237,232,255,0.07);
+
+  /* Ink shadows and borders on light backgrounds */
+  --ink-07: rgba(26,16,56,0.07);
+  --ink-08: rgba(26,16,56,0.08);
+  --ink-10: rgba(26,16,56,0.10);
+  --ink-12: rgba(26,16,56,0.12);
+  --ink-14: rgba(26,16,56,0.14);
+  --ink-15: rgba(26,16,56,0.15);
+  --ink-25: rgba(26,16,56,0.25);
+
+  /* White frosted-glass elements on dark backgrounds */
+  --white-04: rgba(255,255,255,0.04);
+  --white-06: rgba(255,255,255,0.06);
+  --white-12: rgba(255,255,255,0.12);
+  --white-15: rgba(255,255,255,0.15);
+  --white-22: rgba(255,255,255,0.22);
+  --white-25: rgba(255,255,255,0.25);
+  --white-45: rgba(255,255,255,0.45);
+  --white-72: rgba(255,255,255,0.72);
+
+  /* Semi-transparent surfaces */
+  --surface-nav-scrolled: rgba(254,252,248,0.88);
+  --surface-nav-mobile:   rgba(13,11,26,0.97);
+}
+
 /* ── Reset ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

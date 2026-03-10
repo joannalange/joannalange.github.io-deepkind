@@ -44,7 +44,7 @@
   width: 64px;
   height: 64px;
   border-radius: 1rem;
-  background: rgba(255,255,255,0.15);
+  background: var(--white-15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,7 @@
 }
 
 .support-panel__desc {
-  color: rgba(255,255,255,0.72);
+  color: var(--white-72);
   font-size: var(--text-lg);
   line-height: 1.75;
   max-width: 38ch;
@@ -86,22 +86,23 @@
   transform: translateY(-2px) scale(1.03);
 }
 
+/* Button text colors match the gradient start of each panel */
 .support-panel--volunteer .support-panel__btn {
   background: white;
   color: #FF4F6B;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 28px var(--ink-15);
 }
 .support-panel--volunteer .support-panel__btn:hover {
-  box-shadow: 0 14px 36px rgba(0,0,0,0.2);
+  box-shadow: 0 14px 36px var(--ink-25);
 }
 
 .support-panel--donate .support-panel__btn {
   background: white;
   color: #5E3FD8;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 28px var(--ink-25);
 }
 .support-panel--donate .support-panel__btn:hover {
-  box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+  box-shadow: 0 14px 36px var(--ink-25);
 }
 
 /* Responsive */

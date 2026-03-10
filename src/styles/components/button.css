@@ -29,24 +29,24 @@
 }
 .btn--primary:hover {
   background: var(--color-text-light);
-  box-shadow: 0 8px 32px rgba(255,255,255,0.25);
+  box-shadow: 0 8px 32px var(--white-25);
 }
 
 .btn--ghost-light {
   background: transparent;
-  color: rgba(237,232,255,0.75);
-  border-color: rgba(237,232,255,0.3);
+  color: var(--on-dark-75);
+  border-color: var(--on-dark-30);
 }
 .btn--ghost-light:hover {
-  background: rgba(237,232,255,0.1);
+  background: var(--on-dark-10);
   color: white;
-  border-color: rgba(237,232,255,0.6);
+  border-color: var(--on-dark-60);
 }
 
 .btn--ghost-dark {
   background: transparent;
   color: var(--color-text);
-  border-color: rgba(26,16,56,0.25);
+  border-color: var(--ink-25);
 }
 .btn--ghost-dark:hover {
   background: var(--color-text);
