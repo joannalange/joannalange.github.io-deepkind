@@ -10,15 +10,14 @@
   overflow: hidden;
 }
 
-/* Aurora mesh gradient — intentionally uses one-off artistic rgba values */
+/* Aurora mesh gradient — brand palette only: violet + rose */
 .hero__aurora {
   position: absolute;
   inset: -20%;
   background:
-    radial-gradient(ellipse 80% 60% at 75% 15%, rgba(124, 92, 252, 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 55% at 95% 55%, rgba(255, 95, 87, 0.28)  0%, transparent 50%),
-    radial-gradient(ellipse 45% 45% at 15% 85%, rgba(14, 201, 154, 0.22) 0%, transparent 48%),
-    radial-gradient(ellipse 70% 70% at 50% 50%, rgba(255, 200, 71, 0.06)  0%, transparent 55%);
+    radial-gradient(ellipse 80% 60% at 72% 18%, rgba(124, 92, 252, 0.50) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 50% at 92% 58%, rgba(255, 111, 156, 0.22) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 45% at 18% 82%, rgba(124, 92, 252, 0.14) 0%, transparent 50%);
   animation: aurora-drift 24s ease-in-out infinite;
   pointer-events: none;
 }
@@ -68,7 +67,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-coral);
+  background: var(--color-rose);
   flex-shrink: 0;
   animation: pulse-dot 2.5s ease-in-out infinite;
 }

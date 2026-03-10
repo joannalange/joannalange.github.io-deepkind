@@ -1,9 +1,36 @@
-/* ── Support section (.support, .support-panel) ────────────────────────── */
+/* ── Support section (.support-section, .support, .support-panel) ──────── */
 
+.support-section {
+  background: var(--color-bg-dark);
+}
+
+/* Section header */
+.support__header {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem) clamp(2rem, 3vw, 3rem);
+  max-width: 600px;
+}
+
+.support__title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  color: var(--color-text-light);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.support__subtext {
+  color: var(--on-dark-60);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  margin-top: 1.1rem;
+}
+
+/* Two-panel grid */
 .support {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
+  min-height: 560px;
 }
 
 .support-panel {
@@ -16,13 +43,74 @@
   overflow: hidden;
 }
 
+/* ── Volunteer panel — light, approachable ── */
 .support-panel--volunteer {
-  background: linear-gradient(145deg, #FF4F6B 0%, #FF85A1 60%, #FF6B6B 100%);
+  background: var(--color-bg-base);
+  border-top: 1px solid var(--ink-07);
 }
 
-.support-panel--donate {
-  background: linear-gradient(145deg, #5E3FD8 0%, #7C5CFC 50%, #2D1B8A 100%);
+.support-panel--volunteer .support-panel__watermark {
+  color: var(--color-violet);
+  opacity: 0.05;
 }
+
+.support-panel--volunteer .support-panel__icon {
+  background: var(--color-violet);
+  color: white;
+}
+
+.support-panel--volunteer .support-panel__title {
+  color: var(--color-text);
+}
+
+.support-panel--volunteer .support-panel__desc {
+  color: var(--color-text-dim);
+}
+
+.support-panel--volunteer .support-panel__btn {
+  background: var(--color-violet);
+  color: white;
+  box-shadow: 0 8px 28px rgba(124, 92, 252, 0.25);
+}
+.support-panel--volunteer .support-panel__btn:hover {
+  background: color-mix(in srgb, var(--color-violet) 85%, white 15%);
+  box-shadow: 0 14px 36px rgba(124, 92, 252, 0.35);
+}
+
+/* ── Donate panel — deep violet, impactful ── */
+.support-panel--donate {
+  background: linear-gradient(145deg, #2D1B8A 0%, #4A2FBF 50%, #1D1056 100%);
+  border-top: 1px solid var(--white-06);
+}
+
+.support-panel--donate .support-panel__watermark {
+  color: white;
+  opacity: 0.05;
+}
+
+.support-panel--donate .support-panel__icon {
+  background: var(--white-15);
+  color: white;
+}
+
+.support-panel--donate .support-panel__title {
+  color: white;
+}
+
+.support-panel--donate .support-panel__desc {
+  color: var(--white-72);
+}
+
+.support-panel--donate .support-panel__btn {
+  background: white;
+  color: #2D1B8A;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+.support-panel--donate .support-panel__btn:hover {
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Shared panel elements ── */
 
 /* Decorative large text watermark */
 .support-panel__watermark {
@@ -32,8 +120,6 @@
   font-family: var(--font-display);
   font-size: clamp(8rem, 14vw, 18rem);
   font-weight: 900;
-  color: white;
-  opacity: 0.05;
   line-height: 0.85;
   pointer-events: none;
   user-select: none;
@@ -44,24 +130,21 @@
   width: 64px;
   height: 64px;
   border-radius: 1rem;
-  background: var(--white-15);
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(8px);
+  flex-shrink: 0;
 }
 
 .support-panel__title {
   font-family: var(--font-display);
   font-size: var(--text-5xl);
   font-weight: 800;
-  color: white;
   letter-spacing: -0.03em;
   line-height: 1.05;
 }
 
 .support-panel__desc {
-  color: var(--white-72);
   font-size: var(--text-lg);
   line-height: 1.75;
   max-width: 38ch;
@@ -84,25 +167,6 @@
 }
 .support-panel__btn:hover {
   transform: translateY(-2px) scale(1.03);
-}
-
-/* Button text colors match the gradient start of each panel */
-.support-panel--volunteer .support-panel__btn {
-  background: white;
-  color: #FF4F6B;
-  box-shadow: 0 8px 28px var(--ink-15);
-}
-.support-panel--volunteer .support-panel__btn:hover {
-  box-shadow: 0 14px 36px var(--ink-25);
-}
-
-.support-panel--donate .support-panel__btn {
-  background: white;
-  color: #5E3FD8;
-  box-shadow: 0 8px 28px var(--ink-25);
-}
-.support-panel--donate .support-panel__btn:hover {
-  box-shadow: 0 14px 36px var(--ink-25);
 }
 
 /* Responsive */
