@@ -1,6 +1,5 @@
 ---
 interface Props {
-  index: number;
   title: string;
   category: string;
   description: string;
@@ -9,19 +8,17 @@ interface Props {
   url: string;
   accent?: 'violet' | 'mint' | 'coral' | 'gold' | 'rose';
 }
-const { index, title, category, description, image, cta, url, accent = 'violet' } = Astro.props;
-const num = String(index).padStart(2, '0');
+const { title, category, description, image, cta, url, accent = 'violet' } = Astro.props;
 ---
 
 <a href={url} class={`project-row project-row--${accent} reveal`}>
-  <span class="project-row__num" aria-hidden="true">{num}</span>
   <div class="project-row__thumb">
     <img src={image} alt="" role="presentation" loading="lazy" width="80" height="80" />
   </div>
   <div class="project-row__content">
+    <span class={`s-label s-label--${accent} project-row__cat`}>{category}</span>
     <h3 class="project-row__title">{title}</h3>
     <p class="project-row__desc">{description}</p>
   </div>
-  <span class={`s-label s-label--${accent} project-row__cat`}>{category}</span>
   <span class="project-row__cta">{cta} →</span>
 </a>

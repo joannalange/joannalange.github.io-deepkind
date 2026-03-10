@@ -13,9 +13,8 @@ const { header, protocol, items } = content.projects;
     </header>
 
     <div class="projects__index" role="list">
-      {items.map((item, i) => (
+      {items.map((item) => (
         <ProjectCard
-          index={i + 1}
           title={item.title}
           category={item.category}
           description={item.description}
