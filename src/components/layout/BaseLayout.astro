@@ -68,19 +68,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
     <Footer />
   </body>
 
-  <script>
-    // Scroll-reveal via IntersectionObserver
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  <script src="../../scripts/reveal.ts"></script>
 </html>
