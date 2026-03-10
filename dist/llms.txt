@@ -1,0 +1,26 @@
+# DeepKind Foundation
+
+> Polska fundacja łącząca ludzi, technologię i troskę. Merging Humanity with Technology. Built for everyone.
+
+DeepKind Foundation tworzy inicjatywy społeczne i edukacyjne na przecięciu technologii, empatii i dobrostanu człowieka. Działamy w Polsce, projektując programy dla dzieci, kobiet i osób neuroatypowych.
+
+## Obszary działań
+
+- **Odpowiedzialne Technologie** — etyczna analiza algorytmów i systemów autonomicznych; budowanie mostów między logiką a empatią.
+- **Troska o przyrodę** — pokazujemy, że technologia i troska o planetę mogą iść w parze.
+- **Neuroatypowość** — projektowanie systemów wspierających różnorodność poznawczą.
+- **Kobieca Sprawczość** — wzmacniamy kobiety działające z odwagą, po swojemu.
+- **Życzliwość i Empatia** — budujemy kulturę współodczuwania.
+
+## Projekty
+
+- **Minds & Muscles** — program zajęć dla dzieci i opiekunów ćwiczących równolegle, każde w swojej przestrzeni, w tym samym rytmie.
+- **Kindness Lab** — warsztaty szkolne, w których empatia, współpraca i troska stają się częścią codzienności.
+- **Deep & Kind Retreat** — wyjazdy dla kobiet z branży technologicznej, które chcą wylogować się z codziennego tempa.
+- **GrowUP Hackathon** — inicjatywa studencka pod hasłem „Hakuj dorosłość – wymyśl lepsze jutro!".
+
+## Kontakt i linki
+
+- Strona: https://deepkind.org
+- Email: hello@deepkind.org
+- GitHub: https://github.com/friendly-ai-agent
