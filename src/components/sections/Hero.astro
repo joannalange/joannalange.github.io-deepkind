@@ -1,5 +1,6 @@
 ---
 import content from '@data/content';
+import Button from '@ui/Button.astro';
 const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta, secondaryCta, stats } = content.hero;
 ---
 
@@ -30,8 +31,8 @@ const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta, se
         <p class="hero__desc animate-fade-up">{description}</p>
 
         <div class="hero__actions animate-fade-up">
-          <a href="#projects" class="btn btn--primary">{cta} →</a>
-          <a href={secondaryCta.href} class="btn btn--ghost-light">{secondaryCta.label}</a>
+          <Button href="#projects" label={cta} variant="primary" arrow />
+          <Button href={secondaryCta.href} label={secondaryCta.label} variant="ghost-light" />
         </div>
 
       </div>
