@@ -1,7 +1,7 @@
 /* ── Support section ─────────────────────────────────────────────────────── */
 
 .support-section {
-  background: var(--color-bg-dark);
+  background: var(--color-bg-support);
   padding-block: var(--section-y);
 }
 
@@ -52,9 +52,9 @@
 /* ── Volunteer card ──────────────────────────────────────────────────────── */
 
 .support-card--volunteer {
-  --card-accent: var(--color-violet);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  --card-accent: var(--white-90);
+  background: var(--white-08);
+  border: 1px solid var(--white-14);
   border-top: 3px solid var(--card-accent);
 }
 
@@ -65,33 +65,34 @@
 .support-card--volunteer .support-card__btn {
   background: var(--color-violet);
   color: white;
-  box-shadow: 0 6px 24px rgba(124, 92, 252, 0.30);
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--color-violet) 30%, transparent);
 }
 .support-card--volunteer .support-card__btn:hover {
   background: color-mix(in srgb, var(--color-violet) 85%, white 15%);
-  box-shadow: 0 10px 32px rgba(124, 92, 252, 0.42);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-violet) 42%, transparent);
 }
 
 /* ── Donate card ─────────────────────────────────────────────────────────── */
 
 .support-card--donate {
-  --card-accent: rgba(124, 92, 252, 0.55);
-  background: rgba(124, 92, 252, 0.10);
-  border: 1px solid rgba(124, 92, 252, 0.20);
+  --card-accent: var(--white-90);
+  background: var(--white-08);
+  border: 1px solid var(--white-14);
   border-top: 3px solid var(--card-accent);
 }
 
-.support-card--donate .support-card__icon { color: rgba(255, 255, 255, 0.70); }
+.support-card--donate .support-card__icon { color: var(--white-70); }
 .support-card--donate .support-card__title { color: var(--color-text-light); }
 .support-card--donate .support-card__desc  { color: var(--on-dark-60); }
 
 .support-card--donate .support-card__btn {
-  background: white;
-  color: #2D1B8A;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  background: var(--white-15);
+  color: white;
+  box-shadow: none;
+  border: 1px solid var(--white-30);
 }
 .support-card--donate .support-card__btn:hover {
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.38);
+  background: var(--white-22);
 }
 
 /* ── Shared card elements ────────────────────────────────────────────────── */

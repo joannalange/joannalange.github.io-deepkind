@@ -12,9 +12,10 @@
   /* Backgrounds */
   --color-bg-base:    #FEFCF8;
   --color-bg-alt:     #F4F1FF;
-  --color-bg-dark:    #0D0B1A;
-  --color-bg-darkest: #07060F;
-  --color-bg-card:    #17132C;
+  --color-bg-dark:    #1F1430;
+  --color-bg-darkest: #1F1430;
+  --color-bg-card:    #281840;
+  --color-bg-support: #2D1A6E;
 
   /* Five area accent colors */
   --color-violet: #7C5CFC;
@@ -104,12 +105,17 @@
   /* White frosted-glass elements on dark backgrounds */
   --white-04: rgba(255,255,255,0.04);
   --white-06: rgba(255,255,255,0.06);
+  --white-08: rgba(255,255,255,0.08);
   --white-12: rgba(255,255,255,0.12);
+  --white-14: rgba(255,255,255,0.14);
   --white-15: rgba(255,255,255,0.15);
   --white-22: rgba(255,255,255,0.22);
   --white-25: rgba(255,255,255,0.25);
+  --white-30: rgba(255,255,255,0.30);
   --white-45: rgba(255,255,255,0.45);
+  --white-70: rgba(255,255,255,0.70);
   --white-72: rgba(255,255,255,0.72);
+  --white-90: rgba(255,255,255,0.90);
 
   /* Semi-transparent surfaces */
   --surface-nav-scrolled: rgba(254,252,248,0.88);

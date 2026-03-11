@@ -11,8 +11,8 @@
   position: absolute;
   inset: -20%;
   background:
-    radial-gradient(ellipse 55% 60% at 78% 30%, rgba(124, 92, 252, 0.32) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 15% 75%, rgba(124, 92, 252, 0.07) 0%, transparent 55%);
+    radial-gradient(ellipse 55% 60% at 78% 30%, color-mix(in srgb, var(--color-violet) 32%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 15% 75%, color-mix(in srgb, var(--color-violet) 7%, transparent) 0%, transparent 55%);
   pointer-events: none;
 }
 
