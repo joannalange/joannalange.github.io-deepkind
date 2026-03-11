@@ -2,15 +2,14 @@
 import content from '@data/content';
 const { header, subtext, options } = content.support;
 
-// Inline SVG icons keyed by theme — add an entry here when adding a new support option
 const icons: Record<string, string> = {
-  volunteer: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+  volunteer: `<svg width="28" height="28" viewBox="0 0 32 32" fill="none">
     <circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="2"/>
     <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     <path d="M24 10c1.7 0 3 1.3 3 3s-1.3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
     <path d="M8 10c-1.7 0-3 1.3-3 3s1.3 3 3 3"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   </svg>`,
-  donate: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+  donate: `<svg width="28" height="28" viewBox="0 0 32 32" fill="none">
     <path d="M16 6 L19 13 L27 13 L21 18 L23 26 L16 21 L9 26 L11 18 L5 13 L13 13 Z"
       stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
   </svg>`,
@@ -18,27 +17,24 @@ const icons: Record<string, string> = {
 ---
 
 <section id="support" aria-label="Włącz się" class="support-section">
-
   <div class="wrap">
+
     <header class="support__header reveal">
       <h2 class="support__title">{header}</h2>
       <p class="support__subtext">{subtext}</p>
     </header>
+
+    <div class="support__cards">
+      {options.map((option, i) => (
+        <div class={`support-card support-card--${option.theme} reveal${i > 0 ? ' reveal-delay-2' : ''}`}>
+          <div class="support-card__icon" aria-hidden="true"
+               set:html={icons[option.theme] ?? icons.volunteer} />
+          <h3 class="support-card__title">{option.title}</h3>
+          <p  class="support-card__desc">{option.description}</p>
+          <a href={option.url} class="support-card__btn">{option.cta} →</a>
+        </div>
+      ))}
+    </div>
+
   </div>
-
-  <div class="support">
-    {options.map((option, i) => (
-      <div class={`support-panel support-panel--${option.theme} reveal${i > 0 ? ' reveal-delay-2' : ''}`}>
-        <span class="support-panel__watermark" aria-hidden="true">{option.cta}</span>
-
-        <div class="support-panel__icon" aria-hidden="true"
-             set:html={icons[option.theme] ?? icons.volunteer} />
-
-        <h2 class="support-panel__title">{option.title}</h2>
-        <p  class="support-panel__desc">{option.description}</p>
-        <a href={option.url} class="support-panel__btn">{option.cta} →</a>
-      </div>
-    ))}
-  </div>
-
 </section>
