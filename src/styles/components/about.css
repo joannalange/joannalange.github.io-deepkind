@@ -70,7 +70,7 @@
   bottom: -1.5rem;
   left: -1.5rem;
   background: var(--color-violet);
-  color: white;
+  color: var(--color-white);
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.75rem;
   display: flex;

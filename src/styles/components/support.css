@@ -1,142 +1,145 @@
 /* ── Support section ─────────────────────────────────────────────────────── */
 
 .support-section {
-  background: var(--color-bg-support);
+  background: var(--color-bg-alt);
   padding-block: var(--section-y);
 }
 
 .support__header {
   max-width: 620px;
-  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .support__title {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: 800;
-  color: var(--color-text-light);
+  color: var(--color-text);
   letter-spacing: -0.03em;
   line-height: 1.05;
 }
 
 .support__subtext {
-  color: var(--on-dark-60);
+  color: var(--color-text-dim);
   font-size: var(--text-lg);
   line-height: 1.75;
-  margin-top: 1.1rem;
+  margin-top: 1rem;
 }
 
-/* ── Cards grid ──────────────────────────────────────────────────────────── */
+/* ── Options list ────────────────────────────────────────────────────────── */
 
-.support__cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.support-card {
-  border-radius: var(--radius-lg);
-  padding: clamp(2rem, 4vw, 3rem);
+.support__options {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  border-top: 3px solid var(--card-accent);
-  position: relative;
-  transition: transform 0.28s var(--ease-expo), box-shadow 0.28s ease;
+  border-top: 1px solid var(--ink-10);
 }
 
-.support-card:hover {
-  transform: translateY(-4px);
+.support-option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--ink-10);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  transition: background 0.25s ease, transform 0.25s var(--ease-expo);
 }
 
-/* ── Volunteer card ──────────────────────────────────────────────────────── */
 
-.support-card--volunteer {
-  --card-accent: var(--white-90);
-  background: var(--white-08);
-  border: 1px solid var(--white-14);
-  border-top: 3px solid var(--card-accent);
+.support-option:hover {
+  background: var(--color-white);
+  padding-inline: 1.5rem;
+  box-shadow: 0 4px 24px var(--ink-07);
 }
 
-.support-card--volunteer .support-card__icon { color: var(--color-violet); }
-.support-card--volunteer .support-card__title { color: var(--color-text-light); }
-.support-card--volunteer .support-card__desc  { color: var(--on-dark-60); }
+/* ── Line + ball — same motif as hero CTAs ───────────────────────────────── */
 
-.support-card--volunteer .support-card__btn {
-  background: var(--color-violet);
-  color: white;
-  box-shadow: 0 6px 24px color-mix(in srgb, var(--color-violet) 30%, transparent);
-}
-.support-card--volunteer .support-card__btn:hover {
-  background: color-mix(in srgb, var(--color-violet) 85%, white 15%);
-  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-violet) 42%, transparent);
-}
-
-/* ── Donate card ─────────────────────────────────────────────────────────── */
-
-.support-card--donate {
-  --card-accent: var(--white-90);
-  background: var(--white-08);
-  border: 1px solid var(--white-14);
-  border-top: 3px solid var(--card-accent);
-}
-
-.support-card--donate .support-card__icon { color: var(--white-70); }
-.support-card--donate .support-card__title { color: var(--color-text-light); }
-.support-card--donate .support-card__desc  { color: var(--on-dark-60); }
-
-.support-card--donate .support-card__btn {
-  background: var(--white-15);
-  color: white;
-  box-shadow: none;
-  border: 1px solid var(--white-30);
-}
-.support-card--donate .support-card__btn:hover {
-  background: var(--white-22);
-}
-
-/* ── Shared card elements ────────────────────────────────────────────────── */
-
-.support-card__icon {
+.support-option__line {
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.support-card__title {
+.support-option__line::before {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 32px;
+  background: var(--option-accent);
+  transition: width 0.35s var(--ease-expo);
+}
+
+.support-option__line::after {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--option-accent);
+}
+
+.support-option:hover .support-option__line::before {
+  width: 52px;
+}
+
+/* ── Accent colours ──────────────────────────────────────────────────────── */
+
+.support-option--volunteer { --option-accent: var(--color-violet); }
+.support-option--donate    { --option-accent: var(--color-violet); }
+
+/* ── Body ────────────────────────────────────────────────────────────────── */
+
+.support-option__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.support-option__title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: 700;
+  color: var(--color-text);
   letter-spacing: -0.025em;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
-.support-card__desc {
+.support-option__desc {
   font-size: var(--text-base);
-  line-height: 1.75;
-  max-width: 38ch;
-  flex: 1;
+  color: var(--color-text-dim);
+  line-height: 1.65;
+  max-width: 52ch;
 }
 
-.support-card__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
+/* ── CTA ─────────────────────────────────────────────────────────────────── */
+
+.support-option__cta {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.8em 1.8em;
-  border-radius: var(--radius-pill);
-  width: fit-content;
-  margin-top: 0.5rem;
-  transition: transform 0.2s var(--ease-back), box-shadow 0.2s ease;
+  color: var(--option-accent);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.22s ease, transform 0.22s var(--ease-expo);
 }
-.support-card__btn:hover {
-  transform: translateY(-2px) scale(1.03);
+
+.support-option:hover .support-option__cta {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  .support__cards { grid-template-columns: 1fr; }
+  .support-option {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+  .support-option__cta { display: none; }
 }

@@ -31,9 +31,23 @@
   flex-shrink: 0;
 }
 
-.nav__logo-img {
-  height: 30px;
+.nav__logo-mark {
+  height: 38px;
   width: auto;
+  flex-shrink: 0;
+}
+
+.nav__wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  transition: color 0.25s ease;
+}
+
+.nav.scrolled .nav__wordmark {
+  color: var(--color-text);
 }
 
 .nav__links {
@@ -41,6 +55,7 @@
   align-items: center;
   gap: 2.5rem;
   list-style: none;
+  margin-left: auto;
 }
 
 .nav__link {
@@ -49,7 +64,7 @@
   color: var(--on-dark-70);
   transition: color 0.15s ease;
 }
-.nav__link:hover { color: white; }
+.nav__link:hover { color: var(--color-white); }
 
 .nav.scrolled .nav__link {
   color: var(--color-text-dim);
@@ -67,7 +82,7 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   background: var(--white-12);
-  color: white;
+  color: var(--color-white);
   border: 1.5px solid var(--white-25);
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
@@ -78,11 +93,11 @@
 }
 .nav.scrolled .nav__cta {
   background: var(--color-violet);
-  color: white;
+  color: var(--color-white);
   border-color: var(--color-violet);
 }
 .nav.scrolled .nav__cta:hover {
-  background: color-mix(in srgb, var(--color-violet) 85%, white 15%);
+  background: color-mix(in srgb, var(--color-violet) 85%, var(--color-white) 15%);
 }
 
 .nav__actions {

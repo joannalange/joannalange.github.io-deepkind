@@ -22,9 +22,9 @@
 .btn:active { transform: translateY(0) scale(0.99); }
 
 .btn--primary {
-  background: white;
+  background: var(--color-white);
   color: var(--color-bg-dark);
-  border-color: white;
+  border-color: var(--color-white);
   font-weight: 700;
 }
 .btn--primary:hover {
@@ -39,7 +39,7 @@
 }
 .btn--ghost-light:hover {
   background: var(--on-dark-10);
-  color: white;
+  color: var(--color-white);
   border-color: var(--on-dark-60);
 }
 
@@ -50,25 +50,25 @@
 }
 .btn--ghost-dark:hover {
   background: var(--color-text);
-  color: white;
+  color: var(--color-white);
 }
 
 .btn--filled-violet {
   background: var(--color-violet);
-  color: white;
+  color: var(--color-white);
   border-color: var(--color-violet);
 }
 .btn--filled-violet:hover {
-  background: color-mix(in srgb, var(--color-violet) 80%, white 20%);
+  background: color-mix(in srgb, var(--color-violet) 80%, var(--color-white) 20%);
   box-shadow: 0 8px 28px color-mix(in srgb, var(--color-violet) 40%, transparent);
 }
 
 .btn--filled-rose {
   background: var(--color-rose);
-  color: white;
+  color: var(--color-white);
   border-color: var(--color-rose);
 }
 .btn--filled-rose:hover {
-  background: color-mix(in srgb, var(--color-rose) 80%, white 20%);
+  background: color-mix(in srgb, var(--color-rose) 80%, var(--color-white) 20%);
   box-shadow: 0 8px 28px color-mix(in srgb, var(--color-rose) 40%, transparent);
 }

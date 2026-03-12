@@ -170,7 +170,7 @@
 }
 
 .hero__cta--primary {
-  color: white;
+  color: var(--color-white);
 }
 .hero__cta--primary .hero__cta-line {
   width: 36px;

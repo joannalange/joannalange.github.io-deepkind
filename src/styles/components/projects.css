@@ -42,7 +42,7 @@
 }
 
 .project-row:hover {
-  background: white;
+  background: var(--color-white);
   transform: translateX(4px);
   box-shadow: 0 4px 24px var(--ink-07);
 }

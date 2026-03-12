@@ -23,6 +23,9 @@
   --color-gold:   #FFC847;
   --color-rose:   #FF6F9C;
 
+  /* Pure white — used for text/borders on dark/coloured fills */
+  --color-white: #FFFFFF;
+
   /* Text */
   --color-text:       #1A1038;
   --color-text-dim:   #7A7099;
