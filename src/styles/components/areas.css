@@ -60,23 +60,14 @@
 
 .area-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 20px 50px color-mix(in srgb, currentColor 20%, transparent);
 }
 
-/* Accent hover shadows intentionally use accent-specific rgba values */
 .area-card--violet { color: var(--color-violet); }
-.area-card--violet:hover { box-shadow: 0 20px 50px rgba(124,92,252,0.2); }
-
 .area-card--mint   { color: var(--color-mint); }
-.area-card--mint:hover { box-shadow: 0 20px 50px rgba(14,201,154,0.18); }
-
 .area-card--coral  { color: var(--color-coral); }
-.area-card--coral:hover { box-shadow: 0 20px 50px rgba(255,95,87,0.18); }
-
 .area-card--gold   { color: var(--color-gold); }
-.area-card--gold:hover { box-shadow: 0 20px 50px rgba(255,200,71,0.18); }
-
 .area-card--rose   { color: var(--color-rose); }
-.area-card--rose:hover { box-shadow: 0 20px 50px rgba(255,111,156,0.18); }
 
 /* Grid spans — row1: 8+4=12, row2: 4+4+4=12 */
 .area-card--wide     { grid-column: span 8; min-height: 280px; }
@@ -136,14 +127,14 @@
   pointer-events: none;
 }
 
-/* Tech card grid texture — accent-specific rgba values intentional */
+/* Tech card grid texture */
 .area-card--tech-grid::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(124,92,252,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124,92,252,0.07) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, currentColor 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, currentColor 7%, transparent) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
   border-radius: inherit;

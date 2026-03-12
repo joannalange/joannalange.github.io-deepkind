@@ -13,7 +13,6 @@
   --color-bg-base:    #FEFCF8;
   --color-bg-alt:     #F4F1FF;
   --color-bg-dark:    #1F1430;
-  --color-bg-darkest: #1F1430;
   --color-bg-card:    #281840;
   --color-bg-support: #2D1A6E;
 
@@ -118,8 +117,10 @@
   --white-90: rgba(255,255,255,0.90);
 
   /* Semi-transparent surfaces */
-  --surface-nav-scrolled: rgba(254,252,248,0.88);
-  --surface-nav-mobile:   rgba(13,11,26,0.97);
+  /* auto-follows --color-bg-base and --color-bg-dark when palette changes */
+  --color-bg-darkest:     var(--color-bg-dark);
+  --surface-nav-scrolled: rgb(from var(--color-bg-base) r g b / 0.88);
+  --surface-nav-mobile:   color-mix(in srgb, var(--color-bg-dark) 50%, black);
 }
 
 /* ── Reset ──────────────────────────────────────────── */
@@ -208,8 +209,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 111, 156, 0.6); }
-  60%       { box-shadow: 0 0 0 8px rgba(255, 111, 156, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-rose) 60%, transparent); }
+  60%       { box-shadow: 0 0 0 8px transparent; }
 }
 
 @keyframes aurora-drift {

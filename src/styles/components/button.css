@@ -60,7 +60,7 @@
 }
 .btn--filled-violet:hover {
   background: color-mix(in srgb, var(--color-violet) 80%, white 20%);
-  box-shadow: 0 8px 28px rgba(124, 92, 252, 0.4);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--color-violet) 40%, transparent);
 }
 
 .btn--filled-rose {
@@ -70,5 +70,5 @@
 }
 .btn--filled-rose:hover {
   background: color-mix(in srgb, var(--color-rose) 80%, white 20%);
-  box-shadow: 0 8px 28px rgba(255, 111, 156, 0.4);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--color-rose) 40%, transparent);
 }
