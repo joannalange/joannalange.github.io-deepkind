@@ -10,7 +10,8 @@
       "@assets/*":     ["src/assets/*"],
       "@data/*":       ["src/data/*"],
       "@styles/*":     ["src/styles/*"],
-      "@scripts/*":    ["src/scripts/*"]
+      "@scripts/*":    ["src/scripts/*"],
+      "@dev/*":        ["src/components/dev/*"]
     }
   }
 }

@@ -5,6 +5,7 @@ import SkipLink from '@ui/SkipLink.astro';
 import '@styles/global.css';
 import '@styles/components.css';
 import content from '@data/content';
+import PaletteWidget from '@dev/PaletteWidget.astro';
 
 interface Props {
   title?: string;
@@ -73,4 +74,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
   </body>
 
   <script src="@scripts/reveal.ts"></script>
+  {import.meta.env.DEV && <PaletteWidget />}
 </html>
