@@ -62,17 +62,29 @@ else
   ok "Build tools (python3, make, g++)"
 fi
 
-# ── 4. Clean install ─────────────────────────────────────────────────────────
+# ── 4. node-gyp ──────────────────────────────────────────────────────────────
+# better-sqlite3 (pulled in by @tinacms/cli) must be compiled from source.
+# node-gyp is the build tool for native Node addons.
+if ! npm list -g node-gyp &>/dev/null; then
+  echo "Installing node-gyp globally..."
+  npm install -g node-gyp
+fi
+ok "node-gyp"
+
+# ── 5. Clean install ─────────────────────────────────────────────────────────
 echo ""
 echo "Installing npm dependencies..."
 
-# Remove stale node_modules and lock file artefacts to avoid integrity errors
+# Remove stale node_modules to avoid xIntegrity cache errors
 if [ -d node_modules ]; then
   echo "  Removing existing node_modules..."
   rm -rf node_modules
 fi
 
-npm install
+# npm_config_build_from_source=true tells prebuild-install to skip the
+# prebuilt binary download (which fails with an xIntegrity error) and
+# compile better-sqlite3 from source instead.
+npm_config_build_from_source=true npm install
 
 echo ""
 ok "All done. Run ./dev.sh to start the site."
