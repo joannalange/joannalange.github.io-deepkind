@@ -23,11 +23,12 @@ if [ "$NODE_MAJOR" -lt 18 ]; then
 fi
 ok "Node.js $(node --version)"
 
-# ── 2. npm ───────────────────────────────────────────────────────────────────
-if ! command -v npm &>/dev/null; then
-  fail "npm not found. It ships with Node.js — check your installation."
+# ── 2. pnpm ──────────────────────────────────────────────────────────────────
+if ! command -v pnpm &>/dev/null; then
+  echo "  pnpm not found — installing via npm..."
+  npm install -g pnpm
 fi
-ok "npm $(npm --version)"
+ok "pnpm $(pnpm --version)"
 
 # ── 3. Native build tools (required by better-sqlite3 via @tinacms/cli) ─────
 MISSING_TOOLS=()
@@ -62,30 +63,48 @@ else
   ok "Build tools (python3, make, g++)"
 fi
 
-# ── 4. node-gyp ──────────────────────────────────────────────────────────────
-# better-sqlite3 (pulled in by @tinacms/cli) must be compiled from source.
-# node-gyp is the build tool for native Node addons.
-if ! npm list -g node-gyp &>/dev/null; then
-  echo "Installing node-gyp globally..."
-  npm install -g node-gyp
-fi
-ok "node-gyp"
-
-# ── 5. Clean install ─────────────────────────────────────────────────────────
+# ── 4. Clean install ─────────────────────────────────────────────────────────
 echo ""
-echo "Installing npm dependencies..."
+echo "Installing dependencies..."
 
-# Remove stale node_modules to avoid xIntegrity cache errors
+# Remove stale node_modules to avoid cache errors
 if [ -d node_modules ]; then
   echo "  Removing existing node_modules..."
   rm -rf node_modules
 fi
 
-# npm_config_build_from_source=true tells prebuild-install to skip the
-# prebuilt binary download (which fails with an xIntegrity error) and
-# compile better-sqlite3 from source instead.
-npm_config_build_from_source=true npm install
+# Install without running build scripts so a single failing native addon
+# (better-sqlite3) can't abort the entire install.
+pnpm install --ignore-scripts
 
 echo ""
-ok "All done. Run ./dev.sh to start the site."
+echo "Building native addons..."
+
+# esbuild and sharp use prebuilt binaries — always succeed.
+pnpm rebuild esbuild sharp core-js protobufjs 2>/dev/null || true
+ok "esbuild, sharp, core-js, protobufjs"
+
+# better-sqlite3 is pulled in by @tinacms/cli (CMS editing only).
+# On Node 24+ with Apple Clang 16, Node's V8 headers require C++20
+# aggregate NTTPs (P0732) which Apple Clang 16 does not implement.
+# Source compilation is impossible; there are no prebuilt binaries yet
+# for Node 24+ arm64 darwin. Astro dev (pnpm dev) is unaffected.
+if [ "$NODE_MAJOR" -ge 24 ]; then
+  warn "Node $NODE_MAJOR + Apple Clang 16: better-sqlite3 cannot compile."
+  warn "TinaCMS CMS mode (./dev.sh) is unavailable on this configuration."
+  warn "To use TinaCMS: switch to Node 22 LTS  →  nvm use 22"
+  warn "Astro-only dev still works:  pnpm dev"
+else
+  pnpm rebuild better-sqlite3 2>/dev/null \
+    && ok "better-sqlite3" \
+    || warn "better-sqlite3 failed to build — TinaCMS CMS mode unavailable"
+fi
+
+echo ""
+ok "All done."
+if [ "$NODE_MAJOR" -lt 24 ]; then
+  ok "Start site:  ./dev.sh  (TinaCMS + Astro)"
+else
+  ok "Start Astro dev:  pnpm dev  (TinaCMS unavailable on Node $NODE_MAJOR)"
+fi
 echo ""
