@@ -1,11 +1,23 @@
 {
   "navigation": {
     "links": [
-      { "name": "Projekty", "url": "#projects" },
-      { "name": "O nas", "url": "#about" },
-      { "name": "Działaj", "url": "#support" }
+      {
+        "name": "Projekty",
+        "url": "#projects"
+      },
+      {
+        "name": "O nas",
+        "url": "#about"
+      },
+      {
+        "name": "Działaj",
+        "url": "#support"
+      }
     ],
-    "cta": { "label": "Działaj", "href": "#support" }
+    "cta": {
+      "label": "Działaj",
+      "href": "#support"
+    }
   },
   "hero": {
     "protocol": "DEEPKIND // FUNDACJA",
@@ -14,11 +26,23 @@
     "titleSuffix": "która porusza świat!",
     "description": "Tworzymy inicjatywy, które łączą ludzi, technologię i troskę, tworząc ruch, który inspiruje do życia z energią, empatią i uważnością.",
     "cta": "Eksploruj projekty",
-    "secondaryCta": { "label": "O nas", "href": "#about" },
+    "secondaryCta": {
+      "label": "O nas",
+      "href": "#about"
+    },
     "stats": [
-      { "value": "5",  "label": "obszarów działań" },
-      { "value": "4",  "label": "aktywne projekty" },
-      { "value": "PL", "label": "Polska" }
+      {
+        "value": "5",
+        "label": "obszarów działań"
+      },
+      {
+        "value": "4",
+        "label": "aktywne projekty"
+      },
+      {
+        "value": "PL",
+        "label": "Polska"
+      }
     ]
   },
   "bento": {
@@ -111,7 +135,7 @@
       {
         "title": "GrowUP Hackathon",
         "category": "Młodzi hakują dorosłość",
-        "description": "GrowUP Hackaton pod hasłem \u201EHakuj doros\u0142o\u015B\u0107 \u2013 wymy\u015Bl lepsze jutro!\u201D \u2013 to inicjatywa grupy student\u00F3w dzia\u0142aj\u0105cej w ramach Fundacji DeepKind.",
+        "description": "GrowUP Hackaton pod hasłem „Hakuj dorosłość – wymyśl lepsze jutro!” – to inicjatywa grupy studentów działającej w ramach Fundacji DeepKind.",
         "image": "/img/project-hackathon.webp",
         "cta": "ZGŁOSZENIA",
         "url": "#",
@@ -141,17 +165,35 @@
   },
   "footer": {
     "description": "Merging Humanity with Technology. Built for everyone.",
+    "copyright": "© 2026 DeepKind Foundation. Wszystkie prawa zastrzeżone.",
+    "location": "Location // Earth // Strata_01",
     "legal": [
-      { "name": "Polityka prywatności", "url": "#" },
-      { "name": "Regulamin", "url": "#" },
-      { "name": "Statut", "url": "#" }
+      {
+        "name": "Polityka prywatności",
+        "url": "#"
+      },
+      {
+        "name": "Regulamin",
+        "url": "#"
+      },
+      {
+        "name": "Statut",
+        "url": "#"
+      }
     ],
     "connect": [
-      { "name": "GitHub", "url": "https://github.com/friendly-ai-agent" },
-      { "name": "LinkedIn", "url": "#" },
-      { "name": "Email", "url": "mailto:hello@deepkind.org" }
-    ],
-    "copyright": "© 2026 DeepKind Foundation. Wszystkie prawa zastrzeżone.",
-    "location": "Location // Earth // Strata_01"
+      {
+        "name": "GitHub",
+        "url": "https://github.com/friendly-ai-agent"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "#"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:hello@deepkind.org"
+      }
+    ]
   }
 }
