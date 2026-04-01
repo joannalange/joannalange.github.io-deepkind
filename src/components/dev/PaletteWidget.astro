@@ -91,6 +91,7 @@ const GROUPS = [
 
     <footer class="pw-footer">
       <button id="pw-reset">RESET</button>
+      <button id="pw-save">SAVE</button>
       <button id="pw-export">EXPORT CSS</button>
     </footer>
   </aside>
@@ -305,6 +306,25 @@ const GROUPS = [
     color: rgba(237,232,255,0.9);
     border-color: rgba(237,232,255,0.3);
   }
+  #pw-save:hover {
+    background: rgba(14,201,154,0.2);
+    color: #0EC99A;
+    border-color: rgba(14,201,154,0.5);
+  }
+  #pw-save.saving {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  #pw-save.saved {
+    background: rgba(14,201,154,0.2);
+    color: #0EC99A;
+    border-color: rgba(14,201,154,0.5);
+  }
+  #pw-save.error {
+    background: rgba(255,95,87,0.2);
+    color: #FF5F57;
+    border-color: rgba(255,95,87,0.5);
+  }
   #pw-export:hover {
     background: rgba(124,92,252,0.25);
     color: #fff;
@@ -474,6 +494,7 @@ const GROUPS = [
   const toggle  = document.getElementById('pw-toggle')!;
   const close   = document.getElementById('pw-close')!;
   const resetBtn  = document.getElementById('pw-reset')!;
+  const saveBtn   = document.getElementById('pw-save')!;
   const exportBtn = document.getElementById('pw-export')!;
 
   function openPanel()  { panel.classList.add('open');    toggle.setAttribute('aria-expanded','true');  panel.removeAttribute('aria-hidden'); }
@@ -524,6 +545,37 @@ const GROUPS = [
     [...INK_ALPHAS    ].forEach(a => root.style.removeProperty(`--ink-${String(a).padStart(2,'0')}`));
     [...WHITE_ALPHAS  ].forEach(a => root.style.removeProperty(`--white-${String(a).padStart(2,'0')}`));
     root.style.removeProperty('--color-text-ghost');
+  });
+
+  // Save to global.css
+  saveBtn.addEventListener('click', async () => {
+    const root = document.documentElement;
+    const cs   = getComputedStyle(root);
+    const tokens: Record<string, string> = {};
+    for (const name of Object.keys(DEFAULTS)) {
+      tokens[name] = (root.style.getPropertyValue(name) || cs.getPropertyValue(name)).trim();
+    }
+    saveBtn.textContent = 'SAVING…';
+    saveBtn.classList.add('saving');
+    try {
+      const res = await fetch('/_palette/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tokens),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      saveBtn.textContent = 'SAVED ✓';
+      saveBtn.classList.remove('saving');
+      saveBtn.classList.add('saved');
+    } catch (err) {
+      saveBtn.textContent = 'ERROR ✕';
+      saveBtn.classList.remove('saving');
+      saveBtn.classList.add('error');
+    }
+    setTimeout(() => {
+      saveBtn.textContent = 'SAVE';
+      saveBtn.classList.remove('saved', 'error');
+    }, 2000);
   });
 
   // Export
