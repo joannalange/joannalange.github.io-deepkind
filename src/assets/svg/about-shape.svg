@@ -1,0 +1,19 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="about-g1" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="var(--color-violet)" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="var(--color-violet)" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="about-g2" cx="65%" cy="70%" r="45%">
+      <stop offset="0%" stop-color="var(--color-mint)" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="var(--color-mint)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="160" cy="150" rx="130" ry="120" fill="url(#about-g1)"/>
+  <ellipse cx="255" cy="270" rx="110" ry="100" fill="url(#about-g2)"/>
+  <circle cx="200" cy="200" r="72" stroke="var(--ink-08)" stroke-width="1" fill="none"/>
+  <circle cx="200" cy="200" r="120" stroke="var(--ink-08)" stroke-width="1" fill="none" stroke-dasharray="4 8"/>
+  <circle cx="200" cy="128" r="5" fill="var(--color-violet)" opacity="0.5"/>
+  <circle cx="272" cy="200" r="4" fill="var(--color-mint)" opacity="0.5"/>
+  <circle cx="200" cy="272" r="3" fill="var(--color-coral)" opacity="0.5"/>
+</svg>

@@ -1,0 +1,81 @@
+<svg class="hero__svg" viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Large outer ring (dashed) — blue -->
+  <circle cx="230" cy="240" r="210"
+    stroke="#3D62ED" stroke-width="1" stroke-opacity="0.18"
+    stroke-dasharray="5 10" fill="none"/>
+
+  <!-- Medium ring — sage -->
+  <circle cx="230" cy="240" r="155"
+    stroke="#4BAF82" stroke-width="1.25" stroke-opacity="0.28"
+    fill="none"/>
+
+  <!-- Inner ring — peach -->
+  <circle cx="230" cy="240" r="95"
+    stroke="#E87A5B" stroke-width="1" stroke-opacity="0.32"
+    stroke-dasharray="3 7" fill="none"/>
+
+  <!-- Large rotated square — blue -->
+  <rect x="110" y="100" width="240" height="240" rx="6"
+    fill="#3D62ED" fill-opacity="0.06"
+    stroke="#3D62ED" stroke-width="1.25" stroke-opacity="0.30"
+    transform="rotate(14 230 220)"/>
+
+  <!-- Medium rotated rectangle — peach, offset lower-right -->
+  <rect x="160" y="200" width="175" height="130" rx="4"
+    fill="#E87A5B" fill-opacity="0.07"
+    stroke="#E87A5B" stroke-width="1" stroke-opacity="0.28"
+    transform="rotate(-9 247 265)"/>
+
+  <!-- Diamond — gold (square rotated 45°) -->
+  <rect x="56" y="296" width="72" height="72" rx="3"
+    fill="#D49640" fill-opacity="0.10"
+    stroke="#D49640" stroke-width="1.25" stroke-opacity="0.40"
+    transform="rotate(45 92 332)"/>
+
+  <!-- Small square — lavender, top-right -->
+  <rect x="348" y="68" width="62" height="62" rx="3"
+    fill="#B87CAE" fill-opacity="0.12"
+    stroke="#B87CAE" stroke-width="1.25" stroke-opacity="0.45"
+    transform="rotate(18 379 99)"/>
+
+  <!-- Small filled circle — sage, left -->
+  <circle cx="68" cy="178" r="28"
+    fill="#4BAF82" fill-opacity="0.12"
+    stroke="#4BAF82" stroke-width="1.25" stroke-opacity="0.40"/>
+
+  <!-- Tiny accent circle — blue, bottom-right -->
+  <circle cx="388" cy="360" r="18"
+    fill="#3D62ED" fill-opacity="0.14"
+    stroke="#3D62ED" stroke-width="1" stroke-opacity="0.38"/>
+
+  <!-- Tiny diamond — peach, top-left -->
+  <rect x="44" y="88" width="32" height="32" rx="2"
+    fill="#E87A5B" fill-opacity="0.14"
+    stroke="#E87A5B" stroke-width="1" stroke-opacity="0.42"
+    transform="rotate(45 60 104)"/>
+
+  <!-- Accent cross-hair at center -->
+  <line x1="230" y1="208" x2="230" y2="272"
+    stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.12"/>
+  <line x1="198" y1="240" x2="262" y2="240"
+    stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.12"/>
+
+  <!-- Tick marks on medium ring (at cardinal points) -->
+  <line x1="230" y1="81" x2="230" y2="70"
+    stroke="#4BAF82" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round"/>
+  <line x1="385" y1="240" x2="396" y2="240"
+    stroke="#4BAF82" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round"/>
+  <line x1="230" y1="399" x2="230" y2="410"
+    stroke="#4BAF82" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
+  <line x1="75" y1="240" x2="64" y2="240"
+    stroke="#4BAF82" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Small dot — center -->
+  <circle cx="230" cy="240" r="3.5" fill="#ffffff" fill-opacity="0.35"/>
+  <!-- Ring dot at top -->
+  <circle cx="230" cy="81" r="3" fill="#4BAF82" fill-opacity="0.7"/>
+  <!-- Ring dot at right -->
+  <circle cx="385" cy="240" r="2.5" fill="#4BAF82" fill-opacity="0.55"/>
+
+</svg>

@@ -147,18 +147,15 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 45%, transparent 85%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 45%, transparent 85%);
 }
 
 .hero__svg {
   width: 100%;
   max-width: 480px;
   height: auto;
-  animation: float 8s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-14px); }
+  overflow: visible;
 }
 
 /* ── Scroll hint ── */
