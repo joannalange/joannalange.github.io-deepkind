@@ -6,6 +6,7 @@ import '@styles/global.css';
 import '@styles/components.css';
 import content from '@data/content';
 import PaletteWidget from '@dev/PaletteWidget.astro';
+import AccessibilityWidget from '@ui/AccessibilityWidget.astro';
 
 interface Props {
   title?: string;
@@ -71,6 +72,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
       <slot />
     </main>
     <Footer />
+    <AccessibilityWidget />
   </body>
 
   <script src="@scripts/reveal.ts"></script>

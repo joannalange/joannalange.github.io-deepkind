@@ -1,0 +1,331 @@
+<!-- Accessibility widget — floating panel, no dependencies -->
+<div class="a11y-widget" id="a11y-widget" aria-label="Ustawienia dostępności">
+
+  <button
+    class="a11y-trigger"
+    id="a11y-trigger"
+    aria-expanded="false"
+    aria-controls="a11y-panel"
+    aria-label="Otwórz ustawienia dostępności"
+    title="Dostępność"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/>
+      <path d="M9 11h3v7"/>
+      <path d="M9 18h6"/>
+    </svg>
+  </button>
+
+  <div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności" hidden>
+
+    <p class="a11y-panel__title">Dostępność</p>
+
+    <!-- Font size -->
+    <div class="a11y-group">
+      <span class="a11y-group__label">Rozmiar tekstu</span>
+      <div class="a11y-group__controls">
+        <button class="a11y-btn" id="a11y-font-decrease" aria-label="Zmniejsz tekst">A−</button>
+        <button class="a11y-btn a11y-btn--reset" id="a11y-font-reset" aria-label="Domyślny rozmiar tekstu">A</button>
+        <button class="a11y-btn" id="a11y-font-increase" aria-label="Zwiększ tekst">A+</button>
+      </div>
+    </div>
+
+    <!-- Contrast -->
+    <div class="a11y-group">
+      <span class="a11y-group__label">Kontrast</span>
+      <div class="a11y-group__controls">
+        <button class="a11y-btn a11y-toggle" id="a11y-contrast" aria-pressed="false" aria-label="Wysoki kontrast">Wysoki</button>
+      </div>
+    </div>
+
+    <!-- Colour filters -->
+    <div class="a11y-group">
+      <span class="a11y-group__label">Tryb kolorów</span>
+      <div class="a11y-group__controls a11y-group__controls--wrap">
+        <button class="a11y-btn a11y-toggle" data-filter="protanopia"   aria-pressed="false">Protanopia</button>
+        <button class="a11y-btn a11y-toggle" data-filter="deuteranopia" aria-pressed="false">Deuteranopia</button>
+        <button class="a11y-btn a11y-toggle" data-filter="tritanopia"   aria-pressed="false">Tritanopia</button>
+        <button class="a11y-btn a11y-toggle" data-filter="grayscale"    aria-pressed="false">Skala szarości</button>
+      </div>
+    </div>
+
+    <!-- Reset all -->
+    <button class="a11y-reset-all" id="a11y-reset-all">Resetuj wszystko</button>
+
+  </div>
+</div>
+
+<!-- SVG colour-blind filters (invisible) -->
+<svg class="a11y-filters-svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="filter-protanopia">
+      <feColorMatrix type="matrix" values="0.567 0.433 0     0 0
+                                            0.558 0.442 0     0 0
+                                            0     0.242 0.758 0 0
+                                            0     0     0     1 0"/>
+    </filter>
+    <filter id="filter-deuteranopia">
+      <feColorMatrix type="matrix" values="0.625 0.375 0   0 0
+                                            0.7   0.3   0   0 0
+                                            0     0.3   0.7 0 0
+                                            0     0     0   1 0"/>
+    </filter>
+    <filter id="filter-tritanopia">
+      <feColorMatrix type="matrix" values="0.95 0.05  0      0 0
+                                            0    0.433 0.567  0 0
+                                            0    0.475 0.525  0 0
+                                            0    0     0      1 0"/>
+    </filter>
+    <filter id="filter-grayscale">
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+</svg>
+
+<style>
+  /* ── Trigger button ── */
+  .a11y-widget {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+
+  .a11y-trigger {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-bg-dark);
+    color: var(--color-text-light);
+    border: 1.5px solid var(--white-15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .a11y-trigger:hover { transform: scale(1.08); background: var(--color-bg-card); }
+  .a11y-trigger svg { width: 20px; height: 20px; }
+
+  /* ── Panel ── */
+  .a11y-panel {
+    background: var(--color-bg-dark);
+    border: 1px solid var(--white-12);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  .a11y-panel[hidden] { display: none; }
+
+  .a11y-panel__title {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--on-dark-40);
+    margin: 0;
+  }
+
+  /* ── Groups ── */
+  .a11y-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .a11y-group__label {
+    font-size: var(--text-xs);
+    color: var(--on-dark-60);
+    font-family: var(--font-sans);
+  }
+  .a11y-group__controls {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .a11y-group__controls--wrap { flex-wrap: wrap; }
+
+  /* ── Buttons ── */
+  .a11y-btn {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    padding: 0.35em 0.75em;
+    border-radius: var(--radius-pill);
+    background: var(--white-08);
+    color: var(--on-dark-70);
+    border: 1px solid var(--white-12);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .a11y-btn:hover {
+    background: var(--white-15);
+    color: var(--on-dark-90);
+  }
+  .a11y-btn--reset { font-weight: 600; }
+  .a11y-btn[aria-pressed="true"],
+  .a11y-toggle.active {
+    background: var(--color-violet);
+    color: #fff;
+    border-color: var(--color-violet);
+  }
+
+  /* ── Reset all ── */
+  .a11y-reset-all {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--on-dark-35);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    transition: color 0.15s;
+  }
+  .a11y-reset-all:hover { color: var(--color-coral); }
+
+  /* ── Hidden SVG ── */
+  .a11y-filters-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const KEY = 'dk-a11y';
+  const html = document.documentElement;
+
+  // ── State ──────────────────────────────────────────────────────────────────
+  let state = {
+    fontSize: 0,      // -2 to +4 steps of 10%
+    contrast: false,
+    filter: null,     // 'protanopia' | 'deuteranopia' | 'tritanopia' | 'grayscale' | null
+  };
+
+  function load() {
+    try { state = { ...state, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch {}
+  }
+  function save() {
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }
+
+  // ── Apply ──────────────────────────────────────────────────────────────────
+  function apply() {
+    // Font size: set css custom property on html
+    html.style.setProperty('--a11y-font-scale', state.fontSize === 0 ? '' : `${1 + state.fontSize * 0.1}`);
+    if (state.fontSize === 0) {
+      html.style.removeProperty('--a11y-font-scale');
+      html.style.fontSize = '';
+    } else {
+      html.style.fontSize = `${100 + state.fontSize * 10}%`;
+    }
+
+    // Contrast
+    html.classList.toggle('a11y-high-contrast', state.contrast);
+
+    // Colour filter
+    const filters = ['protanopia','deuteranopia','tritanopia','grayscale'];
+    filters.forEach(f => html.classList.remove(`a11y-filter-${f}`));
+    if (state.filter) html.classList.add(`a11y-filter-${state.filter}`);
+
+    // Sync UI
+    syncUI();
+  }
+
+  function syncUI() {
+    // Font display (no visible counter, just enable/disable buttons)
+    const dec = document.getElementById('a11y-font-decrease');
+    const inc = document.getElementById('a11y-font-increase');
+    if (dec) dec.disabled = state.fontSize <= -2;
+    if (inc) inc.disabled = state.fontSize >= 4;
+
+    // Contrast toggle
+    const ct = document.getElementById('a11y-contrast');
+    if (ct) {
+      ct.setAttribute('aria-pressed', String(state.contrast));
+      ct.classList.toggle('active', state.contrast);
+    }
+
+    // Filter toggles
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      const active = btn.dataset.filter === state.filter;
+      btn.setAttribute('aria-pressed', String(active));
+      btn.classList.toggle('active', active);
+    });
+  }
+
+  // ── Panel toggle ───────────────────────────────────────────────────────────
+  const trigger = document.getElementById('a11y-trigger');
+  const panel   = document.getElementById('a11y-panel');
+
+  trigger?.addEventListener('click', () => {
+    const open = panel?.hasAttribute('hidden') === false;
+    if (open) {
+      panel.setAttribute('hidden', '');
+      trigger.setAttribute('aria-expanded', 'false');
+    } else {
+      panel?.removeAttribute('hidden');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!document.getElementById('a11y-widget')?.contains(e.target)) {
+      panel?.setAttribute('hidden', '');
+      trigger?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      panel?.setAttribute('hidden', '');
+      trigger?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // ── Controls ───────────────────────────────────────────────────────────────
+  document.getElementById('a11y-font-decrease')?.addEventListener('click', () => {
+    if (state.fontSize > -2) { state.fontSize--; save(); apply(); }
+  });
+  document.getElementById('a11y-font-increase')?.addEventListener('click', () => {
+    if (state.fontSize < 4) { state.fontSize++; save(); apply(); }
+  });
+  document.getElementById('a11y-font-reset')?.addEventListener('click', () => {
+    state.fontSize = 0; save(); apply();
+  });
+
+  document.getElementById('a11y-contrast')?.addEventListener('click', function() {
+    state.contrast = !state.contrast; save(); apply();
+  });
+
+  document.querySelectorAll('[data-filter]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      state.filter = state.filter === this.dataset.filter ? null : this.dataset.filter;
+      save(); apply();
+    });
+  });
+
+  document.getElementById('a11y-reset-all')?.addEventListener('click', () => {
+    state = { fontSize: 0, contrast: false, filter: null };
+    save(); apply();
+  });
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  load();
+  apply();
+</script>

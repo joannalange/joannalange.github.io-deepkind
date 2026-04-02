@@ -205,6 +205,26 @@ a { color: inherit; text-decoration: none; }
   .hero__live-dot       { animation: none; }
 }
 
+/* ── Accessibility widget states ───────────────────── */
+
+/* Colour-blind filters applied to the root element */
+html.a11y-filter-protanopia   { filter: url(#filter-protanopia); }
+html.a11y-filter-deuteranopia { filter: url(#filter-deuteranopia); }
+html.a11y-filter-tritanopia   { filter: url(#filter-tritanopia); }
+html.a11y-filter-grayscale    { filter: url(#filter-grayscale); }
+
+/* High contrast mode */
+html.a11y-high-contrast {
+  --color-text:     #000000;
+  --color-text-dim: #111111;
+  --color-bg-base:  #ffffff;
+  --color-bg-alt:   #f0f0f0;
+  --on-dark-90: rgba(255,255,255,1);
+  --on-dark-60: rgba(255,255,255,0.85);
+  --on-dark-50: rgba(255,255,255,0.75);
+  filter: contrast(1.15);
+}
+
 /* ── Keyframes ──────────────────────────────────────── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(18px); }
