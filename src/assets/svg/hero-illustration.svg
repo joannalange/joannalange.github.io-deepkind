@@ -1,81 +1,74 @@
-<svg class="hero__svg" viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg">
+<svg class="hero__svg" viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 
-  <!-- Large outer ring (dashed) — blue -->
-  <circle cx="230" cy="240" r="210"
-    stroke="#3D62ED" stroke-width="1" stroke-opacity="0.18"
-    stroke-dasharray="5 10" fill="none"/>
+  <!-- ── Five interlocking circles — diagonal chain composition ── -->
 
-  <!-- Medium ring — sage -->
-  <circle cx="230" cy="240" r="155"
-    stroke="#4BAF82" stroke-width="1.25" stroke-opacity="0.28"
-    fill="none"/>
+  <!-- C1: upper-right -->
+  <circle cx="368" cy="112" r="82"
+    stroke="#E6ECF8" stroke-width="1" stroke-opacity="0.22" fill="none"/>
 
-  <!-- Inner ring — peach -->
-  <circle cx="230" cy="240" r="95"
-    stroke="#E87A5B" stroke-width="1" stroke-opacity="0.32"
-    stroke-dasharray="3 7" fill="none"/>
+  <!-- C2: upper-left-center, largest -->
+  <circle cx="192" cy="158" r="118"
+    stroke="#E6ECF8" stroke-width="1" stroke-opacity="0.22" fill="none"/>
 
-  <!-- Large rotated square — blue -->
-  <rect x="110" y="100" width="240" height="240" rx="6"
-    fill="#3D62ED" fill-opacity="0.06"
-    stroke="#3D62ED" stroke-width="1.25" stroke-opacity="0.30"
-    transform="rotate(14 230 220)"/>
+  <!-- C3: middle-right -->
+  <circle cx="328" cy="278" r="108"
+    stroke="#E6ECF8" stroke-width="1" stroke-opacity="0.20" fill="none"/>
 
-  <!-- Medium rotated rectangle — peach, offset lower-right -->
-  <rect x="160" y="200" width="175" height="130" rx="4"
-    fill="#E87A5B" fill-opacity="0.07"
-    stroke="#E87A5B" stroke-width="1" stroke-opacity="0.28"
-    transform="rotate(-9 247 265)"/>
+  <!-- C4: lower-left -->
+  <circle cx="148" cy="348" r="94"
+    stroke="#E6ECF8" stroke-width="1" stroke-opacity="0.20" fill="none"/>
 
-  <!-- Diamond — gold (square rotated 45°) -->
-  <rect x="56" y="296" width="72" height="72" rx="3"
-    fill="#D49640" fill-opacity="0.10"
-    stroke="#D49640" stroke-width="1.25" stroke-opacity="0.40"
-    transform="rotate(45 92 332)"/>
+  <!-- C5: lower-center -->
+  <circle cx="284" cy="432" r="80"
+    stroke="#E6ECF8" stroke-width="1" stroke-opacity="0.18" fill="none"/>
 
-  <!-- Small square — lavender, top-right -->
-  <rect x="348" y="68" width="62" height="62" rx="3"
-    fill="#B87CAE" fill-opacity="0.12"
-    stroke="#B87CAE" stroke-width="1.25" stroke-opacity="0.45"
-    transform="rotate(18 379 99)"/>
 
-  <!-- Small filled circle — sage, left -->
-  <circle cx="68" cy="178" r="28"
-    fill="#4BAF82" fill-opacity="0.12"
-    stroke="#4BAF82" stroke-width="1.25" stroke-opacity="0.40"/>
+  <!-- ── Accent dots at intersection / node points ── -->
 
-  <!-- Tiny accent circle — blue, bottom-right -->
-  <circle cx="388" cy="360" r="18"
-    fill="#3D62ED" fill-opacity="0.14"
-    stroke="#3D62ED" stroke-width="1" stroke-opacity="0.38"/>
+  <!-- C1 ∩ C2 — upper -->
+  <circle cx="290" cy="50"  r="5.5" fill="#3D62ED"/>
 
-  <!-- Tiny diamond — peach, top-left -->
-  <rect x="44" y="88" width="32" height="32" rx="2"
-    fill="#E87A5B" fill-opacity="0.14"
-    stroke="#E87A5B" stroke-width="1" stroke-opacity="0.42"
-    transform="rotate(45 60 104)"/>
+  <!-- C1 ∩ C2 — lower -->
+  <circle cx="285" cy="192" r="5"   fill="#B87CAE"/>
 
-  <!-- Accent cross-hair at center -->
-  <line x1="230" y1="208" x2="230" y2="272"
-    stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.12"/>
-  <line x1="198" y1="240" x2="262" y2="240"
-    stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.12"/>
+  <!-- C1 — far-right node -->
+  <circle cx="449" cy="120" r="4"   fill="#E87A5B"/>
 
-  <!-- Tick marks on medium ring (at cardinal points) -->
-  <line x1="230" y1="81" x2="230" y2="70"
-    stroke="#4BAF82" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round"/>
-  <line x1="385" y1="240" x2="396" y2="240"
-    stroke="#4BAF82" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round"/>
-  <line x1="230" y1="399" x2="230" y2="410"
-    stroke="#4BAF82" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
-  <line x1="75" y1="240" x2="64" y2="240"
-    stroke="#4BAF82" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
+  <!-- C2 ∩ C3 — upper -->
+  <circle cx="270" cy="166" r="6"   fill="#4BAF82"/>
 
-  <!-- Small dot — center -->
-  <circle cx="230" cy="240" r="3.5" fill="#ffffff" fill-opacity="0.35"/>
-  <!-- Ring dot at top -->
-  <circle cx="230" cy="81" r="3" fill="#4BAF82" fill-opacity="0.7"/>
-  <!-- Ring dot at right -->
-  <circle cx="385" cy="240" r="2.5" fill="#4BAF82" fill-opacity="0.55"/>
+  <!-- C2 ∩ C3 — lower -->
+  <circle cx="248" cy="292" r="5"   fill="#D49640"/>
+
+  <!-- C2 ∩ C4 — mid-left -->
+  <circle cx="162" cy="258" r="5.5" fill="#E87A5B"/>
+
+  <!-- C2 — far-left node -->
+  <circle cx="75"  cy="158" r="4"   fill="#B87CAE"/>
+
+  <!-- C3 ∩ C4 — crossing point -->
+  <circle cx="232" cy="308" r="5.5" fill="#3D62ED"/>
+
+  <!-- C3 — far-right node -->
+  <circle cx="434" cy="288" r="4"   fill="#4BAF82"/>
+
+  <!-- C4 ∩ C5 — crossing point -->
+  <circle cx="214" cy="400" r="6"   fill="#D49640"/>
+
+  <!-- C4 — bottom node -->
+  <circle cx="148" cy="440" r="4"   fill="#E87A5B"/>
+
+  <!-- C5 — far-left node -->
+  <circle cx="206" cy="440" r="4.5" fill="#B87CAE"/>
+
+  <!-- C5 — far-right node -->
+  <circle cx="362" cy="430" r="4"   fill="#3D62ED"/>
+
+  <!-- C2 — top node -->
+  <circle cx="192" cy="40"  r="4.5" fill="#4BAF82"/>
+
+  <!-- small accent dash — echoes the image's blue rectangle motif -->
+  <rect x="268" y="310" width="14" height="5" rx="2.5"
+    fill="#3D62ED" opacity="0.85" transform="rotate(-18 275 312)"/>
 
 </svg>
