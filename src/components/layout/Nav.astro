@@ -13,15 +13,22 @@ const { links, cta } = content.navigation;
         <span class="nav__wordmark">DeepKind</span>
       </a>
 
-      <!-- All links except the last, which is promoted to the CTA pill -->
       <ul class="nav__links" id="nav-links">
-        {links.slice(0, -1).map(link => (
-          <li><a href={link.url} class="nav__link">{link.name}</a></li>
+        {links.slice(0, -1).map((link, i) => (
+          <li><a href={link.url} class="nav__link" data-i18n={`navigation.links.${i}.name`}>{link.name}</a></li>
         ))}
       </ul>
 
       <div class="nav__actions">
-        <a href={cta.href} class="nav__cta">{cta.label}</a>
+
+        <!-- Language toggle -->
+        <button class="nav__lang-toggle" id="lang-toggle" aria-label="Switch to English">
+          <span class="nav__lang" data-lang="pl">PL</span>
+          <span class="nav__lang-sep" aria-hidden="true">|</span>
+          <span class="nav__lang" data-lang="en">ENG</span>
+        </button>
+
+        <a href={cta.href} class="nav__cta" data-i18n="navigation.cta.label">{cta.label}</a>
         <button
           class="nav__hamburger"
           id="nav-toggle"

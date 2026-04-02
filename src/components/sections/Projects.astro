@@ -15,7 +15,7 @@ const accentMap: Record<string, string> = {
   <div class="wrap">
 
     <header class="projects__header reveal">
-      <h2 class="projects__title">{header}</h2>
+      <h2 class="projects__title" data-i18n="projects.header">{header}</h2>
     </header>
 
     <ol class="projects__list">
@@ -42,9 +42,9 @@ const accentMap: Record<string, string> = {
             </div>
 
             <div class="project-row__content">
-              <span class="project-row__subtitle">{item.subtitle}</span>
+              <span class="project-row__subtitle" data-i18n={`projects.items.${i}.subtitle`}>{item.subtitle}</span>
               <h3 class="project-row__title">{item.title}</h3>
-              <p class="project-row__desc">{item.description}</p>
+              <p class="project-row__desc" data-i18n={`projects.items.${i}.description`}>{item.description}</p>
             </div>
 
             <span class="project-row__arrow" aria-hidden="true">↗</span>

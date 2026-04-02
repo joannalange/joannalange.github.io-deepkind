@@ -9,8 +9,8 @@ const socials = content.footer.connect.filter(l => !l.url.startsWith('mailto:'))
   <div class="wrap">
     <div class="contact__inner reveal">
 
-      <h2 class="contact__heading">{heading}</h2>
-      <p class="contact__desc">{description}</p>
+      <h2 class="contact__heading" data-i18n="contact.heading">{heading}</h2>
+      <p class="contact__desc" data-i18n="contact.description">{description}</p>
 
       <div class="contact__links">
         {email && (

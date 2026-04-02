@@ -7,18 +7,18 @@ const { intro, options } = content.getInvolved;
   <div class="wrap">
 
     <header class="gi__header reveal">
-      <h2 class="gi__title">Włącz się</h2>
-      <p class="gi__intro">{intro}</p>
+      <h2 class="gi__title" data-i18n="getInvolved.heading">Włącz się</h2>
+      <p class="gi__intro" data-i18n="getInvolved.intro">{intro}</p>
     </header>
 
     <div class="gi__options">
       {options.map((option, i) => (
         <div class={`gi-card gi-card--${option.theme} reveal`} data-reveal-delay={String(i)}>
           <div class="gi-card__body">
-            <h3 class="gi-card__title">{option.title}</h3>
-            <p class="gi-card__desc">{option.description}</p>
+            <h3 class="gi-card__title" data-i18n={`getInvolved.options.${i}.title`}>{option.title}</h3>
+            <p class="gi-card__desc" data-i18n={`getInvolved.options.${i}.description`}>{option.description}</p>
           </div>
-          <a href={option.url} class="gi-card__cta">{option.cta}</a>
+          <a href={option.url} class="gi-card__cta" data-i18n={`getInvolved.options.${i}.cta`}>{option.cta}</a>
         </div>
       ))}
     </div>

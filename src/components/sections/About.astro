@@ -9,9 +9,9 @@ const { title, paragraphs } = content.about;
     <div class="about__layout">
 
       <div class="about__text reveal">
-        <h2 class="about__headline">{title}</h2>
+        <h2 class="about__headline" data-i18n="about.title">{title}</h2>
         <div class="about__body">
-          {paragraphs.map(p => <p>{p}</p>)}
+          {paragraphs.map((p, i) => <p data-i18n={`about.paragraphs.${i}`}>{p}</p>)}
         </div>
       </div>
 

@@ -15,7 +15,7 @@ const accentMap: Record<string, string> = {
   <div class="wrap">
 
     <header class="areas__header reveal">
-      <h2 class="areas__title">{header}</h2>
+      <h2 class="areas__title" data-i18n="areas.header">{header}</h2>
     </header>
 
     <div class="areas__grid">
@@ -26,13 +26,13 @@ const accentMap: Record<string, string> = {
           data-reveal-delay={String(Math.min(i, 3))}
         >
           <div class="area-card__dot" aria-hidden="true"></div>
-          <h3 class="area-card__title">{area.title}</h3>
+          <h3 class="area-card__title" data-i18n={`areas.items.${i}.title`}>{area.title}</h3>
           <ul class="area-card__tags" aria-label="Tagi">
-            {area.tags.map(tag => (
-              <li class="area-card__tag">{tag}</li>
+            {area.tags.map((tag, j) => (
+              <li class="area-card__tag" data-i18n={`areas.items.${i}.tags.${j}`}>{tag}</li>
             ))}
           </ul>
-          <p class="area-card__desc">{area.description}</p>
+          <p class="area-card__desc" data-i18n={`areas.items.${i}.description`}>{area.description}</p>
         </article>
       ))}
     </div>
