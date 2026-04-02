@@ -91,10 +91,19 @@
   transform: translateY(-1px);
 }
 
-/* Accent top border per theme */
-.gi-card--volunteer { border-top: 3px solid var(--color-violet); }
-.gi-card--donate    { border-top: 3px solid var(--color-mint); }
-.gi-card--partner   { border-top: 3px solid var(--color-coral); }
+/* Accent top border + subtle gradient per theme */
+.gi-card--volunteer {
+  border-top: 3px solid var(--color-violet);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--color-violet) 12%, transparent) 0%, var(--white-06) 50%);
+}
+.gi-card--donate {
+  border-top: 3px solid var(--color-mint);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--color-mint) 12%, transparent) 0%, var(--white-06) 50%);
+}
+.gi-card--partner {
+  border-top: 3px solid var(--color-coral);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--color-coral) 12%, transparent) 0%, var(--white-06) 50%);
+}
 
 @media (max-width: 1024px) {
   .gi__options { grid-template-columns: 1fr 1fr; }

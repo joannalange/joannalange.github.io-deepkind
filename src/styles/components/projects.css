@@ -49,12 +49,13 @@
 .project-row__index {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--ink-14);
+  color: var(--row-accent, var(--ink-14));
   letter-spacing: 0.05em;
   flex-shrink: 0;
   line-height: 1;
   align-self: start;
   padding-top: 0.2em;
+  opacity: 0.55;
 }
 
 /* Thumbnail — small, square, rounded */
