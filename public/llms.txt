@@ -23,4 +23,3 @@ DeepKind Foundation tworzy inicjatywy społeczne i edukacyjne na przecięciu tec
 
 - Strona: https://deepkind.org
 - Email: hello@deepkind.org
-- GitHub: https://github.com/friendly-ai-agent
