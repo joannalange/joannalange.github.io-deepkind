@@ -57,3 +57,11 @@
 - [ ] project-kindness.webp — "Diverse group of elementary school children sitting in a circle on a classroom floor, engaged in a collaborative hands-on workshop. Smiling faces, craft materials visible, soft warm classroom light. Photorealistic, editorial photography. Aspect ratio 3:2."
 - [ ] project-retreat.webp — "Small group of women in their 30s-40s sitting together in a forest clearing at golden hour, relaxed conversation, nature retreat atmosphere, firepit visible. Photorealistic, editorial photography. Aspect ratio 3:2."
 - [ ] project-hackathon.webp — "Energetic university students (18-25) working intensely at long tables with laptops, sticky notes, whiteboards in modern open space. Hackathon energy, mixed group. Photorealistic, editorial photography. Aspect ratio 3:2."
+
+
+## Manually added tasks 
+- [ ] Step 34: Add 'regulamin darowizn' based on deepkind.org (linked in the footer) - DO NOT change any text, include ALL of it
+- [ ] Step 35: change e-mail on the polityka prywatnosci from hello@deepkind.org to rodo@deepkind.org
+- [ ] Step 36: Remove all references to 'Callum', friendly-ai-agent, its github - and anything else
+- [ ] Step 37: Add a widget 'accessibility' that allows for all the basic accessibility adjustments (text size, color adjustments for colorblind,etc.)
+- [ ] Step 38: Add an option to change language - in the navbar - to switch between polish and english - don't make it flags but 'ENG | PL' - for this you will need to add a translated content in maybe a separate json file? In case there are any ambigiuities or doubts - don't assume but ASK
