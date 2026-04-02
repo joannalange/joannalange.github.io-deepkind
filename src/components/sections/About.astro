@@ -1,43 +1,43 @@
 ---
 import content from '@data/content';
-const { protocol, status, title, paragraphs } = content.about;
+const { title, paragraphs } = content.about;
 ---
 
 <section class="about" id="about" aria-label="O nas">
   <div class="wrap">
     <div class="about__layout">
 
-      <!-- Text -->
       <div class="about__text reveal">
-
-        <div class="about__meta">
-          <span class="s-label s-label--dim">{protocol}</span>
-          <span class="s-label s-label--dim">{status}</span>
-        </div>
-
-        <h2 class="about__headline grad-calm">{title}</h2>
-
+        <h2 class="about__headline">{title}</h2>
         <div class="about__body">
-          {paragraphs.map(p => (
-            <p set:html={p} />
-          ))}
+          {paragraphs.map(p => <p>{p}</p>)}
         </div>
-
       </div>
 
-      <!-- Photo with floating accent card -->
-      <div class="about__photo-wrap reveal reveal-delay-2">
-        <img
-          src="/img/about-abstract.png"
-          alt="Życzliwość tworzy fale"
-          class="about__photo"
-          loading="lazy"
-          width="720"
-          height="540"
-        />
-        <div class="about__accent" aria-hidden="true">
-          <span class="about__accent-num">∞</span>
-          <span class="about__accent-label">Możliwości</span>
+      <div class="about__visual reveal reveal-delay-2" aria-hidden="true">
+        <div class="about__shape">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="about-g1" cx="40%" cy="35%" r="55%">
+                <stop offset="0%" stop-color="var(--color-violet)" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="var(--color-violet)" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="about-g2" cx="65%" cy="70%" r="45%">
+                <stop offset="0%" stop-color="var(--color-mint)" stop-opacity="0.14"/>
+                <stop offset="100%" stop-color="var(--color-mint)" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="160" cy="150" rx="130" ry="120" fill="url(#about-g1)"/>
+            <ellipse cx="255" cy="270" rx="110" ry="100" fill="url(#about-g2)"/>
+            <circle cx="200" cy="200" r="72" stroke="var(--ink-08)" stroke-width="1" fill="none"/>
+            <circle cx="200" cy="200" r="120" stroke="var(--ink-08)" stroke-width="1" fill="none" stroke-dasharray="4 8"/>
+            <circle cx="200" cy="128" r="5" fill="var(--color-violet)" opacity="0.5"/>
+            <circle cx="272" cy="200" r="4" fill="var(--color-mint)" opacity="0.5"/>
+            <circle cx="200" cy="272" r="3" fill="var(--color-coral)" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="about__quote">
+          <p>Życzliwość staje się praktyką,<br/>a odpowiedzialność — fundamentem przyszłości.</p>
         </div>
       </div>
 

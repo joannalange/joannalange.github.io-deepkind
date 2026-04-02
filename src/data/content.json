@@ -1,203 +1,210 @@
 {
   "navigation": {
     "links": [
-      {
-        "name": "Projekty",
-        "url": "#projects"
-      },
-      {
-        "name": "O nas",
-        "url": "#about"
-      },
-      {
-        "name": "Działaj",
-        "url": "#support"
-      }
+      { "name": "Projekty", "url": "#projects" },
+      { "name": "O nas", "url": "#about" },
+      { "name": "Działaj", "url": "#join" }
     ],
-    "cta": {
-      "label": "Działaj",
-      "href": "#support"
-    }
+    "cta": { "label": "Dołącz do nas", "href": "#join" }
   },
   "hero": {
-    "protocol": "DEEPKIND // FUNDACJA",
-    "titlePrefix": "Życzliwość to",
-    "titleHighlight": "Energia,",
-    "titleSuffix": "która porusza świat!",
-    "description": "Tworzymy inicjatywy, które łączą ludzi, technologię i troskę, tworząc ruch, który inspiruje do życia z energią, empatią i uważnością.",
-    "cta": "Eksploruj projekty",
-    "secondaryCta": {
-      "label": "O nas",
-      "href": "#about"
-    },
-    "stats": [
+    "title": "Technologia, która służy. Człowiek, który decyduje.",
+    "subtitle": "Łączymy technologię z życzliwością. Tworzymy przestrzeń do rozmowy o tym, jak projektować odpowiedzialnie — tak, by wspierać ludzi, a nie ich przeciążać. Stawiamy na empatię, etykę i dobrostan, bo wierzymy, że innowacje mogą i powinny działać na rzecz człowieka.",
+    "cta": "Poznaj nasze projekty",
+    "secondaryCta": { "label": "Dołącz do nas", "href": "#join" }
+  },
+  "areas": {
+    "header": "Obszary działań",
+    "items": [
       {
-        "value": "5",
-        "label": "obszarów działań"
+        "id": "tech",
+        "title": "Technologia i odpowiedzialność",
+        "tags": ["Ethical AI", "dezinformacja", "cyberbezpieczeństwo", "tech for good", "środowisko i klimat"],
+        "description": "Technologia zmienia świat — pytamy, czy robi to dobrze. Wspieramy rozwiązania, które służą ludziom i planecie, nie tylko wzrostowi.",
+        "accent": "blue"
       },
       {
-        "value": "4",
-        "label": "aktywne projekty"
+        "id": "women",
+        "title": "Kobieca sprawczość",
+        "tags": ["Female leadership", "community", "przedsiębiorczość z celem"],
+        "description": "Wspieramy kobiety, które chcą działać na własnych zasadach. Budujemy wspólnotę opartą na zaufaniu i współpracy.",
+        "accent": "sage"
       },
       {
-        "value": "PL",
-        "label": "Polska"
+        "id": "diversity",
+        "title": "Różnorodność i dialog",
+        "tags": ["Neurodiversity", "międzypokoleniowość", "relacje", "inkluzywność"],
+        "description": "Wierzymy, że różne style myślenia, wrażliwości i pokoleń są siłą. Tworzymy przestrzenie, w których te różnice stają się wartością.",
+        "accent": "lavender"
+      },
+      {
+        "id": "wellbeing",
+        "title": "Dobrostan i przywództwo",
+        "tags": ["Burn-out", "balanced leadership", "uważność", "wellbeing"],
+        "description": "Odpowiadamy na presję ciągłej dostępności. Pomagamy liderom i organizacjom odzyskać równowagę i działać z większą świadomością.",
+        "accent": "peach"
+      },
+      {
+        "id": "purpose",
+        "title": "Przedsiębiorczość z celem",
+        "tags": ["Business for good", "impact", "purpose-driven"],
+        "description": "Wspieramy firmy i inicjatywy, które łączą skuteczność z realnym wpływem na ludzi i środowisko.",
+        "accent": "gold"
       }
     ]
   },
-  "bento": {
-    "header": "Obszary działań",
-    "protocol": "AREAS_OF_ACTION",
-    "areas": [
+  "projects": {
+    "header": "Nasze projekty",
+    "items": [
       {
-        "id": "tech",
-        "tag": "Deep // Tech",
-        "title": "Odpowiedzialne Technologie",
-        "description": "Analiza etyczna algorytmów i systemów autonomicznych. Budujemy mosty między logiką a empatią.",
-        "variant": "wide",
-        "accent": "violet"
+        "title": "GrowUp Hackathon",
+        "subtitle": "Technologia dla młodych dorosłych",
+        "description": "Dla osób 18–26 lat. Pracujemy nad realnymi wyzwaniami współczesności — od stresu po odnalezienie się w świecie zmian — wykorzystując technologię i kreatywne myślenie.",
+        "image": "/img/project-hackathon.webp",
+        "cta": "Więcej..",
+        "url": "#",
+        "accent": "blue"
       },
       {
-        "id": "nature",
-        "tag": "Deep // Nature",
-        "title": "Troska o przyrodę",
-        "description": "Pokazujemy, że technologia i troska o planetę mogą iść w parze.",
-        "variant": "standard",
-        "accent": "mint"
+        "title": "Deep & Kind Retreat",
+        "subtitle": "Przestrzeń dla kobiet w tech i biznesie",
+        "description": "Czas na zatrzymanie. Regeneracja, szczere rozmowy i kontakt z naturą — dla kobiet, które na co dzień działają w szybkim tempie.",
+        "image": "/img/project-retreat.webp",
+        "cta": "Więcej..",
+        "url": "#",
+        "accent": "sage"
       },
       {
-        "id": "neuro",
-        "tag": "Deep // Neuro",
-        "title": "Neuroatypowość",
-        "description": "Projektowanie systemów wspierających różnorodność poznawczą.",
-        "variant": "standard",
-        "accent": "coral"
+        "title": "Minds & Muscles",
+        "subtitle": "Ruch, troska i relacje",
+        "description": "Program dla dzieci i rodziców, który łączy aktywność fizyczną z budowaniem więzi — w prosty, dostępny sposób.",
+        "image": "/img/project-minds.webp",
+        "cta": "Więcej..",
+        "url": "#",
+        "accent": "peach"
       },
       {
-        "id": "agency",
-        "tag": "Impact // Agency",
-        "title": "Kobieca Sprawczość",
-        "description": "Wzmacniamy kobiety, które chcą działać po swojemu — z odwagą.",
-        "variant": "lead",
-        "accent": "gold"
-      },
-      {
-        "id": "empathy",
-        "tag": "Mission // Heart",
-        "title": "Życzliwość i Empatia",
-        "description": "Budujemy kulturę współodczuwania.",
-        "variant": "standard",
-        "accent": "rose"
+        "title": "Wisdom of Generation",
+        "subtitle": "Doświadczenie, którego technologia potrzebuje",
+        "description": "Przeciwdziałamy wykluczeniu doświadczonych ekspertek w świecie technologii. Wspieramy kobiety 45+, wzmacniając ich widoczność i przygotowując do ról liderskich w erze AI — tam, gdzie decyzje mają realny wpływ.",
+        "image": "/img/project-wisdom.webp",
+        "cta": "Więcej..",
+        "url": "#",
+        "accent": "lavender"
       }
     ]
   },
   "about": {
-    "header": "O nas",
-    "protocol": "MANIFEST",
-    "status": "OBSERVED_DATA",
-    "title": "Technologia z ludzką twarzą.",
+    "title": "Technologia potrzebuje człowieka",
     "paragraphs": [
-      "Wierzymy, że technologia to nie tylko narzędzie, ale <strong>energia</strong>, która odpowiednio ukierunkowana, może wspierać rozwój i dobrostan człowieka.",
-      "DeepKind powstało z potrzeby budowania mostów pomiędzy zaawansowaną inżynierią a autentyczną <strong>ludzką życzliwością</strong>. Analizujemy systemy, audytujemy etykę i tworzymy przestrzenie, w których różnorodność poznawcza jest traktowana jako najwyższa wartość."
+      "Fundacja DeepKind powstała z idei, że w świecie pełnym zmian potrzebujemy nowych sposobów myślenia — opartych na empatii, uważności i odpowiedzialnym wykorzystaniu wiedzy oraz technologii. Działamy na przecięciu edukacji, humanistyki i innowacji, tworząc przestrzenie, w których refleksja spotyka się z praktycznym działaniem.",
+      "W centrum naszych działań leży troska o człowieka — jego dobrostan, relacje i sprawczość — oraz przekonanie, że technologia powinna służyć jako narzędzie wzmacniające, nie dominujące. Łączymy różne perspektywy i partnerów, budując ekosystem, który sprzyja powstawaniu zmian trwałych i zakorzenionych w wartościach.",
+      "DeepKind to przestrzeń, w której życzliwość staje się praktyką, a odpowiedzialność — fundamentem przyszłości."
     ]
   },
-  "projects": {
-    "header": "Nasze Projekty",
-    "protocol": "PROJECT_REGISTRY",
-    "items": [
-      {
-        "title": "Minds & Muscles",
-        "category": "Ciało i umysł w jednym rytmie",
-        "description": "Program zajęć dla dzieci i opiekunów, którzy ćwiczą równolegle — każde w swojej przestrzeni, ale w tym samym rytmie.",
-        "image": "/img/project-minds.webp",
-        "cta": "SZCZEGÓŁY",
-        "url": "#",
-        "accent": "violet"
-      },
-      {
-        "title": "Kindness Lab",
-        "category": "Eksperyment z dobrem",
-        "description": "Dzieci uczą się przez doświadczenie, więc uczymy dobra w praktyce. Kindness Lab to warsztaty, w których empatia, współpraca i troska o innych stają się częścią szkolnej codzienności.",
-        "image": "/img/project-kindness.webp",
-        "cta": "DOKUMENTACJA",
-        "url": "#",
-        "accent": "mint"
-      },
-      {
-        "title": "Deep & Kind Retreat",
-        "category": "Zresetuj się w trybie naturalnym",
-        "description": "Wyjazdy dla kobiet z branży technologicznej, które chcą na chwilę wylogować się z codziennego tempa i połączyć z tym, co naprawdę ważne.",
-        "image": "/img/project-retreat.webp",
-        "cta": "HARMONOGRAM",
-        "url": "#",
-        "accent": "coral"
-      },
-      {
-        "title": "GrowUP Hackathon",
-        "category": "Młodzi hakują dorosłość",
-        "description": "GrowUP Hackaton pod hasłem „Hakuj dorosłość – wymyśl lepsze jutro!” – to inicjatywa grupy studentów działającej w ramach Fundacji DeepKind.",
-        "image": "/img/project-hackathon.webp",
-        "cta": "ZGŁOSZENIA",
-        "url": "#",
-        "accent": "gold"
-      }
-    ]
-  },
-  "support": {
-    "header": "Włącz się",
-    "subtext": "Wspieraj nasze działania i buduj z nami świat, w którym technologia służy człowiekowi. Każda forma wsparcia ma znaczenie.",
+  "getInvolved": {
+    "intro": "Wspieraj nasze działania i buduj z nami świat, w którym technologia służy człowiekowi. Każda forma zaangażowania ma znaczenie.",
     "options": [
       {
-        "title": "Zostań Wolontariuszem",
-        "description": "Podziel się swoją wiedzą i czasem. Szukamy mentorów, programistów i pasjonatów edukacji.",
-        "cta": "DOŁĄCZ",
+        "title": "Dołącz do nas",
+        "description": "Podziel się swoją wiedzą i czasem. Jeśli działasz w technologii, badaniach lub komunikacji — możesz współtworzyć nasze projekty.",
+        "cta": "Dołącz →",
         "url": "#",
         "theme": "volunteer"
       },
       {
-        "title": "Wesprzyj Finansowo",
-        "description": "Twoje darowizny pozwalają nam realizować bezpłatne warsztaty i programy dla dzieci i kobiet.",
-        "cta": "WPŁAĆ",
+        "title": "Wesprzyj nasze działania",
+        "description": "Twoje wsparcie pozwala nam realizować bezpłatne programy i inicjatywy dla dzieci, kobiet i społeczności.",
+        "cta": "Wesprzyj →",
         "url": "#",
         "theme": "donate"
+      },
+      {
+        "title": "Twórzmy razem",
+        "description": "Współpracujemy z organizacjami i firmami, które chcą działać odpowiedzialnie i mieć realny wpływ.",
+        "cta": "Nawiąż współpracę →",
+        "url": "#",
+        "theme": "partner"
       }
     ]
   },
-  "footer": {
-    "description": "Merging Humanity with Technology. Built for everyone.",
-    "copyright": "© 2026 DeepKind Foundation. Wszystkie prawa zastrzeżone.",
-    "location": "Location // Earth // Strata_01",
-    "legal": [
+  "faq": {
+    "items": [
       {
-        "name": "Polityka prywatności",
-        "url": "#"
+        "question": "Czym jest Fundacja DeepKind?",
+        "answer": "Fundacja DeepKind to inicjatywa działająca na styku technologii, humanistyki i edukacji. Tworzymy przestrzenie, w których rozwój technologii idzie w parze z troską o człowieka, jego dobrostan i relacje."
       },
       {
-        "name": "Polityka cookies",
-        "url": "/polityka-cookies"
+        "question": "Dlaczego technologia potrzebuje dziś więcej uważności?",
+        "answer": "Bo jej wpływ wykracza daleko poza funkcjonalność. Kształtuje sposób, w jaki myślimy, pracujemy i budujemy relacje. Uważność pozwala projektować rozwiązania, które wspierają ludzi — zamiast ich przeciążać."
       },
       {
-        "name": "Regulamin",
-        "url": "#"
+        "question": "Co oznacza dla Was \u201etechnologia, która służy\u201d?",
+        "answer": "To technologia tworzona z myślą o człowieku — jego dobrostanie, możliwościach i ograniczeniach. Nie chodzi tylko o innowacyjność, ale o odpowiedzialność za realny wpływ."
       },
       {
-        "name": "Statut",
-        "url": "#"
-      }
-    ],
-    "connect": [
-      {
-        "name": "GitHub",
-        "url": "https://github.com/friendly-ai-agent"
+        "question": "Do kogo kierowane są Wasze działania?",
+        "answer": "Nasze działania kierujemy do osób pracujących w technologii i biznesie, kobiet rozwijających swoją sprawczość, młodych dorosłych, a także do dzieci i rodzin. Współpracujemy również z organizacjami i firmami."
       },
       {
-        "name": "LinkedIn",
-        "url": "#"
+        "question": "Jak mogę się zaangażować?",
+        "answer": "Możesz dołączyć jako wolontariusz, wesprzeć nasze działania finansowo lub nawiązać z nami partnerstwo. Każda forma zaangażowania ma znaczenie i realnie wpływa na rozwój naszych inicjatyw."
       },
       {
-        "name": "Email",
-        "url": "mailto:hello@deepkind.org"
+        "question": "Czy udział w projektach jest płatny?",
+        "answer": "Część naszych programów jest bezpłatna, szczególnie te skierowane do dzieci, młodych dorosłych i społeczności. Niektóre inicjatywy mogą mieć formę płatną — informujemy o tym zawsze indywidualnie przy danym projekcie."
+      },
+      {
+        "question": "Dlaczego łączycie technologię z humanistyką?",
+        "answer": "Bo same kompetencje techniczne nie wystarczą, by odpowiadać na złożone wyzwania współczesności. Potrzebujemy też refleksji, etyki i zrozumienia człowieka — jego emocji, motywacji i kontekstu."
+      },
+      {
+        "question": "Co wyróżnia Wasze podejście do rozwoju i przywództwa?",
+        "answer": "Stawiamy na równowagę zamiast ciągłego przyspieszenia. Wierzymy, że świadome przywództwo zaczyna się od kontaktu ze sobą — dopiero potem przekłada się na decyzje, zespoły i organizacje."
+      },
+      {
+        "question": "Czy to przestrzeń tylko dla osób z branży technologicznej?",
+        "answer": "Nie. Choć technologia jest ważnym kontekstem, nasze działania są dla wszystkich, którzy chcą działać bardziej świadomie — niezależnie od branży."
+      },
+      {
+        "question": "Czy współpracujecie z firmami i organizacjami?",
+        "answer": "Tak — współpracujemy z partnerami, którzy chcą działać odpowiedzialnie i tworzyć rozwiązania z realnym wpływem społecznym i środowiskowym."
+      },
+      {
+        "question": "Gdzie działacie?",
+        "answer": "Działamy głównie w Polsce, ale nasze inicjatywy i współprace mają również charakter międzynarodowy."
+      },
+      {
+        "question": "Jaką zmianę chcecie realnie wspierać?",
+        "answer": "Taką, która jest trwała i zakorzeniona w wartościach — nie tylko szybka i powierzchowna. Interesuje nas zmiana, która wzmacnia ludzi, buduje relacje i tworzy zdrowsze środowiska pracy i życia."
       }
     ]
+  },
+  "contact": {
+    "heading": "Porozmawiajmy",
+    "description": "Masz pomysł, pytanie albo czujesz, że to bliskie temu, co robisz? Napisz do nas."
+  },
+  "footer": {
+    "description": "Merging Humanity with Technology. Built for everyone.",
+    "tagline": "Technologia. Człowiek. Równowaga.",
+    "org": {
+      "name": "Fundacja DeepKind",
+      "city": "Warszawa, Polska",
+      "nip": "5214132486",
+      "krs": "0001193215"
+    },
+    "legal": [
+      { "name": "Polityka prywatności", "url": "#" },
+      { "name": "Polityka cookies", "url": "/polityka-cookies" },
+      { "name": "Regulamin darowizn", "url": "#" },
+      { "name": "Statut", "url": "#" }
+    ],
+    "connect": [
+      { "name": "Email", "url": "mailto:hello@deepkind.org" },
+      { "name": "LinkedIn", "url": "#" },
+      { "name": "Instagram", "url": "#" },
+      { "name": "Facebook", "url": "#" }
+    ],
+    "copyright": "© 2026 DeepKind Foundation"
   }
 }

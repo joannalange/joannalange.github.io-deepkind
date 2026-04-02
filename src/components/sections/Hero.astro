@@ -1,113 +1,40 @@
 ---
 import content from '@data/content';
-const { protocol, titlePrefix, titleHighlight, titleSuffix, description, cta, secondaryCta, stats } = content.hero;
+const { title, subtitle, cta, secondaryCta } = content.hero;
+
+const splitIdx = title.indexOf('. ');
+const line1 = splitIdx !== -1 ? title.slice(0, splitIdx + 1) : title;
+const line2 = splitIdx !== -1 ? title.slice(splitIdx + 2) : '';
 ---
 
 <section class="hero" id="home" aria-label="Hero">
 
-  <div class="hero__aurora" aria-hidden="true"></div>
-  <div class="hero__noise"  aria-hidden="true"></div>
-
-  <!-- Orbital graphic — decorative, right side -->
-  <div class="hero__graphic" aria-hidden="true">
-    <svg viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="hg-bg" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stop-color="rgb(124,92,252)"  stop-opacity="0.18"/>
-          <stop offset="55%"  stop-color="rgb(124,92,252)"  stop-opacity="0.06"/>
-          <stop offset="100%" stop-color="rgb(124,92,252)"  stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="hg-core" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stop-color="rgb(255,255,255)" stop-opacity="0.55"/>
-          <stop offset="100%" stop-color="rgb(124,92,252)"  stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-
-      <!-- Soft background bloom -->
-      <circle cx="280" cy="280" r="268" fill="url(#hg-bg)"/>
-
-      <!-- Rings — outermost to innermost -->
-      <circle cx="280" cy="280" r="252" stroke="rgba(124,92,252,0.18)" stroke-width="1"/>
-      <circle cx="280" cy="280" r="200" stroke="rgba(124,92,252,0.24)" stroke-width="1"/>
-      <circle cx="280" cy="280" r="148" stroke="rgba(124,92,252,0.28)" stroke-width="1"/>
-      <circle cx="280" cy="280" r="98"  stroke="rgba(124,92,252,0.28)" stroke-width="1"/>
-      <circle cx="280" cy="280" r="52"  stroke="rgba(124,92,252,0.38)" stroke-width="1"/>
-
-      <!-- Bright violet arc — outer ring, top-right quadrant -->
-      <path d="M 280 28 A 252 252 0 0 1 500 168"
-            stroke="rgba(124,92,252,0.75)" stroke-width="1.5" stroke-linecap="round"/>
-
-      <!-- Secondary arc — middle ring, bottom-left quadrant -->
-      <path d="M 280 480 A 200 200 0 0 0 98 170"
-            stroke="rgba(124,92,252,0.35)" stroke-width="1.25" stroke-linecap="round"/>
-
-      <!-- Subtle cross-hairs -->
-      <line x1="280" y1="0"   x2="280" y2="560" stroke="rgba(124,92,252,0.08)" stroke-width="1"/>
-      <line x1="0"   y1="280" x2="560" y2="280" stroke="rgba(124,92,252,0.08)" stroke-width="1"/>
-      <!-- 45° diagonals -->
-      <line x1="86"  y1="86"  x2="474" y2="474" stroke="rgba(124,92,252,0.05)" stroke-width="1"/>
-      <line x1="474" y1="86"  x2="86"  y2="474" stroke="rgba(124,92,252,0.05)" stroke-width="1"/>
-
-      <!-- Tick marks at cardinal points of outer ring -->
-      <line x1="280" y1="22"  x2="280" y2="10"  stroke="rgba(124,92,252,0.65)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="538" y1="280" x2="550" y2="280" stroke="rgba(124,92,252,0.65)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="280" y1="538" x2="280" y2="550" stroke="rgba(124,92,252,0.35)" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="22"  y1="280" x2="10"  y2="280" stroke="rgba(124,92,252,0.35)" stroke-width="1.5" stroke-linecap="round"/>
-
-      <!-- Marker dots -->
-      <circle cx="280" cy="28"  r="3.5" fill="rgba(124,92,252,0.85)"/>
-      <circle cx="532" cy="280" r="2.5" fill="rgba(124,92,252,0.55)"/>
-      <circle cx="280" cy="532" r="2"   fill="rgba(124,92,252,0.45)"/>
-      <circle cx="28"  cy="280" r="2"   fill="rgba(124,92,252,0.40)"/>
-      <!-- Dots at arc endpoints -->
-      <circle cx="500" cy="168" r="4"   fill="rgba(124,92,252,0.80)"/>
-      <circle cx="98"  cy="170" r="4"   fill="rgba(124,92,252,0.70)"/>
-      <circle cx="280" cy="480" r="3"   fill="rgba(124,92,252,0.55)"/>
-
-      <!-- Central glow + core dot -->
-      <circle cx="280" cy="280" r="22" fill="url(#hg-core)"/>
-      <circle cx="280" cy="280" r="4.5" fill="rgba(255,255,255,0.90)"/>
-    </svg>
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__glow hero__glow--1"></div>
+    <div class="hero__glow hero__glow--2"></div>
+    <div class="hero__glow hero__glow--3"></div>
   </div>
 
   <div class="wrap hero__wrap">
 
-    <!-- Top: eyebrow + headline + CTAs — all visible on first load -->
-    <div class="hero__top">
+    <div class="hero__content animate-fade-up">
 
-      <h1 class="hero__title animate-fade-up">
-        <span class="hero__title-pre">{titlePrefix}</span>
-        <em class="hero__title-em">{titleHighlight}</em>
-        <span class="hero__title-post">{titleSuffix}</span>
+      <h1 class="hero__title">
+        <span class="hero__line hero__line--1">{line1}</span>
+        {line2 && <span class="hero__line hero__line--2">{line2}</span>}
       </h1>
 
-      <nav class="hero__ctas animate-fade-up" aria-label="Główne akcje">
-        <a href="#projects" class="hero__cta hero__cta--primary">
-          <span class="hero__cta-line" aria-hidden="true"></span>
-          <span>{cta}</span>
-        </a>
-        <a href={secondaryCta.href} class="hero__cta hero__cta--secondary">
-          <span class="hero__cta-line" aria-hidden="true"></span>
-          <span>{secondaryCta.label}</span>
-        </a>
+      <p class="hero__subtitle">{subtitle}</p>
+
+      <nav class="hero__ctas" aria-label="Główne akcje">
+        <a href="#projects" class="hero__btn hero__btn--primary">{cta}</a>
+        <a href={secondaryCta.href} class="hero__btn hero__btn--secondary">{secondaryCta.label}</a>
       </nav>
 
     </div>
 
-    <!-- Bottom: description + stats — anchored to the viewport bottom -->
-    <div class="hero__bottom animate-fade-up">
-      <p class="hero__desc">{description}</p>
-      <div class="hero__stats" role="list">
-        {stats.map((stat, i) => (
-          <>
-            {i > 0 && <span class="hero__stat-sep" aria-hidden="true"></span>}
-            <div class="hero__stat" role="listitem">
-              <strong class="hero__stat-num">{stat.value}</strong>
-              <span class="hero__stat-label">{stat.label}</span>
-            </div>
-          </>
-        ))}
-      </div>
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
     </div>
 
   </div>

@@ -1,27 +1,25 @@
 ---
 import content from '@data/content';
-const { header, subtext, options } = content.support;
+const { intro, options } = content.getInvolved;
 ---
 
-<section id="support" aria-label="Włącz się" class="support-section">
+<section id="join" aria-label="Włącz się" class="get-involved">
   <div class="wrap">
 
-    <header class="support__header reveal">
-      <h2 class="support__title">{header}</h2>
-      <p class="support__subtext">{subtext}</p>
+    <header class="gi__header reveal">
+      <h2 class="gi__title">Włącz się</h2>
+      <p class="gi__intro">{intro}</p>
     </header>
 
-    <div class="support__options">
+    <div class="gi__options">
       {options.map((option, i) => (
-        <a href={option.url}
-           class={`support-option support-option--${option.theme} reveal${i > 0 ? ' reveal-delay-2' : ''}`}>
-          <div class="support-option__line" aria-hidden="true"></div>
-          <div class="support-option__body">
-            <h3 class="support-option__title">{option.title}</h3>
-            <p class="support-option__desc">{option.description}</p>
+        <div class={`gi-card gi-card--${option.theme} reveal`} data-reveal-delay={String(i)}>
+          <div class="gi-card__body">
+            <h3 class="gi-card__title">{option.title}</h3>
+            <p class="gi-card__desc">{option.description}</p>
           </div>
-          <span class="support-option__cta">{option.cta} →</span>
-        </a>
+          <a href={option.url} class="gi-card__cta">{option.cta}</a>
+        </div>
       ))}
     </div>
 

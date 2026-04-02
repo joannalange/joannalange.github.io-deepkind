@@ -1,28 +1,47 @@
 ---
-import ProjectCard from '@ui/ProjectCard.astro';
 import content from '@data/content';
-const { header, protocol, items } = content.projects;
+const { header, items } = content.projects;
+
+const accentMap: Record<string, string> = {
+  blue:     'var(--color-violet)',
+  sage:     'var(--color-mint)',
+  peach:    'var(--color-coral)',
+  lavender: 'var(--color-rose)',
+  gold:     'var(--color-gold)',
+};
 ---
 
 <section class="projects" id="projects" aria-label="Projekty">
   <div class="wrap">
 
     <header class="projects__header reveal">
-      <span class="s-label s-label--dim">{protocol}</span>
       <h2 class="projects__title">{header}</h2>
     </header>
 
-    <div class="projects__index" role="list">
-      {items.map((item) => (
-        <ProjectCard
-          title={item.title}
-          category={item.category}
-          description={item.description}
-          image={item.image}
-          cta={item.cta}
-          url={item.url}
-          accent={item.accent}
-        />
+    <div class="projects__grid">
+      {items.map((item, i) => (
+        <article
+          class="project-card reveal"
+          style={`--card-accent: ${accentMap[item.accent] ?? accentMap.blue}`}
+          data-reveal-delay={String(i % 2)}
+        >
+          <div class="project-card__image-wrap">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="project-card__image"
+              loading="lazy"
+              width="640"
+              height="400"
+            />
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__subtitle">{item.subtitle}</span>
+            <h3 class="project-card__title">{item.title}</h3>
+            <p class="project-card__desc">{item.description}</p>
+            <a href={item.url} class="project-card__cta">{item.cta}</a>
+          </div>
+        </article>
       ))}
     </div>
 

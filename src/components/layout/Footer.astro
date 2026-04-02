@@ -1,6 +1,8 @@
 ---
 import content from '@data/content';
-const { description, legal, connect, copyright, location } = content.footer;
+const { description, tagline, org, legal, connect, copyright } = content.footer;
+const email = connect.find(l => l.url.startsWith('mailto:'));
+const socials = connect.filter(l => !l.url.startsWith('mailto:'));
 ---
 
 <footer class="footer">
@@ -9,9 +11,21 @@ const { description, legal, connect, copyright, location } = content.footer;
     <div class="footer__top">
 
       <!-- Brand -->
-      <div>
+      <div class="footer__brand">
         <img src="/assets/logo.svg" alt="DeepKind" class="footer__logo-img" width="140" height="28" />
-        <p class="footer__tagline">{description}</p>
+        <p class="footer__tagline">{tagline}</p>
+        <p class="footer__desc">{description}</p>
+      </div>
+
+      <!-- Org info -->
+      <div>
+        <p class="footer__col-heading">Organizacja</p>
+        <ul class="footer__org-info">
+          <li>{org.name}</li>
+          <li>{org.city}</li>
+          <li>NIP: {org.nip}</li>
+          <li>KRS: {org.krs}</li>
+        </ul>
       </div>
 
       <!-- Legal -->
@@ -26,9 +40,12 @@ const { description, legal, connect, copyright, location } = content.footer;
 
       <!-- Connect -->
       <div>
-        <p class="footer__col-heading">Connect</p>
+        <p class="footer__col-heading">Kontakt</p>
         <ul class="footer__links">
-          {connect.map(item => (
+          {email && (
+            <li><a href={email.url} class="footer__link">{email.url.replace('mailto:','')}</a></li>
+          )}
+          {socials.map(item => (
             <li>
               <a
                 href={item.url}
@@ -39,12 +56,6 @@ const { description, legal, connect, copyright, location } = content.footer;
             </li>
           ))}
         </ul>
-      </div>
-
-      <!-- Location -->
-      <div>
-        <p class="footer__col-heading">Location</p>
-        <p class="footer__location">{location}</p>
       </div>
 
     </div>

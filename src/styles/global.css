@@ -6,31 +6,31 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DESIGN TOKENS — DeepKind "Living Energy"
+   DESIGN TOKENS — DeepKind "Warm Precision"
    ============================================================ */
 @theme {
   /* Backgrounds */
-  --color-bg-base:    #FEFCF8;
-  --color-bg-alt:     #F4F1FF;
-  --color-bg-dark:    #1F1430;
-  --color-bg-card:    #281840;
-  --color-bg-support: #2D1A6E;
+  --color-bg-base:    #F9F8F5;
+  --color-bg-alt:     #EEECEA;
+  --color-bg-dark:    #1B1D2E;
+  --color-bg-card:    #252740;
+  --color-bg-support: #1F2235;
 
-  /* Five area accent colors */
-  --color-violet: #7C5CFC;
-  --color-mint:   #0EC99A;
-  --color-coral:  #FF5F57;
-  --color-gold:   #FFC847;
-  --color-rose:   #FF6F9C;
+  /* Five accent colors — calm, human-centered palette */
+  --color-violet: #3D62ED;
+  --color-mint:   #4BAF82;
+  --color-coral:  #E87A5B;
+  --color-gold:   #D49640;
+  --color-rose:   #B87CAE;
 
-  /* Pure white — used for text/borders on dark/coloured fills */
+  /* Pure white */
   --color-white: #FFFFFF;
 
   /* Text */
-  --color-text:       #1A1038;
-  --color-text-dim:   #7A7099;
-  --color-text-light: #EDE8FF;
-  --color-text-ghost: rgba(237, 232, 255, 0.45);
+  --color-text:       #1B1D2E;
+  --color-text-dim:   #5D6280;
+  --color-text-light: #E6ECF8;
+  --color-text-ghost: rgba(230, 236, 248, 0.45);
 
   /* Fonts */
   --font-display: "Inter Tight Variable", sans-serif;
@@ -75,34 +75,34 @@
  * white-*    : #FFFFFF frosted-glass elements on dark surfaces
  */
 :root {
-  /* Light text hierarchy on dark backgrounds */
-  --on-dark-90: rgba(237,232,255,0.90);
-  --on-dark-75: rgba(237,232,255,0.75);
-  --on-dark-70: rgba(237,232,255,0.70);
-  --on-dark-60: rgba(237,232,255,0.60);
-  --on-dark-55: rgba(237,232,255,0.55);
-  --on-dark-50: rgba(237,232,255,0.50);
-  --on-dark-40: rgba(237,232,255,0.40);
-  --on-dark-35: rgba(237,232,255,0.35);
-  --on-dark-30: rgba(237,232,255,0.30);
-  --on-dark-25: rgba(237,232,255,0.25);
-  --on-dark-22: rgba(237,232,255,0.22);
-  --on-dark-20: rgba(237,232,255,0.20);
-  --on-dark-18: rgba(237,232,255,0.18);
-  --on-dark-15: rgba(237,232,255,0.15);
-  --on-dark-12: rgba(237,232,255,0.12);
-  --on-dark-10: rgba(237,232,255,0.10);
-  --on-dark-08: rgba(237,232,255,0.08);
-  --on-dark-07: rgba(237,232,255,0.07);
+  /* Light text hierarchy on dark backgrounds — base: #E6ECF8 = rgb(230,236,248) */
+  --on-dark-90: rgba(230,236,248,0.90);
+  --on-dark-75: rgba(230,236,248,0.75);
+  --on-dark-70: rgba(230,236,248,0.70);
+  --on-dark-60: rgba(230,236,248,0.60);
+  --on-dark-55: rgba(230,236,248,0.55);
+  --on-dark-50: rgba(230,236,248,0.50);
+  --on-dark-40: rgba(230,236,248,0.40);
+  --on-dark-35: rgba(230,236,248,0.35);
+  --on-dark-30: rgba(230,236,248,0.30);
+  --on-dark-25: rgba(230,236,248,0.25);
+  --on-dark-22: rgba(230,236,248,0.22);
+  --on-dark-20: rgba(230,236,248,0.20);
+  --on-dark-18: rgba(230,236,248,0.18);
+  --on-dark-15: rgba(230,236,248,0.15);
+  --on-dark-12: rgba(230,236,248,0.12);
+  --on-dark-10: rgba(230,236,248,0.10);
+  --on-dark-08: rgba(230,236,248,0.08);
+  --on-dark-07: rgba(230,236,248,0.07);
 
-  /* Ink shadows and borders on light backgrounds */
-  --ink-07: rgba(26,16,56,0.07);
-  --ink-08: rgba(26,16,56,0.08);
-  --ink-10: rgba(26,16,56,0.10);
-  --ink-12: rgba(26,16,56,0.12);
-  --ink-14: rgba(26,16,56,0.14);
-  --ink-15: rgba(26,16,56,0.15);
-  --ink-25: rgba(26,16,56,0.25);
+  /* Ink shadows and borders on light backgrounds — base: #1B1D2E = rgb(27,29,46) */
+  --ink-07: rgba(27,29,46,0.07);
+  --ink-08: rgba(27,29,46,0.08);
+  --ink-10: rgba(27,29,46,0.10);
+  --ink-12: rgba(27,29,46,0.12);
+  --ink-14: rgba(27,29,46,0.14);
+  --ink-15: rgba(27,29,46,0.15);
+  --ink-25: rgba(27,29,46,0.25);
 
   /* White frosted-glass elements on dark backgrounds */
   --white-04: rgba(255,255,255,0.04);

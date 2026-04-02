@@ -1,145 +1,105 @@
-/* ── Support section ─────────────────────────────────────────────────────── */
+/* ── Get Involved section (.get-involved) ───────────────────────────────── */
 
-.support-section {
-  background: var(--color-bg-alt);
+.get-involved {
+  background: var(--color-bg-dark);
   padding-block: var(--section-y);
 }
 
-.support__header {
-  max-width: 620px;
-  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+.gi__header {
+  max-width: 640px;
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
-.support__title {
+.gi__title {
   font-family: var(--font-display);
   font-size: var(--text-4xl);
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-}
-
-.support__subtext {
-  color: var(--color-text-dim);
-  font-size: var(--text-lg);
-  line-height: 1.75;
-  margin-top: 1rem;
-}
-
-/* ── Options list ────────────────────────────────────────────────────────── */
-
-.support__options {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--ink-10);
-}
-
-.support-option {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0 2rem;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--ink-10);
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  transition: background 0.25s ease, transform 0.25s var(--ease-expo);
-}
-
-
-.support-option:hover {
-  background: var(--color-white);
-  padding-inline: 1.5rem;
-  box-shadow: 0 4px 24px var(--ink-07);
-}
-
-/* ── Line + ball — same motif as hero CTAs ───────────────────────────────── */
-
-.support-option__line {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.support-option__line::before {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 32px;
-  background: var(--option-accent);
-  transition: width 0.35s var(--ease-expo);
-}
-
-.support-option__line::after {
-  content: '';
-  display: block;
-  flex-shrink: 0;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--option-accent);
-}
-
-.support-option:hover .support-option__line::before {
-  width: 52px;
-}
-
-/* ── Accent colours ──────────────────────────────────────────────────────── */
-
-.support-option--volunteer { --option-accent: var(--color-violet); }
-.support-option--donate    { --option-accent: var(--color-violet); }
-
-/* ── Body ────────────────────────────────────────────────────────────────── */
-
-.support-option__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
-}
-
-.support-option__title {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--on-dark-90);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.gi__intro {
+  font-size: var(--text-lg);
+  color: var(--on-dark-50);
+  line-height: 1.75;
+}
+
+/* Three equal cards */
+.gi__options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gi-card {
+  background: var(--white-06);
+  border: 1px solid var(--white-08);
+  border-radius: var(--radius-lg);
+  padding: var(--card-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s var(--ease-expo);
+}
+
+.gi-card:hover {
+  background: var(--white-12);
+  border-color: var(--white-15);
+  transform: translateY(-3px);
+}
+
+.gi-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gi-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--on-dark-90);
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
-.support-option__desc {
+.gi-card__desc {
   font-size: var(--text-base);
-  color: var(--color-text-dim);
-  line-height: 1.65;
-  max-width: 52ch;
+  color: var(--on-dark-50);
+  line-height: 1.7;
 }
 
-/* ── CTA ─────────────────────────────────────────────────────────────────── */
-
-.support-option__cta {
-  font-family: var(--font-mono);
+.gi-card__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6em 1.4em;
+  border-radius: var(--radius-pill);
   font-size: var(--text-sm);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--option-accent);
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 0.22s ease, transform 0.22s var(--ease-expo);
+  font-weight: 600;
+  background: var(--white-12);
+  color: var(--on-dark-90);
+  border: 1px solid var(--white-15);
+  align-self: flex-start;
+  transition: background 0.2s ease, transform 0.2s var(--ease-expo);
 }
 
-.support-option:hover .support-option__cta {
-  opacity: 1;
-  transform: translateX(0);
+.gi-card__cta:hover {
+  background: var(--white-22);
+  transform: translateY(-1px);
 }
 
-/* ── Responsive ──────────────────────────────────────────────────────────── */
+/* Accent top border per theme */
+.gi-card--volunteer { border-top: 3px solid var(--color-violet); }
+.gi-card--donate    { border-top: 3px solid var(--color-mint); }
+.gi-card--partner   { border-top: 3px solid var(--color-coral); }
 
-@media (max-width: 700px) {
-  .support-option {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-  }
-  .support-option__cta { display: none; }
+@media (max-width: 1024px) {
+  .gi__options { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .gi__options { grid-template-columns: 1fr; }
 }

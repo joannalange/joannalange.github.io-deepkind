@@ -1,161 +1,91 @@
 /* ── Areas / Bento section (.areas, .area-card) ────────────────────────── */
 
 .areas {
-  background: var(--color-bg-dark);
+  background: var(--color-bg-base);
   padding-block: var(--section-y);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle dot texture */
-.areas::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, var(--white-04) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
 }
 
 .areas__header {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 .areas__title {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
-  font-weight: 800;
-  color: var(--color-text-light);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--color-text);
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
+/* Grid: 3 columns on desktop, 2 on tablet, 1 on mobile */
 .areas__grid {
-  position: relative;
-  z-index: 1;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-/* Area card */
+/* ── Area card ── */
 .area-card {
-  position: relative;
-  padding: var(--card-pad);
-  background: var(--color-bg-card);
+  background: var(--color-white);
+  border: 1px solid var(--ink-08);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--white-06);
-  border-left: 4px solid currentColor;
-  overflow: hidden;
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transition: transform 0.3s var(--ease-expo), box-shadow 0.3s ease;
+  gap: 1rem;
+  transition: box-shadow 0.25s ease, transform 0.25s var(--ease-expo);
 }
 
 .area-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px color-mix(in srgb, currentColor 20%, transparent);
+  box-shadow: 0 8px 32px var(--ink-10);
+  transform: translateY(-3px);
 }
 
-.area-card--violet { color: var(--color-violet); }
-.area-card--mint   { color: var(--color-mint); }
-.area-card--coral  { color: var(--color-coral); }
-.area-card--gold   { color: var(--color-gold); }
-.area-card--rose   { color: var(--color-rose); }
-
-/* Grid spans — row1: 8+4=12, row2: 4+4+4=12 */
-.area-card--wide     { grid-column: span 8; min-height: 280px; }
-.area-card--standard { grid-column: span 4; min-height: 260px; }
-.area-card--lead     { grid-column: span 4; min-height: 260px; }
-
-/* Ghost number watermark */
-.area-card__num {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: clamp(3.5rem, 5vw, 5.5rem);
-  font-weight: 700;
-  color: currentColor;
-  opacity: 0.07;
-  line-height: 1;
-  letter-spacing: -0.06em;
-  pointer-events: none;
-  user-select: none;
-}
-
-.area-card__tag {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: currentColor;
-  opacity: 0.8;
+.area-card__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--area-accent, var(--color-violet));
+  flex-shrink: 0;
 }
 
 .area-card__title {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: 700;
-  color: var(--color-text-light);
-  line-height: 1.15;
+  color: var(--color-text);
   letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.area-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+}
+
+.area-card__tag {
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-pill);
+  padding: 0.2em 0.65em;
+  white-space: nowrap;
 }
 
 .area-card__desc {
-  font-size: var(--text-sm);
-  color: var(--on-dark-50);
-  line-height: 1.65;
-  max-width: 44ch;
+  font-size: var(--text-base);
+  color: var(--color-text-dim);
+  line-height: 1.7;
   flex: 1;
 }
 
-/* SVG watermark in bottom-right */
-.area-card__mark {
-  position: absolute;
-  bottom: -0.75rem;
-  right: -0.75rem;
-  width: clamp(120px, 14vw, 170px);
-  height: clamp(120px, 14vw, 170px);
-  opacity: 0.2;
-  pointer-events: none;
+@media (max-width: 1024px) {
+  .areas__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Tech card grid texture */
-.area-card--tech-grid::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(color-mix(in srgb, currentColor 7%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, currentColor 7%, transparent) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-/* Lead card (Agency) — special bold gradient */
-.area-card--agency-lead {
-  background: linear-gradient(145deg, #1D1550 0%, #2E1B8A 60%, #1D1550 100%);
-  border-left-color: var(--color-gold);
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .area-card--wide     { grid-column: span 12; }
-  .area-card--standard { grid-column: span 6; }
-  .area-card--lead     { grid-column: span 6; }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .areas__grid { grid-template-columns: 1fr; }
-  .area-card--wide,
-  .area-card--standard,
-  .area-card--lead { grid-column: span 1; min-height: 220px; }
 }

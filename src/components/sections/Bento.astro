@@ -1,29 +1,39 @@
 ---
-import BentoCard from '@ui/BentoCard.astro';
 import content from '@data/content';
-const { header, protocol, areas } = content.bento;
+const { header, items } = content.areas;
+
+const accentMap: Record<string, string> = {
+  blue:     'var(--color-violet)',
+  sage:     'var(--color-mint)',
+  peach:    'var(--color-coral)',
+  lavender: 'var(--color-rose)',
+  gold:     'var(--color-gold)',
+};
 ---
 
-<section class="areas" id="bento" aria-label="Obszary działań">
+<section class="areas" id="areas" aria-label="Obszary działań">
   <div class="wrap">
 
     <header class="areas__header reveal">
-      <span class="s-label s-label--light">{protocol}</span>
       <h2 class="areas__title">{header}</h2>
     </header>
 
     <div class="areas__grid">
-      {areas.map((area, i) => (
-        <BentoCard
-          id={area.id}
-          tag={area.tag}
-          title={area.title}
-          description={area.description}
-          variant={area.variant}
-          accent={area.accent}
-          index={i}
-          revealDelay={Math.min(i + 1, 4)}
-        />
+      {items.map((area, i) => (
+        <article
+          class="area-card reveal"
+          style={`--area-accent: ${accentMap[area.accent] ?? accentMap.blue}`}
+          data-reveal-delay={String(Math.min(i, 3))}
+        >
+          <div class="area-card__dot" aria-hidden="true"></div>
+          <h3 class="area-card__title">{area.title}</h3>
+          <ul class="area-card__tags" aria-label="Tagi">
+            {area.tags.map(tag => (
+              <li class="area-card__tag">{tag}</li>
+            ))}
+          </ul>
+          <p class="area-card__desc">{area.description}</p>
+        </article>
       ))}
     </div>
 

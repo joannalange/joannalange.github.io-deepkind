@@ -3,12 +3,9 @@
  *
  * This is the single source of truth for the content schema.
  * All site copy lives in content.json — these types enforce its shape at build time.
- *
- * To add a field: update this interface first, then content.json, then the consuming component.
  */
 
-export type AccentColor = 'violet' | 'mint' | 'coral' | 'gold' | 'rose';
-export type BentoVariant = 'wide' | 'standard' | 'lead';
+export type AccentColor = 'blue' | 'sage' | 'peach' | 'lavender' | 'gold';
 
 // ── Navigation ─────────────────────────────────────────────────────────────
 
@@ -29,95 +26,90 @@ export interface Navigation {
 
 // ── Hero ───────────────────────────────────────────────────────────────────
 
-export interface HeroStat {
-  value: string;
-  label: string;
-}
-
 export interface HeroSecondaryAction {
   label: string;
   href: string;
 }
 
 export interface Hero {
-  protocol: string;
-  titlePrefix: string;
-  titleHighlight: string;
-  titleSuffix: string;
-  description: string;
+  title: string;
+  subtitle: string;
   cta: string;
   secondaryCta: HeroSecondaryAction;
-  stats: HeroStat[];
 }
 
-// ── Bento / Areas ──────────────────────────────────────────────────────────
+// ── Areas ──────────────────────────────────────────────────────────────────
 
-export interface BentoArea {
+export interface AreaItem {
   id: string;
-  tag: string;
   title: string;
+  tags: string[];
   description: string;
-  variant: BentoVariant;
   accent: AccentColor;
 }
 
-export interface Bento {
+export interface Areas {
   header: string;
-  protocol: string;
-  areas: BentoArea[];
-}
-
-// ── About ──────────────────────────────────────────────────────────────────
-
-export interface About {
-  header: string;
-  protocol: string;
-  status: string;
-  title: string;
-  /**
-   * Body paragraphs. May contain inline HTML (e.g. <strong> tags).
-   * Rendered via set:html — only safe because content.json is developer-controlled.
-   */
-  paragraphs: string[];
+  items: AreaItem[];
 }
 
 // ── Projects ───────────────────────────────────────────────────────────────
 
 export interface ProjectItem {
   title: string;
-  category: string;
+  subtitle: string;
   description: string;
-  /** Path relative to /public — e.g. "/img/project-minds.webp" */
   image: string;
   cta: string;
-  /** Link target — use "#" until the project has a real page */
   url: string;
   accent: AccentColor;
 }
 
 export interface Projects {
   header: string;
-  protocol: string;
   items: ProjectItem[];
 }
 
-// ── Support ────────────────────────────────────────────────────────────────
+// ── About ──────────────────────────────────────────────────────────────────
 
-export type SupportTheme = 'volunteer' | 'donate';
+export interface About {
+  title: string;
+  paragraphs: string[];
+}
 
-export interface SupportOption {
+// ── Get Involved ───────────────────────────────────────────────────────────
+
+export type GetInvolvedTheme = 'volunteer' | 'donate' | 'partner';
+
+export interface GetInvolvedOption {
   title: string;
   description: string;
   cta: string;
   url: string;
-  /** Controls panel gradient and button colour — maps to .support-panel--{theme} */
-  theme: SupportTheme;
+  theme: GetInvolvedTheme;
 }
 
-export interface Support {
-  header: string;
-  subtext: string;
-  options: SupportOption[];
+export interface GetInvolved {
+  intro: string;
+  options: GetInvolvedOption[];
+}
+
+// ── FAQ ────────────────────────────────────────────────────────────────────
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQ {
+  items: FAQItem[];
+}
+
+// ── Contact ────────────────────────────────────────────────────────────────
+
+export interface Contact {
+  heading: string;
+  description: string;
 }
 
 // ── Footer ─────────────────────────────────────────────────────────────────
@@ -127,12 +119,20 @@ export interface FooterLink {
   url: string;
 }
 
+export interface FooterOrg {
+  name: string;
+  city: string;
+  nip: string;
+  krs: string;
+}
+
 export interface Footer {
   description: string;
+  tagline: string;
+  org: FooterOrg;
   legal: FooterLink[];
   connect: FooterLink[];
   copyright: string;
-  location: string;
 }
 
 // ── Root ───────────────────────────────────────────────────────────────────
@@ -140,9 +140,11 @@ export interface Footer {
 export interface Content {
   navigation: Navigation;
   hero: Hero;
-  bento: Bento;
-  about: About;
+  areas: Areas;
   projects: Projects;
-  support: Support;
+  about: About;
+  getInvolved: GetInvolved;
+  faq: FAQ;
+  contact: Contact;
   footer: Footer;
 }
