@@ -1,4 +1,4 @@
-<svg class="hero__svg" viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<svg class="hero__svg" viewBox="0 0 460 530" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 
   <!-- ── Five interlocking circles — diagonal chain composition ── -->
 
@@ -67,8 +67,7 @@
   <!-- C2 — top node -->
   <circle cx="192" cy="40"  r="4.5" fill="#4BAF82"/>
 
-  <!-- small accent dash — echoes the image's blue rectangle motif -->
-  <rect x="268" y="310" width="14" height="5" rx="2.5"
-    fill="#3D62ED" opacity="0.85" transform="rotate(-18 275 312)"/>
+  <!-- accent dot replacing the dash -->
+  <circle cx="275" cy="312" r="5" fill="#3D62ED"/>
 
 </svg>
