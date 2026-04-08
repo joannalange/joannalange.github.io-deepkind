@@ -5,7 +5,7 @@
       { "name": "O nas", "url": "#about" },
       { "name": "Działaj", "url": "#join" }
     ],
-    "cta": { "label": "Dołącz do nas", "href": "#join" }
+    "cta": { "label": "Zaangażuj się", "href": "#join" }
   },
   "hero": {
     "title": "Technologia, która służy. Człowiek, który decyduje.",

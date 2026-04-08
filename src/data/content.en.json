@@ -5,7 +5,7 @@
       { "name": "About", "url": "#about" },
       { "name": "Get Involved", "url": "#join" }
     ],
-    "cta": { "label": "Join us", "href": "#join" }
+    "cta": { "label": "Get Involved", "href": "#join" }
   },
   "hero": {
     "line1": "Technology that serves.",
