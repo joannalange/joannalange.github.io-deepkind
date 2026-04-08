@@ -47,7 +47,13 @@ const accentMap: Record<string, string> = {
               <p class="project-row__desc" data-i18n={`projects.items.${i}.description`}>{item.description}</p>
             </div>
 
-            <a href={item.url} class="project-row__more" data-i18n={`projects.items.${i}.cta`}>
+            <a
+              href={item.url}
+              class="project-row__more"
+              data-i18n={`projects.items.${i}.cta`}
+              target={item.url.startsWith('http') ? '_blank' : undefined}
+              rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+            >
               {item.cta}
             </a>
 
