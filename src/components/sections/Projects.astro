@@ -24,7 +24,7 @@ const accentMap: Record<string, string> = {
           class="project-row reveal"
           style={`--row-accent: ${accentMap[item.accent] ?? accentMap.blue}`}
         >
-          <a href={item.url} class="project-row__inner">
+          <div class="project-row__inner">
 
             <span class="project-row__index" aria-hidden="true">
               {String(i + 1).padStart(2, '0')}
@@ -47,9 +47,11 @@ const accentMap: Record<string, string> = {
               <p class="project-row__desc" data-i18n={`projects.items.${i}.description`}>{item.description}</p>
             </div>
 
-            <span class="project-row__arrow" aria-hidden="true">↗</span>
+            <a href={item.url} class="project-row__more" data-i18n={`projects.items.${i}.cta`}>
+              {item.cta}
+            </a>
 
-          </a>
+          </div>
         </li>
       ))}
     </ol>
