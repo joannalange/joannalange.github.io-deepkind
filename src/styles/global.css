@@ -230,16 +230,6 @@ html.a11y-focus-outline *:focus-visible {
   border-radius: 2px;
 }
 
-/* Page structure */
-html.a11y-page-structure main,
-html.a11y-page-structure nav,
-html.a11y-page-structure header,
-html.a11y-page-structure footer,
-html.a11y-page-structure section,
-html.a11y-page-structure aside {
-  outline: 2px dashed color-mix(in srgb, var(--color-violet) 60%, transparent) !important;
-  outline-offset: -2px;
-}
 
 /* High contrast mode */
 html.a11y-high-contrast {

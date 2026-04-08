@@ -206,6 +206,74 @@
   }
   .a11y-reset-all:hover { color: var(--color-coral); }
 
+  /* ── Structure panel ── */
+  :global(.a11y-structure-panel) {
+    position: fixed;
+    top: 50%;
+    left: 1.25rem;
+    transform: translateY(-50%);
+    max-height: 80vh;
+    width: 260px;
+    overflow-y: auto;
+    background: var(--color-bg-dark);
+    border: 1px solid var(--white-12);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    z-index: 8998;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  :global(.a11y-structure-panel__title) {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--on-dark-40);
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+  }
+  :global(.a11y-structure-item) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    transition: background 0.12s;
+    width: 100%;
+  }
+  :global(.a11y-structure-item:hover) {
+    background: var(--white-08);
+  }
+  :global(.a11y-structure-tag) {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--color-violet);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    min-width: 1.8rem;
+  }
+  :global(.a11y-structure-text) {
+    font-size: 0.72rem;
+    color: var(--on-dark-70);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  :global(.a11y-structure-item[data-level="1"] .a11y-structure-text) {
+    color: var(--on-dark-90);
+    font-weight: 600;
+  }
+  :global(.a11y-structure-item[data-level="2"]) { padding-left: 0.4rem; }
+  :global(.a11y-structure-item[data-level="3"]) { padding-left: 1.2rem; }
+  :global(.a11y-structure-item[data-level="4"]) { padding-left: 2rem; }
+
   /* ── Reading mask ── */
   :global(.a11y-mask-top),
   :global(.a11y-mask-bottom) {
@@ -272,8 +340,8 @@
     // Orientation
     html.classList.toggle('a11y-highlight-links', state.highlightLinks);
     html.classList.toggle('a11y-focus-outline',   state.focusOutline);
-    html.classList.toggle('a11y-page-structure',  state.pageStructure);
-    if (state.readingMask) { createMask(); } else { removeMask(); }
+    if (state.readingMask)   { createMask(); }      else { removeMask(); }
+    if (state.pageStructure) { createStructure(); } else { removeStructure(); }
 
     // Sync UI
     syncUI();
@@ -399,6 +467,52 @@
     maskTop.style.height    = `${topH}px`;
     maskBottom.style.height = `${bottomH}px`;
   });
+
+  // ── Structure panel helpers ─────────────────────────────────────────────────
+  let structurePanel: HTMLDivElement | null = null;
+
+  function createStructure() {
+    if (structurePanel) return;
+    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4')) as HTMLElement[];
+    if (!headings.length) return;
+
+    structurePanel = document.createElement('div');
+    structurePanel.className = 'a11y-structure-panel';
+
+    const title = document.createElement('p');
+    title.className = 'a11y-structure-panel__title';
+    title.textContent = 'Struktura strony';
+    structurePanel.appendChild(title);
+
+    headings.forEach((el, idx) => {
+      const level = parseInt(el.tagName[1]);
+      const btn = document.createElement('button');
+      btn.className = 'a11y-structure-item';
+      btn.dataset.level = String(level);
+
+      const tag = document.createElement('span');
+      tag.className = 'a11y-structure-tag';
+      tag.textContent = el.tagName;
+
+      const text = document.createElement('span');
+      text.className = 'a11y-structure-text';
+      text.textContent = el.textContent?.trim() || '—';
+
+      btn.append(tag, text);
+      btn.addEventListener('click', () => {
+        if (!el.id) el.id = `a11y-h-${idx}`;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      structurePanel!.appendChild(btn);
+    });
+
+    document.body.appendChild(structurePanel);
+  }
+
+  function removeStructure() {
+    structurePanel?.remove();
+    structurePanel = null;
+  }
 
   // ── Orientation controls ────────────────────────────────────────────────────
   const orientationIds = ['highlight-links', 'reading-mask', 'focus-outline', 'page-structure'];
