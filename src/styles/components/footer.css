@@ -78,8 +78,8 @@
 .footer__socials {
   display: flex;
   gap: 1rem;
-  list-style: none;
-  padding: 0;
+  align-items: center;
+  margin-left: auto;
 }
 
 .footer__social-icon {
@@ -108,7 +108,6 @@
 .footer__bottom {
   display: flex;
   align-items: center;
-  padding-top: 0;
 }
 
 .footer__copy {

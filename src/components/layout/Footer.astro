@@ -55,19 +55,6 @@ const socialIcons: Record<string, string> = {
           {email && (
             <li><a href={email.url} class="footer__link">{email.url.replace('mailto:','')}</a></li>
           )}
-          <li class="footer__socials">
-            {socials.map(item => (
-              <a
-                href={item.url}
-                class="footer__social-icon"
-                aria-label={item.name}
-                target={item.url.startsWith('http') ? '_blank' : undefined}
-                rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                <Fragment set:html={socialIcons[item.name] ?? ''} />
-              </a>
-            ))}
-          </li>
         </ul>
       </div>
 
@@ -77,6 +64,19 @@ const socialIcons: Record<string, string> = {
 
     <div class="footer__bottom">
       <p class="footer__copy">{copyright}</p>
+      <div class="footer__socials">
+        {socials.map(item => (
+          <a
+            href={item.url}
+            class="footer__social-icon"
+            aria-label={item.name}
+            target={item.url.startsWith('http') ? '_blank' : undefined}
+            rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            <Fragment set:html={socialIcons[item.name] ?? ''} />
+          </a>
+        ))}
+      </div>
     </div>
 
   </div>
