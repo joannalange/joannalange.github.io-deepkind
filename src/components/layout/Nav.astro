@@ -1,7 +1,7 @@
 ---
 import content from '@data/content';
 import logoMarkSvg from '@assets/svg/logo-mark.svg?raw';
-const { links, cta } = content.navigation;
+const { links } = content.navigation;
 ---
 
 <header class="nav" id="nav">
@@ -14,7 +14,7 @@ const { links, cta } = content.navigation;
       </a>
 
       <ul class="nav__links" id="nav-links">
-        {links.slice(0, -1).map((link, i) => (
+        {links.map((link, i) => (
           <li><a href={link.url} class="nav__link" data-i18n={`navigation.links.${i}.name`}>{link.name}</a></li>
         ))}
       </ul>
@@ -27,8 +27,6 @@ const { links, cta } = content.navigation;
           <span class="nav__lang-sep" aria-hidden="true">|</span>
           <span class="nav__lang" data-lang="en">ENG</span>
         </button>
-
-        <a href={cta.href} class="nav__cta" data-i18n="navigation.cta.label">{cta.label}</a>
         <button
           class="nav__hamburger"
           id="nav-toggle"

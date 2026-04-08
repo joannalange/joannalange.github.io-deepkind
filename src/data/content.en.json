@@ -1,9 +1,10 @@
 {
   "navigation": {
     "links": [
-      { "name": "Projects", "url": "#projects" },
       { "name": "About", "url": "#about" },
-      { "name": "Get Involved", "url": "#join" }
+      { "name": "Projects", "url": "#projects" },
+      { "name": "Get Involved", "url": "#join" },
+      { "name": "Contact", "url": "#contact" }
     ],
     "cta": { "label": "Get Involved", "href": "#join" }
   },

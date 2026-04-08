@@ -1,9 +1,10 @@
 {
   "navigation": {
     "links": [
-      { "name": "Projekty", "url": "#projects" },
       { "name": "O nas", "url": "#about" },
-      { "name": "Działaj", "url": "#join" }
+      { "name": "Projekty", "url": "#projects" },
+      { "name": "Zaangażuj się", "url": "#join" },
+      { "name": "Kontakt", "url": "#contact" }
     ],
     "cta": { "label": "Zaangażuj się", "href": "#join" }
   },
