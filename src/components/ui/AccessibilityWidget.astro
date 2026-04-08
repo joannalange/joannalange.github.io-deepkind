@@ -50,6 +50,17 @@
       </div>
     </div>
 
+    <!-- Orientation -->
+    <div class="a11y-group">
+      <span class="a11y-group__label">Orientacja</span>
+      <div class="a11y-group__controls a11y-group__controls--wrap">
+        <button class="a11y-btn a11y-toggle" id="a11y-highlight-links" aria-pressed="false">Podświetl linki</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-reading-mask"    aria-pressed="false">Maska czytania</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-focus-outline"   aria-pressed="false">Kontur fokusu</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-page-structure"  aria-pressed="false">Struktura strony</button>
+      </div>
+    </div>
+
     <!-- Reset all -->
     <button class="a11y-reset-all" id="a11y-reset-all">Resetuj wszystko</button>
 
@@ -195,6 +206,19 @@
   }
   .a11y-reset-all:hover { color: var(--color-coral); }
 
+  /* ── Reading mask ── */
+  :global(.a11y-mask-top),
+  :global(.a11y-mask-bottom) {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.72);
+    pointer-events: none;
+    z-index: 8999;
+  }
+  :global(.a11y-mask-top)    { top: 0; }
+  :global(.a11y-mask-bottom) { bottom: 0; }
+
   /* ── Hidden SVG ── */
   .a11y-filters-svg {
     position: absolute;
@@ -213,6 +237,10 @@
     fontSize: 0,      // -2 to +4 steps of 10%
     contrast: false,
     filter: null,     // 'protanopia' | 'deuteranopia' | 'tritanopia' | 'grayscale' | null
+    highlightLinks: false,
+    readingMask:    false,
+    focusOutline:   false,
+    pageStructure:  false,
   };
 
   function load() {
@@ -241,6 +269,12 @@
     filters.forEach(f => html.classList.remove(`a11y-filter-${f}`));
     if (state.filter) html.classList.add(`a11y-filter-${state.filter}`);
 
+    // Orientation
+    html.classList.toggle('a11y-highlight-links', state.highlightLinks);
+    html.classList.toggle('a11y-focus-outline',   state.focusOutline);
+    html.classList.toggle('a11y-page-structure',  state.pageStructure);
+    if (state.readingMask) { createMask(); } else { removeMask(); }
+
     // Sync UI
     syncUI();
   }
@@ -264,6 +298,17 @@
       const active = btn.dataset.filter === state.filter;
       btn.setAttribute('aria-pressed', String(active));
       btn.classList.toggle('active', active);
+    });
+
+    // Orientation toggles
+    const orientationIds = ['highlight-links', 'reading-mask', 'focus-outline', 'page-structure'];
+    orientationIds.forEach(id => {
+      const key = id.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      const btn = document.getElementById(`a11y-${id}`);
+      if (btn) {
+        btn.setAttribute('aria-pressed', String(state[key]));
+        btn.classList.toggle('active', state[key]);
+      }
     });
   }
 
@@ -321,8 +366,47 @@
   });
 
   document.getElementById('a11y-reset-all')?.addEventListener('click', () => {
-    state = { fontSize: 0, contrast: false, filter: null };
+    state = { fontSize: 0, contrast: false, filter: null, highlightLinks: false, readingMask: false, focusOutline: false, pageStructure: false };
     save(); apply();
+  });
+
+  // ── Reading mask helpers ────────────────────────────────────────────────────
+  const MASK_STRIP = 80;
+  let maskTop: HTMLDivElement | null = null;
+  let maskBottom: HTMLDivElement | null = null;
+
+  function createMask() {
+    if (maskTop) return;
+    maskTop    = document.createElement('div');
+    maskBottom = document.createElement('div');
+    maskTop.className    = 'a11y-mask-top';
+    maskBottom.className = 'a11y-mask-bottom';
+    maskTop.style.height    = '0px';
+    maskBottom.style.height = '0px';
+    document.body.append(maskTop, maskBottom);
+  }
+
+  function removeMask() {
+    maskTop?.remove();    maskTop    = null;
+    maskBottom?.remove(); maskBottom = null;
+  }
+
+  document.addEventListener('mousemove', (e: MouseEvent) => {
+    if (!maskTop || !maskBottom) return;
+    const half    = MASK_STRIP / 2;
+    const topH    = Math.max(0, e.clientY - half);
+    const bottomH = Math.max(0, window.innerHeight - e.clientY - half);
+    maskTop.style.height    = `${topH}px`;
+    maskBottom.style.height = `${bottomH}px`;
+  });
+
+  // ── Orientation controls ────────────────────────────────────────────────────
+  const orientationIds = ['highlight-links', 'reading-mask', 'focus-outline', 'page-structure'];
+  orientationIds.forEach(id => {
+    const key = id.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase()) as keyof typeof state;
+    document.getElementById(`a11y-${id}`)?.addEventListener('click', () => {
+      (state[key] as boolean) = !state[key]; save(); apply();
+    });
   });
 
   // ── Init ───────────────────────────────────────────────────────────────────

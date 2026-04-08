@@ -213,6 +213,34 @@ html.a11y-filter-deuteranopia { filter: url(#filter-deuteranopia); }
 html.a11y-filter-tritanopia   { filter: url(#filter-tritanopia); }
 html.a11y-filter-grayscale    { filter: url(#filter-grayscale); }
 
+/* Highlight links */
+html.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-color: var(--color-violet) !important;
+  text-decoration-thickness: 2px !important;
+  background: color-mix(in srgb, var(--color-violet) 12%, transparent) !important;
+  border-radius: 2px;
+  padding-inline: 1px;
+}
+
+/* Focus outline */
+html.a11y-focus-outline *:focus-visible {
+  outline: 3px solid var(--color-violet) !important;
+  outline-offset: 4px !important;
+  border-radius: 2px;
+}
+
+/* Page structure */
+html.a11y-page-structure main,
+html.a11y-page-structure nav,
+html.a11y-page-structure header,
+html.a11y-page-structure footer,
+html.a11y-page-structure section,
+html.a11y-page-structure aside {
+  outline: 2px dashed color-mix(in srgb, var(--color-violet) 60%, transparent) !important;
+  outline-offset: -2px;
+}
+
 /* High contrast mode */
 html.a11y-high-contrast {
   --color-text:     #000000;
