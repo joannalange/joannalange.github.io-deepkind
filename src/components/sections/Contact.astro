@@ -40,17 +40,23 @@ const socials = content.footer.connect.filter(l => !l.url.startsWith('mailto:'))
         <p class="contact__newsletter-heading" data-i18n="footer.newsletter.heading">{newsletter.heading}</p>
         <p class="contact__newsletter-desc" data-i18n="footer.newsletter.description">{newsletter.description}</p>
         <form class="contact__newsletter-form" novalidate>
-          <input
-            type="email"
-            class="contact__newsletter-input"
-            data-i18n-placeholder="footer.newsletter.placeholder"
-            placeholder={newsletter.placeholder}
-            aria-label={newsletter.placeholder}
-            required
-          />
-          <button type="submit" class="contact__newsletter-btn" data-i18n="footer.newsletter.cta">
-            {newsletter.cta}
-          </button>
+          <div class="contact__newsletter-row">
+            <input
+              type="email"
+              class="contact__newsletter-input"
+              data-i18n-placeholder="footer.newsletter.placeholder"
+              placeholder={newsletter.placeholder}
+              aria-label={newsletter.placeholder}
+              required
+            />
+            <button type="submit" class="contact__newsletter-btn" data-i18n="footer.newsletter.cta">
+              {newsletter.cta}
+            </button>
+          </div>
+          <label class="contact__newsletter-consent">
+            <input type="checkbox" class="contact__newsletter-check" required />
+            <span>Oświadczam, że zapoznałam/-em się z <a href="/regulamin-newslettera" class="contact__newsletter-link">Regulaminem newslettera</a> Fundacji DeepKind i akceptuję jego treść.</span>
+          </label>
         </form>
       </div>
 

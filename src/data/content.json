@@ -206,6 +206,7 @@
       { "name": "Polityka prywatności", "url": "/polityka-prywatnosci" },
       { "name": "Polityka cookies", "url": "/polityka-cookies" },
       { "name": "Regulamin darowizn", "url": "/regulamin-darowizn" },
+      { "name": "Regulamin newslettera", "url": "/regulamin-newslettera" },
       { "name": "Statut", "url": "#" }
     ],
     "connect": [
