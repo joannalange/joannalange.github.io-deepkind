@@ -2,3 +2,12 @@ node_modules/
 dist/
 .astro/
 package-lock.json
+
+# Claude / agentic
+CLAUDE.md
+AGENTS.md
+TODO.md
+public/llms.txt
+
+# Astro generated cache
+.astro/
