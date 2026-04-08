@@ -30,7 +30,7 @@ const socials = connect.filter(l => !l.url.startsWith('mailto:'));
 
       <!-- Legal -->
       <div>
-        <p class="footer__col-heading" data-i18n="footer.legalHeading">Prawne</p>
+        <p class="footer__col-heading" data-i18n="footer.legalHeading">Dokumenty</p>
         <ul class="footer__links">
           {legal.map((item, i) => (
             <li><a href={item.url} class="footer__link" data-i18n={`footer.legal.${i}.name`}>{item.name}</a></li>
