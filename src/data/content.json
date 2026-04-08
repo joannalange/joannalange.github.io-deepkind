@@ -212,7 +212,7 @@
     ],
     "connect": [
       { "name": "Email", "url": "mailto:hello@deepkind.org" },
-      { "name": "LinkedIn", "url": "#" },
+      { "name": "LinkedIn", "url": "https://www.linkedin.com/company/deepkind" },
       { "name": "Instagram", "url": "#" },
       { "name": "Facebook", "url": "#" }
     ],
