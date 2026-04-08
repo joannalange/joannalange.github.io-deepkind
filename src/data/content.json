@@ -5,6 +5,7 @@
       { "name": "Projekty", "url": "#projects" },
       { "name": "Zaangażuj się", "url": "#join" },
       { "name": "Blog", "url": "/blog" },
+      { "name": "FAQ", "url": "#faq" },
       { "name": "Kontakt", "url": "#contact" }
     ],
     "cta": { "label": "Zaangażuj się", "href": "#join" }
