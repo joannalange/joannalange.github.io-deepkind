@@ -159,6 +159,12 @@
     "description": "Have an idea, a question, or want to build something with us? Get in touch."
   },
   "footer": {
+    "newsletter": {
+      "heading": "Stay in the loop",
+      "description": "Subscribe to our newsletter and be the first to hear about new projects and initiatives.",
+      "placeholder": "Your email address",
+      "cta": "Subscribe"
+    },
     "tagline": "Technology. People. Balance.",
     "orgHeading": "Organisation",
     "legalHeading": "Documents",

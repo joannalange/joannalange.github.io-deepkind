@@ -46,6 +46,10 @@ function applyLang(lang: Lang) {
     const key = el.dataset.i18n!;
     if (key in map) el.textContent = map[key];
   });
+  document.querySelectorAll<HTMLInputElement>('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder!;
+    if (key in map) el.placeholder = map[key];
+  });
   document.documentElement.lang = lang;
   localStorage.setItem('dk-lang', lang);
 

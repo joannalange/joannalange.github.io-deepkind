@@ -188,6 +188,12 @@
     "description": "Masz pomysł, pytanie albo chcesz coś razem z nami zrobić? Odezwij się."
   },
   "footer": {
+    "newsletter": {
+      "heading": "Bądź na bieżąco",
+      "description": "Zapisz się do newslettera i dowiaduj się jako pierwsza/-y o nowych projektach i inicjatywach.",
+      "placeholder": "Twój adres e-mail",
+      "cta": "Zapisz się"
+    },
     "description": "Łączymy edukację, technologię i ludzką uważność, żeby dobro miało realną moc działania.",
     "tagline": "Technologia. Człowiek. Równowaga.",
     "org": {

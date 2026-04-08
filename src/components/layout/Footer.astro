@@ -4,7 +4,7 @@ import iconLinkedin from '@assets/svg/icon-linkedin.svg?raw';
 import iconInstagram from '@assets/svg/icon-instagram.svg?raw';
 import iconFacebook from '@assets/svg/icon-facebook.svg?raw';
 
-const { description, tagline, org, legal, connect, copyright } = content.footer;
+const { description, tagline, org, legal, connect, copyright, newsletter } = content.footer;
 const email = connect.find(l => l.url.startsWith('mailto:'));
 const socials = connect.filter(l => !l.url.startsWith('mailto:'));
 
@@ -56,6 +56,22 @@ const socialIcons: Record<string, string> = {
             <li><a href={email.url} class="footer__link">{email.url.replace('mailto:','')}</a></li>
           )}
         </ul>
+        <form class="footer__newsletter-form" novalidate>
+          <p class="footer__newsletter-label" data-i18n="footer.newsletter.heading">{newsletter.heading}</p>
+          <div class="footer__newsletter-row">
+            <input
+              type="email"
+              class="footer__newsletter-input"
+              data-i18n-placeholder="footer.newsletter.placeholder"
+              placeholder={newsletter.placeholder}
+              aria-label={newsletter.placeholder}
+              required
+            />
+            <button type="submit" class="footer__newsletter-btn" data-i18n="footer.newsletter.cta">
+              {newsletter.cta}
+            </button>
+          </div>
+        </form>
       </div>
 
     </div>
