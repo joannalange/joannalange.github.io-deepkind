@@ -21,9 +21,11 @@
 
     <p class="a11y-panel__title">Dostępność</p>
 
-    <!-- Font size -->
+    <!-- TEKST -->
+    <p class="a11y-section-label">Tekst</p>
+
     <div class="a11y-group">
-      <span class="a11y-group__label">Rozmiar tekstu</span>
+      <span class="a11y-group__label">Wielkość tekstu</span>
       <div class="a11y-group__controls">
         <button class="a11y-btn" id="a11y-font-decrease" aria-label="Zmniejsz tekst">A−</button>
         <button class="a11y-btn a11y-btn--reset" id="a11y-font-reset" aria-label="Domyślny rozmiar tekstu">A</button>
@@ -31,28 +33,30 @@
       </div>
     </div>
 
-    <!-- Contrast -->
     <div class="a11y-group">
-      <span class="a11y-group__label">Kontrast</span>
-      <div class="a11y-group__controls">
-        <button class="a11y-btn a11y-toggle" id="a11y-contrast" aria-pressed="false" aria-label="Wysoki kontrast">Wysoki</button>
-      </div>
-    </div>
-
-    <!-- Colour filters -->
-    <div class="a11y-group">
-      <span class="a11y-group__label">Tryb kolorów</span>
       <div class="a11y-group__controls a11y-group__controls--wrap">
-        <button class="a11y-btn a11y-toggle" data-filter="protanopia"   aria-pressed="false">Protanopia</button>
-        <button class="a11y-btn a11y-toggle" data-filter="deuteranopia" aria-pressed="false">Deuteranopia</button>
-        <button class="a11y-btn a11y-toggle" data-filter="tritanopia"   aria-pressed="false">Tritanopia</button>
-        <button class="a11y-btn a11y-toggle" data-filter="grayscale"    aria-pressed="false">Skala szarości</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-line-height"   aria-pressed="false">Wysokość linii</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-text-align"    aria-pressed="false">Wyrównanie tekstu</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-readable-font" aria-pressed="false">Czytelna czcionka</button>
       </div>
     </div>
 
-    <!-- Orientation -->
+    <!-- WIZUALNE -->
+    <p class="a11y-section-label">Wizualne</p>
+
     <div class="a11y-group">
-      <span class="a11y-group__label">Orientacja</span>
+      <div class="a11y-group__controls a11y-group__controls--wrap">
+        <button class="a11y-btn a11y-toggle" id="a11y-contrast"          aria-pressed="false">Kontrast</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-grayscale"         aria-pressed="false">Odcień szarości</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-hide-images"       aria-pressed="false">Ukryj obrazy</button>
+        <button class="a11y-btn a11y-toggle" id="a11y-pause-animations"  aria-pressed="false">Wstrzymaj animacje</button>
+      </div>
+    </div>
+
+    <!-- ORIENTACJA -->
+    <p class="a11y-section-label">Orientacja</p>
+
+    <div class="a11y-group">
       <div class="a11y-group__controls a11y-group__controls--wrap">
         <button class="a11y-btn a11y-toggle" id="a11y-highlight-links" aria-pressed="false">Podświetl linki</button>
         <button class="a11y-btn a11y-toggle" id="a11y-reading-mask"    aria-pressed="false">Maska czytania</button>
@@ -61,33 +65,14 @@
       </div>
     </div>
 
-    <!-- Reset all -->
     <button class="a11y-reset-all" id="a11y-reset-all">Resetuj wszystko</button>
 
   </div>
 </div>
 
-<!-- SVG colour-blind filters (invisible) -->
+<!-- SVG grayscale filter -->
 <svg class="a11y-filters-svg" aria-hidden="true" focusable="false">
   <defs>
-    <filter id="filter-protanopia">
-      <feColorMatrix type="matrix" values="0.567 0.433 0     0 0
-                                            0.558 0.442 0     0 0
-                                            0     0.242 0.758 0 0
-                                            0     0     0     1 0"/>
-    </filter>
-    <filter id="filter-deuteranopia">
-      <feColorMatrix type="matrix" values="0.625 0.375 0   0 0
-                                            0.7   0.3   0   0 0
-                                            0     0.3   0.7 0 0
-                                            0     0     0   1 0"/>
-    </filter>
-    <filter id="filter-tritanopia">
-      <feColorMatrix type="matrix" values="0.95 0.05  0      0 0
-                                            0    0.433 0.567  0 0
-                                            0    0.475 0.525  0 0
-                                            0    0     0      1 0"/>
-    </filter>
     <filter id="filter-grayscale">
       <feColorMatrix type="saturate" values="0"/>
     </filter>
@@ -95,7 +80,6 @@
 </svg>
 
 <style>
-  /* ── Trigger button ── */
   .a11y-widget {
     position: fixed;
     bottom: 1.5rem;
@@ -124,17 +108,18 @@
   .a11y-trigger:hover { transform: scale(1.08); background: var(--color-bg-card); }
   .a11y-trigger svg { width: 20px; height: 20px; }
 
-  /* ── Panel ── */
   .a11y-panel {
     background: var(--color-bg-dark);
     border: 1px solid var(--white-12);
     border-radius: var(--radius-lg);
     padding: 1.25rem;
-    width: 240px;
+    width: 252px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    max-height: 80vh;
+    overflow-y: auto;
   }
   .a11y-panel[hidden] { display: none; }
 
@@ -147,24 +132,30 @@
     margin: 0;
   }
 
-  /* ── Groups ── */
+  .a11y-section-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-violet);
+    margin-top: 0.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--white-08);
+  }
+
   .a11y-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   .a11y-group__label {
     font-size: var(--text-xs);
     color: var(--on-dark-60);
     font-family: var(--font-sans);
   }
-  .a11y-group__controls {
-    display: flex;
-    gap: 0.4rem;
-  }
+  .a11y-group__controls { display: flex; gap: 0.4rem; }
   .a11y-group__controls--wrap { flex-wrap: wrap; }
 
-  /* ── Buttons ── */
   .a11y-btn {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -178,10 +169,7 @@
     transition: background 0.15s, color 0.15s, border-color 0.15s;
     white-space: nowrap;
   }
-  .a11y-btn:hover {
-    background: var(--white-15);
-    color: var(--on-dark-90);
-  }
+  .a11y-btn:hover { background: var(--white-15); color: var(--on-dark-90); }
   .a11y-btn--reset { font-weight: 600; }
   .a11y-btn[aria-pressed="true"],
   .a11y-toggle.active {
@@ -190,7 +178,6 @@
     border-color: var(--color-violet);
   }
 
-  /* ── Reset all ── */
   .a11y-reset-all {
     font-family: var(--font-mono);
     font-size: 0.68rem;
@@ -201,6 +188,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    margin-top: 0.25rem;
     text-align: left;
     transition: color 0.15s;
   }
@@ -247,9 +235,7 @@
     transition: background 0.12s;
     width: 100%;
   }
-  :global(.a11y-structure-item:hover) {
-    background: var(--white-08);
-  }
+  :global(.a11y-structure-item:hover) { background: var(--white-08); }
   :global(.a11y-structure-tag) {
     font-family: var(--font-mono);
     font-size: 0.6rem;
@@ -266,17 +252,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  :global(.a11y-structure-item[data-level="1"] .a11y-structure-text) {
-    color: var(--on-dark-90);
-    font-weight: 600;
-  }
+  :global(.a11y-structure-item[data-level="1"] .a11y-structure-text) { color: var(--on-dark-90); font-weight: 600; }
   :global(.a11y-structure-item[data-level="2"]) { padding-left: 0.4rem; }
   :global(.a11y-structure-item[data-level="3"]) { padding-left: 1.2rem; }
   :global(.a11y-structure-item[data-level="4"]) { padding-left: 2rem; }
 
   /* ── Reading mask ── */
-  :global(.a11y-mask-top),
-  :global(.a11y-mask-bottom) {
+  :global(.a11y-mask-top), :global(.a11y-mask-bottom) {
     position: fixed;
     left: 0;
     width: 100%;
@@ -287,24 +269,26 @@
   :global(.a11y-mask-top)    { top: 0; }
   :global(.a11y-mask-bottom) { bottom: 0; }
 
-  /* ── Hidden SVG ── */
-  .a11y-filters-svg {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-  }
+  .a11y-filters-svg { position: absolute; width: 0; height: 0; overflow: hidden; }
 </style>
 
 <script>
-  const KEY = 'dk-a11y';
+  const KEY  = 'dk-a11y';
   const html = document.documentElement;
 
   // ── State ──────────────────────────────────────────────────────────────────
   let state = {
-    fontSize: 0,      // -2 to +4 steps of 10%
-    contrast: false,
-    filter: null,     // 'protanopia' | 'deuteranopia' | 'tritanopia' | 'grayscale' | null
+    // Tekst
+    fontSize:     0,
+    lineHeight:   false,
+    textAlign:    false,
+    readableFont: false,
+    // Wizualne
+    contrast:         false,
+    grayscale:        false,
+    hideImages:       false,
+    pauseAnimations:  false,
+    // Orientacja
     highlightLinks: false,
     readingMask:    false,
     focusOutline:   false,
@@ -314,68 +298,53 @@
   function load() {
     try { state = { ...state, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch {}
   }
-  function save() {
-    localStorage.setItem(KEY, JSON.stringify(state));
-  }
+  function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 
   // ── Apply ──────────────────────────────────────────────────────────────────
   function apply() {
-    // Font size: set css custom property on html
-    html.style.setProperty('--a11y-font-scale', state.fontSize === 0 ? '' : `${1 + state.fontSize * 0.1}`);
+    // Tekst
     if (state.fontSize === 0) {
-      html.style.removeProperty('--a11y-font-scale');
-      html.style.fontSize = '';
+      html.style.removeProperty('font-size');
     } else {
       html.style.fontSize = `${100 + state.fontSize * 10}%`;
     }
+    html.classList.toggle('a11y-line-height',   state.lineHeight);
+    html.classList.toggle('a11y-text-align',    state.textAlign);
+    html.classList.toggle('a11y-readable-font', state.readableFont);
 
-    // Contrast
-    html.classList.toggle('a11y-high-contrast', state.contrast);
+    // Wizualne
+    html.classList.toggle('a11y-high-contrast',    state.contrast);
+    html.classList.toggle('a11y-grayscale',         state.grayscale);
+    html.classList.toggle('a11y-hide-images',       state.hideImages);
+    html.classList.toggle('a11y-pause-animations',  state.pauseAnimations);
 
-    // Colour filter
-    const filters = ['protanopia','deuteranopia','tritanopia','grayscale'];
-    filters.forEach(f => html.classList.remove(`a11y-filter-${f}`));
-    if (state.filter) html.classList.add(`a11y-filter-${state.filter}`);
-
-    // Orientation
+    // Orientacja
     html.classList.toggle('a11y-highlight-links', state.highlightLinks);
     html.classList.toggle('a11y-focus-outline',   state.focusOutline);
     if (state.readingMask)   { createMask(); }      else { removeMask(); }
     if (state.pageStructure) { createStructure(); } else { removeStructure(); }
 
-    // Sync UI
     syncUI();
   }
 
+  // ── Sync UI ────────────────────────────────────────────────────────────────
   function syncUI() {
-    // Font display (no visible counter, just enable/disable buttons)
-    const dec = document.getElementById('a11y-font-decrease');
-    const inc = document.getElementById('a11y-font-increase');
+    const dec = document.getElementById('a11y-font-decrease') as HTMLButtonElement | null;
+    const inc = document.getElementById('a11y-font-increase') as HTMLButtonElement | null;
     if (dec) dec.disabled = state.fontSize <= -2;
     if (inc) inc.disabled = state.fontSize >= 4;
 
-    // Contrast toggle
-    const ct = document.getElementById('a11y-contrast');
-    if (ct) {
-      ct.setAttribute('aria-pressed', String(state.contrast));
-      ct.classList.toggle('active', state.contrast);
-    }
-
-    // Filter toggles
-    document.querySelectorAll('[data-filter]').forEach(btn => {
-      const active = btn.dataset.filter === state.filter;
-      btn.setAttribute('aria-pressed', String(active));
-      btn.classList.toggle('active', active);
-    });
-
-    // Orientation toggles
-    const orientationIds = ['highlight-links', 'reading-mask', 'focus-outline', 'page-structure'];
-    orientationIds.forEach(id => {
-      const key = id.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+    const toggleIds = [
+      'line-height', 'text-align', 'readable-font',
+      'contrast', 'grayscale', 'hide-images', 'pause-animations',
+      'highlight-links', 'reading-mask', 'focus-outline', 'page-structure',
+    ];
+    toggleIds.forEach(id => {
+      const key = id.replace(/-([a-z])/g, (_, c) => c.toUpperCase()) as keyof typeof state;
       const btn = document.getElementById(`a11y-${id}`);
       if (btn) {
         btn.setAttribute('aria-pressed', String(state[key]));
-        btn.classList.toggle('active', state[key]);
+        btn.classList.toggle('active', !!state[key]);
       }
     });
   }
@@ -385,9 +354,9 @@
   const panel   = document.getElementById('a11y-panel');
 
   trigger?.addEventListener('click', () => {
-    const open = panel?.hasAttribute('hidden') === false;
+    const open = !panel?.hasAttribute('hidden');
     if (open) {
-      panel.setAttribute('hidden', '');
+      panel?.setAttribute('hidden', '');
       trigger.setAttribute('aria-expanded', 'false');
     } else {
       panel?.removeAttribute('hidden');
@@ -395,15 +364,13 @@
     }
   });
 
-  // Close on outside click
   document.addEventListener('click', e => {
-    if (!document.getElementById('a11y-widget')?.contains(e.target)) {
+    if (!document.getElementById('a11y-widget')?.contains(e.target as Node)) {
       panel?.setAttribute('hidden', '');
       trigger?.setAttribute('aria-expanded', 'false');
     }
   });
 
-  // Close on Escape
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       panel?.setAttribute('hidden', '');
@@ -411,36 +378,42 @@
     }
   });
 
-  // ── Controls ───────────────────────────────────────────────────────────────
+  // ── Font size controls ─────────────────────────────────────────────────────
   document.getElementById('a11y-font-decrease')?.addEventListener('click', () => {
     if (state.fontSize > -2) { state.fontSize--; save(); apply(); }
   });
   document.getElementById('a11y-font-increase')?.addEventListener('click', () => {
-    if (state.fontSize < 4) { state.fontSize++; save(); apply(); }
+    if (state.fontSize < 4)  { state.fontSize++; save(); apply(); }
   });
   document.getElementById('a11y-font-reset')?.addEventListener('click', () => {
     state.fontSize = 0; save(); apply();
   });
 
-  document.getElementById('a11y-contrast')?.addEventListener('click', function() {
-    state.contrast = !state.contrast; save(); apply();
-  });
-
-  document.querySelectorAll('[data-filter]').forEach(btn => {
-    btn.addEventListener('click', function() {
-      state.filter = state.filter === this.dataset.filter ? null : this.dataset.filter;
-      save(); apply();
+  // ── Toggle controls ────────────────────────────────────────────────────────
+  const toggleIds = [
+    'line-height', 'text-align', 'readable-font',
+    'contrast', 'grayscale', 'hide-images', 'pause-animations',
+    'highlight-links', 'reading-mask', 'focus-outline', 'page-structure',
+  ];
+  toggleIds.forEach(id => {
+    const key = id.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase()) as keyof typeof state;
+    document.getElementById(`a11y-${id}`)?.addEventListener('click', () => {
+      (state[key] as boolean) = !state[key]; save(); apply();
     });
   });
 
   document.getElementById('a11y-reset-all')?.addEventListener('click', () => {
-    state = { fontSize: 0, contrast: false, filter: null, highlightLinks: false, readingMask: false, focusOutline: false, pageStructure: false };
+    state = {
+      fontSize: 0, lineHeight: false, textAlign: false, readableFont: false,
+      contrast: false, grayscale: false, hideImages: false, pauseAnimations: false,
+      highlightLinks: false, readingMask: false, focusOutline: false, pageStructure: false,
+    };
     save(); apply();
   });
 
-  // ── Reading mask helpers ────────────────────────────────────────────────────
+  // ── Reading mask ───────────────────────────────────────────────────────────
   const MASK_STRIP = 80;
-  let maskTop: HTMLDivElement | null = null;
+  let maskTop: HTMLDivElement | null    = null;
   let maskBottom: HTMLDivElement | null = null;
 
   function createMask() {
@@ -449,26 +422,21 @@
     maskBottom = document.createElement('div');
     maskTop.className    = 'a11y-mask-top';
     maskBottom.className = 'a11y-mask-bottom';
-    maskTop.style.height    = '0px';
-    maskBottom.style.height = '0px';
+    maskTop.style.height = maskBottom.style.height = '0px';
     document.body.append(maskTop, maskBottom);
   }
-
   function removeMask() {
-    maskTop?.remove();    maskTop    = null;
+    maskTop?.remove(); maskTop = null;
     maskBottom?.remove(); maskBottom = null;
   }
-
   document.addEventListener('mousemove', (e: MouseEvent) => {
     if (!maskTop || !maskBottom) return;
-    const half    = MASK_STRIP / 2;
-    const topH    = Math.max(0, e.clientY - half);
-    const bottomH = Math.max(0, window.innerHeight - e.clientY - half);
-    maskTop.style.height    = `${topH}px`;
-    maskBottom.style.height = `${bottomH}px`;
+    const half = MASK_STRIP / 2;
+    maskTop.style.height    = `${Math.max(0, e.clientY - half)}px`;
+    maskBottom.style.height = `${Math.max(0, window.innerHeight - e.clientY - half)}px`;
   });
 
-  // ── Structure panel helpers ─────────────────────────────────────────────────
+  // ── Structure panel ────────────────────────────────────────────────────────
   let structurePanel: HTMLDivElement | null = null;
 
   function createStructure() {
@@ -480,22 +448,21 @@
     structurePanel.className = 'a11y-structure-panel';
 
     const title = document.createElement('p');
-    title.className = 'a11y-structure-panel__title';
+    title.className   = 'a11y-structure-panel__title';
     title.textContent = 'Struktura strony';
     structurePanel.appendChild(title);
 
     headings.forEach((el, idx) => {
-      const level = parseInt(el.tagName[1]);
-      const btn = document.createElement('button');
-      btn.className = 'a11y-structure-item';
-      btn.dataset.level = String(level);
+      const btn  = document.createElement('button');
+      btn.className    = 'a11y-structure-item';
+      btn.dataset.level = el.tagName[1];
 
-      const tag = document.createElement('span');
-      tag.className = 'a11y-structure-tag';
+      const tag  = document.createElement('span');
+      tag.className   = 'a11y-structure-tag';
       tag.textContent = el.tagName;
 
       const text = document.createElement('span');
-      text.className = 'a11y-structure-text';
+      text.className   = 'a11y-structure-text';
       text.textContent = el.textContent?.trim() || '—';
 
       btn.append(tag, text);
@@ -508,20 +475,10 @@
 
     document.body.appendChild(structurePanel);
   }
-
   function removeStructure() {
     structurePanel?.remove();
     structurePanel = null;
   }
-
-  // ── Orientation controls ────────────────────────────────────────────────────
-  const orientationIds = ['highlight-links', 'reading-mask', 'focus-outline', 'page-structure'];
-  orientationIds.forEach(id => {
-    const key = id.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase()) as keyof typeof state;
-    document.getElementById(`a11y-${id}`)?.addEventListener('click', () => {
-      (state[key] as boolean) = !state[key]; save(); apply();
-    });
-  });
 
   // ── Init ───────────────────────────────────────────────────────────────────
   load();
