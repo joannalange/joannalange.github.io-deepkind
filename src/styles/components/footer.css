@@ -75,6 +75,22 @@
 
 .footer__link:hover { color: var(--on-dark-90); }
 
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer__social-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-ghost);
+  transition: color 0.15s ease;
+}
+
+.footer__social-icon:hover { color: var(--on-dark-90); }
+
 .footer__rainbow {
   height: 2px;
   background: linear-gradient(90deg,

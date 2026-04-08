@@ -1,8 +1,18 @@
 ---
 import content from '@data/content';
+import iconLinkedin from '@assets/svg/icon-linkedin.svg?raw';
+import iconInstagram from '@assets/svg/icon-instagram.svg?raw';
+import iconFacebook from '@assets/svg/icon-facebook.svg?raw';
+
 const { description, tagline, org, legal, connect, copyright } = content.footer;
 const email = connect.find(l => l.url.startsWith('mailto:'));
 const socials = connect.filter(l => !l.url.startsWith('mailto:'));
+
+const socialIcons: Record<string, string> = {
+  LinkedIn: iconLinkedin,
+  Instagram: iconInstagram,
+  Facebook: iconFacebook,
+};
 ---
 
 <footer class="footer">
@@ -45,16 +55,19 @@ const socials = connect.filter(l => !l.url.startsWith('mailto:'));
           {email && (
             <li><a href={email.url} class="footer__link">{email.url.replace('mailto:','')}</a></li>
           )}
-          {socials.map(item => (
-            <li>
+          <li class="footer__socials">
+            {socials.map(item => (
               <a
                 href={item.url}
-                class="footer__link"
+                class="footer__social-icon"
+                aria-label={item.name}
                 target={item.url.startsWith('http') ? '_blank' : undefined}
                 rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >{item.name}</a>
-            </li>
-          ))}
+              >
+                <Fragment set:html={socialIcons[item.name] ?? ''} />
+              </a>
+            ))}
+          </li>
         </ul>
       </div>
 
