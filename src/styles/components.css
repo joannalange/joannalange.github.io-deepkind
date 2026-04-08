@@ -1,14 +1,8 @@
 /**
  * Component styles index.
- *
  * Each file is scoped to a single component/section.
  * Edit the relevant file — do NOT add rules here directly.
- *
- * Load order matters: label and button are shared primitives
- * used inside section components, so they come first.
  */
-@import './components/label.css';
-@import './components/button.css';
 @import './components/nav.css';
 @import './components/hero.css';
 @import './components/areas.css';
