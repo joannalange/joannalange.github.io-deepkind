@@ -12,6 +12,7 @@ export type AccentColor = 'blue' | 'sage' | 'peach' | 'lavender' | 'gold';
 export interface NavLink {
   name: string;
   url: string;
+  newTab?: boolean;
 }
 
 export interface NavCta {

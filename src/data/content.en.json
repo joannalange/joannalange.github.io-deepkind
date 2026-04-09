@@ -4,7 +4,7 @@
       { "name": "About", "url": "#about" },
       { "name": "Projects", "url": "#projects" },
       { "name": "Get Involved", "url": "#join" },
-      { "name": "Blog", "url": "/blog" },
+      { "name": "Blog", "url": "/blog", "newTab": true },
       { "name": "FAQ", "url": "#faq" },
       { "name": "Contact", "url": "#contact" }
     ],

@@ -15,7 +15,7 @@ const { links } = content.navigation;
 
       <ul class="nav__links" id="nav-links">
         {links.map((link, i) => (
-          <li><a href={link.url} class="nav__link" data-i18n={`navigation.links.${i}.name`}>{link.name}</a></li>
+          <li><a href={link.url} class="nav__link" data-i18n={`navigation.links.${i}.name`} target={link.newTab ? '_blank' : undefined} rel={link.newTab ? 'noopener noreferrer' : undefined}>{link.name}</a></li>
         ))}
       </ul>
 
