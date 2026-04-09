@@ -21,6 +21,12 @@ const categories = Object.keys(categoryColors);
 function tagColor(cat: string): string {
   return categoryColors[cat] ?? 'var(--color-violet)';
 }
+
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('pl-PL', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
+}
 ---
 
 <BaseLayout
@@ -59,7 +65,7 @@ function tagColor(cat: string): string {
                 >#{post.data.category}</span>
                 <h2 class="blog-card__title">{post.data.title}</h2>
                 <p class="blog-card__excerpt">{post.data.excerpt}</p>
-                <span class="blog-card__date">{post.data.date}</span>
+                <span class="blog-card__date">{formatDate(post.data.date)}</span>
               </a>
             </li>
           ))}
