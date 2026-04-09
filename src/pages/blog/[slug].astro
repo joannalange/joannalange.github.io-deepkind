@@ -1,0 +1,68 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('pl-PL', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
+}
+---
+
+<BaseLayout title={`${post.data.title} — DeepKind Blog`} description={post.data.excerpt}>
+
+  <article>
+
+    <header class="blog-post-hero">
+      <div class="blog-wrap">
+        <div class="blog-post-hero__meta">
+          <a href="/blog" class="blog-post-hero__back">← Blog</a>
+          <span class="blog-post-hero__sep">/</span>
+          <span class="blog-post-hero__cat">{post.data.category}</span>
+        </div>
+        <h1 class="blog-post-hero__title">{post.data.title}</h1>
+        <p class="blog-post-hero__byline">
+          {post.data.author && <>{post.data.author} · </>}{formatDate(post.data.date)}
+        </p>
+      </div>
+    </header>
+
+    <div class="blog-post-body">
+      <div class="blog-wrap">
+        <div class="blog-prose">
+          <Content />
+        </div>
+        <div class="blog-post-footer">
+          <a href="/blog" class="blog-post-footer__back">← Wróć do bloga</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+</BaseLayout>
+
+<style>
+  .blog-post-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ink-10);
+  }
+  .blog-post-footer__back {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    transition: color 0.15s;
+  }
+  .blog-post-footer__back:hover { color: var(--color-violet); }
+</style>
