@@ -188,6 +188,7 @@
     ]
   },
   "cookieBanner": {
+    "title": "Cookies",
     "text": "We use cookies to give you the best experience on our site. More in our\u00a0",
     "policyLink": "Cookie Policy",
     "acceptAll": "Accept all",
