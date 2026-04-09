@@ -210,7 +210,7 @@
       { "name": "Polityka cookies", "url": "/polityka-cookies" },
       { "name": "Regulamin darowizn", "url": "/regulamin-darowizn" },
       { "name": "Regulamin newslettera", "url": "/regulamin-newslettera" },
-      { "name": "Statut", "url": "#" }
+      { "name": "Statut", "url": "/statut" }
     ],
     "connect": [
       { "name": "Email", "url": "mailto:hello@deepkind.org" },
