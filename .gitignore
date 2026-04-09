@@ -8,6 +8,7 @@ CLAUDE.md
 AGENTS.md
 TODO.md
 public/llms.txt
+hooks/
 
 # Astro generated cache
 .astro/
