@@ -7,6 +7,7 @@ import '@styles/components.css';
 import content from '@data/content';
 import PaletteWidget from '@dev/PaletteWidget.astro';
 import AccessibilityWidget from '@ui/AccessibilityWidget.astro';
+import CookieBanner from '@ui/CookieBanner.astro';
 import contentEn from '@data/content.en.json';
 
 interface Props {
@@ -77,6 +78,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
     </main>
     <Footer />
     <AccessibilityWidget />
+    <CookieBanner />
   </body>
 
   <script src="@scripts/reveal.ts"></script>

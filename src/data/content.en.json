@@ -187,6 +187,12 @@
       }
     ]
   },
+  "cookieBanner": {
+    "text": "We use cookies to give you the best experience on our site. More in our\u00a0",
+    "policyLink": "Cookie Policy",
+    "acceptAll": "Accept all",
+    "necessary": "Necessary only"
+  },
   "contact": {
     "heading": "Let's talk",
     "description": "Have an idea, a question, or want to build something with us? Get in touch."
