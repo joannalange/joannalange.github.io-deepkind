@@ -29,9 +29,7 @@ function formatDate(iso: string): string {
           <span class="blog-post-hero__cat">{post.data.category}</span>
         </div>
         <h1 class="blog-post-hero__title">{post.data.title}</h1>
-        <p class="blog-post-hero__byline">
-          {post.data.author && <>{post.data.author} · </>}{formatDate(post.data.date)}
-        </p>
+        <p class="blog-post-hero__byline">{formatDate(post.data.date)}</p>
       </div>
     </header>
 
