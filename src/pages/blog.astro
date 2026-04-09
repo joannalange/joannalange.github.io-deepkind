@@ -7,7 +7,20 @@ const posts = allPosts.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
-const categories = ['Wszystkie', 'AI i etyka', 'Kobiety w tech', 'Dobrostan', 'Przywództwo', 'Różnorodność'];
+const categoryColors: Record<string, string> = {
+  'Wszystkie':      'var(--color-violet)',
+  'AI i etyka':     'var(--color-violet)',
+  'Kobiety w tech': 'var(--color-rose)',
+  'Dobrostan':      'var(--color-mint)',
+  'Przywództwo':    'var(--color-gold)',
+  'Różnorodność':   'var(--color-coral)',
+};
+
+const categories = Object.keys(categoryColors);
+
+function tagColor(cat: string): string {
+  return categoryColors[cat] ?? 'var(--color-violet)';
+}
 ---
 
 <BaseLayout
@@ -28,7 +41,10 @@ const categories = ['Wszystkie', 'AI i etyka', 'Kobiety w tech', 'Dobrostan', 'P
 
       <nav class="blog-filters" aria-label="Kategorie">
         {categories.map((cat, i) => (
-          <button class={`blog-filter${i === 0 ? ' blog-filter--active' : ''}`}>{cat}</button>
+          <button
+            class={`blog-filter${i === 0 ? ' blog-filter--active' : ''}`}
+            style={`--tag-color: ${tagColor(cat)}`}
+          >#{cat}</button>
         ))}
       </nav>
 
@@ -37,7 +53,10 @@ const categories = ['Wszystkie', 'AI i etyka', 'Kobiety w tech', 'Dobrostan', 'P
           {posts.map(post => (
             <li class="blog-card">
               <a href={`/blog/${post.slug}`} class="blog-card__link">
-                <span class="blog-card__category">{post.data.category}</span>
+                <span
+                  class="blog-card__category"
+                  style={`--tag-color: ${tagColor(post.data.category)}`}
+                >#{post.data.category}</span>
                 <h2 class="blog-card__title">{post.data.title}</h2>
                 <p class="blog-card__excerpt">{post.data.excerpt}</p>
                 <span class="blog-card__date">{post.data.date}</span>
