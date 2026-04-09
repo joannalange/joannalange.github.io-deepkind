@@ -21,29 +21,39 @@
     "header": "Areas of work",
     "items": [
       {
+        "id": "tech",
         "title": "Technology & Responsibility",
         "tags": ["Ethical AI", "disinformation", "cybersecurity", "tech for good", "environment & climate"],
-        "description": "Technology changes the world. We ask whether it does so well. We support solutions that serve people and the planet, not just growth."
+        "description": "Technology changes the world. We ask whether it does so well. We support solutions that serve people and the planet, not just growth.",
+        "accent": "blue"
       },
       {
+        "id": "women",
         "title": "Women's Agency",
         "tags": ["Female leadership", "community", "purpose-driven entrepreneurship"],
-        "description": "We support women who want to act on their own terms. We build a community grounded in trust and real collaboration."
+        "description": "We support women who want to act on their own terms. We build a community grounded in trust and real collaboration.",
+        "accent": "sage"
       },
       {
+        "id": "diversity",
         "title": "Diversity & Dialogue",
         "tags": ["Neurodiversity", "cross-generational", "relationships", "inclusivity"],
-        "description": "We believe different thinking styles, sensibilities and generations are a strength. We create spaces where those differences become an asset."
+        "description": "We believe different thinking styles, sensibilities and generations are a strength. We create spaces where those differences become an asset.",
+        "accent": "lavender"
       },
       {
+        "id": "wellbeing",
         "title": "Wellbeing & Leadership",
         "tags": ["Burn-out", "balanced leadership", "mindfulness", "wellbeing"],
-        "description": "We respond to the pressure of constant availability. We help leaders and organisations find their footing again and act with more clarity."
+        "description": "We respond to the pressure of constant availability. We help leaders and organisations find their footing again and act with more clarity.",
+        "accent": "peach"
       },
       {
+        "id": "purpose",
         "title": "Purpose-Driven Entrepreneurship",
         "tags": ["Business for good", "impact", "purpose-driven"],
-        "description": "We support businesses and initiatives that combine effectiveness with genuine impact on people and the environment."
+        "description": "We support businesses and initiatives that combine effectiveness with genuine impact on people and the environment.",
+        "accent": "gold"
       }
     ]
   },
@@ -51,24 +61,40 @@
     "header": "Our projects",
     "items": [
       {
+        "title": "GrowUp Hackathon",
         "subtitle": "Technology for young adults",
         "description": "For people aged 18–26. Together we tackle the real challenges of today: stress, uncertainty, figuring out adulthood — using technology and creative thinking.",
-        "cta": "Find out more"
+        "image": "/img/project-hackathon.webp",
+        "cta": "Find out more",
+        "url": "https://growuphackathon.pl/",
+        "accent": "blue"
       },
       {
+        "title": "Deep & Kind Retreat",
         "subtitle": "Space for women in tech and business",
         "description": "Time to slow down. Rest, honest conversations and time in nature — for women who are always moving fast.",
-        "cta": "Find out more"
+        "image": "/img/project-retreat.webp",
+        "cta": "Find out more",
+        "url": "https://deepkind-retreat.lovable.app",
+        "accent": "sage"
       },
       {
+        "title": "Minds & Muscles",
         "subtitle": "Movement, care and relationships",
         "description": "A programme for children and parents that pairs physical activity with building real bonds, in a simple and accessible way.",
-        "cta": "Find out more"
+        "image": "/img/project-minds.webp",
+        "cta": "Find out more",
+        "url": "https://minds-and-muscles.pl/",
+        "accent": "peach"
       },
       {
+        "title": "Wisdom of Generation",
         "subtitle": "Experience that technology needs",
         "description": "Experienced women in tech are too often pushed aside. We support women 45+, making their expertise visible and helping them step into leadership in the AI era.",
-        "cta": "Find out more"
+        "image": "/img/project-wisdom.webp",
+        "cta": "Find out more",
+        "url": "#",
+        "accent": "lavender"
       }
     ]
   },
@@ -78,7 +104,8 @@
       "DeepKind Foundation started from a simple belief: in a world of constant change, we need new ways of thinking, rooted in empathy, care and the responsible use of technology. We work across education, the humanities and innovation, building spaces where thinking and doing meet.",
       "Care for people is at the heart of everything we do — their wellbeing, their relationships, their sense of agency. We believe technology should strengthen people, not override them. We connect different perspectives and partners to create lasting change that means something.",
       "DeepKind is a space where kindness becomes practice, and responsibility becomes the foundation of the future."
-    ]
+    ],
+    "quote": "We build initiatives that connect people, technology and care — creating a movement that inspires living with energy, empathy and mindfulness."
   },
   "getInvolved": {
     "heading": "Get Involved",
@@ -87,17 +114,23 @@
       {
         "title": "Join us",
         "description": "As a volunteer. Share your knowledge and your time. We're looking for activists, mentors, experts, and people passionate about technology, the humanities, and nature.",
-        "cta": "Join →"
+        "cta": "Join →",
+        "url": "/dolacz",
+        "theme": "volunteer"
       },
       {
         "title": "Support us financially",
         "description": "Your donations let us run free programmes and initiatives for children, young people, women in tech, and local communities.",
-        "cta": "Support →"
+        "cta": "Support →",
+        "url": "/wesprzyj",
+        "theme": "donate"
       },
       {
         "title": "Let's build together",
         "description": "We work with organisations and companies that want to act responsibly and have a real impact.",
-        "cta": "Partner with us →"
+        "cta": "Partner with us →",
+        "url": "/wspolpraca",
+        "theme": "partner"
       }
     ]
   },
@@ -165,15 +198,30 @@
       "placeholder": "Your email address",
       "cta": "Subscribe"
     },
+    "description": "We connect education, technology and human mindfulness so that doing good has real power.",
     "tagline": "Technology. People. Balance.",
     "orgHeading": "Organisation",
     "legalHeading": "Documents",
     "connectHeading": "Contact",
+    "org": {
+      "name": "DeepKind Foundation",
+      "city": "Warsaw, Poland",
+      "nip": "5214132486",
+      "krs": "0001193215"
+    },
     "legal": [
-      { "name": "Privacy Policy" },
-      { "name": "Cookie Policy" },
-      { "name": "Donation Rules" },
-      { "name": "Statute" }
-    ]
+      { "name": "Privacy Policy", "url": "/polityka-prywatnosci" },
+      { "name": "Cookie Policy", "url": "/polityka-cookies" },
+      { "name": "Donation Rules", "url": "/regulamin-darowizn" },
+      { "name": "Newsletter Rules", "url": "/regulamin-newslettera" },
+      { "name": "Statute", "url": "#" }
+    ],
+    "connect": [
+      { "name": "Email", "url": "mailto:hello@deepkind.org" },
+      { "name": "LinkedIn", "url": "https://www.linkedin.com/company/deepkind" },
+      { "name": "Instagram", "url": "#" },
+      { "name": "Facebook", "url": "#" }
+    ],
+    "copyright": "© 2026 DeepKind Foundation"
   }
 }

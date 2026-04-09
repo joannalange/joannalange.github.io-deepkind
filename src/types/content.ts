@@ -75,6 +75,7 @@ export interface Projects {
 export interface About {
   title: string;
   paragraphs: string[];
+  quote: string;
 }
 
 // ── Get Involved ───────────────────────────────────────────────────────────
@@ -90,6 +91,7 @@ export interface GetInvolvedOption {
 }
 
 export interface GetInvolved {
+  heading: string;
   intro: string;
   options: GetInvolvedOption[];
 }
@@ -102,6 +104,7 @@ export interface FAQItem {
 }
 
 export interface FAQ {
+  heading: string;
   items: FAQItem[];
 }
 

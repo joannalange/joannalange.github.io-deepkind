@@ -44,6 +44,7 @@ function paletteSavePlugin() {
 }
 
 export default defineConfig({
+  site: 'https://deepkind.org',
   vite: {
     plugins: [tailwindcss(), paletteSavePlugin()],
     resolve: {

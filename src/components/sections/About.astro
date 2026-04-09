@@ -1,7 +1,7 @@
 ---
 import content from '@data/content';
 import aboutSvg from '@assets/svg/about-shape.svg?raw';
-const { title, paragraphs } = content.about;
+const { title, paragraphs, quote } = content.about;
 ---
 
 <section class="about" id="about" aria-label="O nas">
@@ -20,7 +20,7 @@ const { title, paragraphs } = content.about;
           <Fragment set:html={aboutSvg} />
         </div>
         <div class="about__quote">
-          <p>Tworzymy inicjatywy, które łączą ludzi, technologię i troskę, tworząc ruch, który inspiruje do życia z energią, empatią i uważnością.</p>
+          <p data-i18n="about.quote">{quote}</p>
         </div>
       </div>
 

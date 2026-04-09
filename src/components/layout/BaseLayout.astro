@@ -54,7 +54,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://deepkind
       "url": "https://deepkind.org",
       "logo": "https://deepkind.org/assets/logo.svg",
       "description": content.footer.description,
-      "email": content.footer.connect.find(l => l.url.startsWith('mailto:'))?.url.replace('mailto:', ''),
+      "email": content.footer.connect.find(l => l.url.startsWith('mailto:'))?.url.replace('mailto:', '') || '',
       "inLanguage": "pl",
       "areaServed": "PL",
       "sameAs": content.footer.connect.filter(l => !l.url.startsWith('mailto:') && l.url !== '#').map(l => l.url)
