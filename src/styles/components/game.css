@@ -1,0 +1,61 @@
+.gw { max-width: 720px; margin-inline: auto; padding-inline: clamp(1.25rem,5vw,3rem); }
+.gh { background: var(--color-bg-dark); padding-block: clamp(4rem,7vw,7rem); border-bottom: 1px solid var(--white-08); }
+.g-eyebrow { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-30); margin-bottom: 1rem; }
+.g-title { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.5rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; background: linear-gradient(135deg,var(--color-violet),var(--color-rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.g-sub { font-size: var(--text-lg); color: var(--on-dark-55); margin-top: .75rem; }
+.gb { background: var(--color-bg-alt); padding-block: clamp(3rem,6vw,5rem); min-height: 60vh; }
+
+.game-card { background: var(--color-white); border: 1px solid var(--ink-10); border-radius: var(--radius-lg); padding: clamp(1.75rem,4vw,2.75rem); box-shadow: 0 4px 24px var(--ink-08); }
+
+/* Progress */
+.g-progress { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 2rem; }
+.g-progress__label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-dim); letter-spacing: .06em; }
+.g-progress__track { height: 3px; background: var(--ink-08); border-radius: 99px; overflow: hidden; }
+.g-progress__fill { height: 100%; background: var(--color-violet); border-radius: 99px; transition: width .4s var(--ease-expo); }
+
+/* Question */
+.g-context { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--color-violet); margin-bottom: .5rem; }
+.g-question { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--color-text); letter-spacing: -.02em; line-height: 1.25; margin-bottom: 1.75rem; }
+
+/* Options */
+.g-options { display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.75rem; }
+.g-option {
+  text-align: left;
+  padding: .9em 1.1em;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--ink-12);
+  background: var(--color-white);
+  font-size: var(--text-sm);
+  color: var(--color-text-dim);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s, box-shadow .15s;
+  line-height: 1.5;
+}
+.g-option:hover { border-color: var(--color-violet); color: var(--color-text); box-shadow: 0 2px 8px var(--ink-08); }
+.g-option--sel {
+  border-color: var(--color-violet);
+  background: color-mix(in srgb,var(--color-violet) 6%,white);
+  color: var(--color-text);
+  box-shadow: 0 2px 10px color-mix(in srgb,var(--color-violet) 15%,transparent);
+}
+
+/* Buttons */
+.g-btn { padding: .65em 1.75em; border-radius: var(--radius-pill); background: var(--color-violet); color: var(--color-white); border: none; font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .07em; text-transform: uppercase; font-weight: 500; cursor: pointer; transition: background .15s,transform .15s,opacity .15s; }
+.g-btn:hover:not(:disabled) { background: color-mix(in srgb,var(--color-violet) 85%,black 15%); transform: translateY(-1px); }
+.g-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+/* Results — color driven by --result-color set from JS */
+.g-result-eyebrow { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-dim); margin-bottom: .5rem; }
+.g-result-title { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 800; letter-spacing: -.03em; margin-bottom: 1rem; color: var(--result-color, var(--color-violet)); }
+.g-result-desc { font-size: var(--text-base); color: var(--color-text-dim); line-height: 1.75; margin-bottom: 2rem; max-width: 54ch; }
+
+.g-scores { display: flex; flex-direction: column; gap: .85rem; margin-bottom: 2rem; }
+.g-score-row { display: grid; grid-template-columns: 6rem 1fr 2.5rem; align-items: center; gap: .75rem; }
+.g-score-label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-dim); letter-spacing: .05em; }
+.g-score-track { height: 6px; background: var(--ink-08); border-radius: 99px; overflow: hidden; }
+.g-score-bar { height: 100%; width: var(--bar-width, 0%); border-radius: 99px; transition: width .8s var(--ease-expo); background: var(--result-color, var(--color-violet)); }
+.g-score-pct { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-dim); text-align: right; }
+
+.g-result-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.g-link { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .07em; text-transform: uppercase; color: var(--color-text-dim); transition: color .15s; }
+.g-link:hover { color: var(--color-violet); }

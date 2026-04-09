@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/lilollu/projects/claude-code-config/hooks/user_prompt_submit.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/lilollu/projects/claude-code-config/hooks/dangerous_command_guard.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/lilollu/projects/claude-code-config/hooks/sensitive_file_guard.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/lilollu/projects/claude-code-config/hooks/post_edit_lint.sh",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "python3 /Users/lilollu/projects/claude-code-config/hooks/env_var_guard.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/lilollu/projects/claude-code-config/hooks/stop_check.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

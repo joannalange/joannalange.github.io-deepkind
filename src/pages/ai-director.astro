@@ -1,0 +1,118 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { METER_KEYS, DEPT_NAMES } from '../scripts/ai-director/data';
+---
+
+<BaseLayout
+  title="AI Director — DeepKind"
+  description="Symulacja zarządzania AI. Projektuj, wdrażaj, reaguj na kryzysy."
+>
+  <div class="aid-game">
+
+    <!-- Top bar -->
+    <header class="aid-topbar">
+      <div class="aid-topbar__brand">◈ AI Corp</div>
+      <div class="aid-topbar__phase" id="aid-topbar-phase">Ładowanie…</div>
+      <div class="aid-topbar__budget">
+        <span class="aid-budget-label">Tokeny reagowania</span>
+        <div id="aid-tokens" class="aid-tokens"></div>
+      </div>
+    </header>
+
+    <!-- Game body: main + log panel -->
+    <div class="aid-body">
+
+      <div class="aid-main">
+
+        <!-- Company floor -->
+        <div class="aid-floor">
+          {METER_KEYS.map(k => (
+            <div class="aid-dept" id={`aid-dept-${k}`} data-key={k}>
+              <div class="aid-dept__header">
+                <span class="aid-dept__name">{DEPT_NAMES[k]}</span>
+                <span class="aid-dept__status" id={`aid-status-${k}`}>–</span>
+              </div>
+              <div class="aid-dept__scene">
+                <div class="aid-dept__workers">
+                  <div class="aid-worker"></div>
+                  <div class="aid-worker aid-worker--b"></div>
+                  <div class="aid-worker aid-worker--c"></div>
+                </div>
+                <div class="aid-desk">
+                  <div class="aid-desk__comp"></div>
+                  <div class="aid-desk__doc"></div>
+                </div>
+              </div>
+              <div class="aid-dept__footer">
+                <div class="aid-gauge" id={`aid-gauge-${k}`}>
+                  <div class="aid-gauge__inner">
+                    <span class="aid-gauge__val" id={`aid-val-${k}`}>–</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Decision area -->
+        <div class="aid-decision-area" id="aid-decision-area">
+          <div id="aid-decision-screen">
+            <div class="aid-decision-header">
+              <span class="aid-crisis-badge" id="aid-crisis-badge" hidden>⚡ KRYZYS</span>
+              <p class="aid-context" id="aid-context"></p>
+            </div>
+            <h2 class="aid-question" id="aid-question"></h2>
+            <div class="aid-options" id="aid-options"></div>
+            <button class="aid-btn" id="aid-confirm" disabled>Zatwierdź →</button>
+          </div>
+        </div>
+
+        <!-- Phase intro overlay -->
+        <div class="aid-overlay" id="aid-intro-screen">
+          <div class="aid-overlay__card">
+            <p class="aid-overlay__eyebrow" id="aid-intro-eyebrow"></p>
+            <h2 class="aid-overlay__title" id="aid-intro-title"></h2>
+            <p class="aid-overlay__desc" id="aid-intro-desc"></p>
+            <button class="aid-btn" id="aid-intro-btn">Dalej →</button>
+          </div>
+        </div>
+
+        <!-- Result overlay -->
+        <div class="aid-overlay aid-overlay--result" id="aid-result-screen" hidden>
+          <div class="aid-overlay__card aid-overlay__card--wide">
+            <p class="aid-overlay__eyebrow">Raport końcowy</p>
+            <h2 class="aid-result-title" id="aid-result-title"></h2>
+            <p class="aid-result-desc" id="aid-result-desc"></p>
+            <div class="aid-final-meters" id="aid-final-meters"></div>
+            <div class="aid-result-actions">
+              <button class="aid-btn" id="aid-restart">Zagraj ponownie</button>
+              <a href="/gra" class="aid-link">Quiz →</a>
+              <a href="/" class="aid-link">Strona główna</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /aid-main -->
+
+      <!-- Event log panel -->
+      <aside class="aid-log-panel">
+        <p class="aid-log-panel__title">Dziennik zdarzeń</p>
+        <ul id="aid-log-list" class="aid-log-list">
+          <li class="aid-log-item aid-log-item--empty">Brak zdarzeń.</li>
+        </ul>
+      </aside>
+
+    </div><!-- /aid-body -->
+
+    <!-- Ticker -->
+    <div class="aid-ticker">
+      <span class="aid-ticker__prefix">▶</span>
+      <span class="aid-ticker__msg" id="aid-ticker-msg">Witaj w AI Corp — czas budować AI.</span>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<script>
+  import '../scripts/ai-director/index';
+</script>

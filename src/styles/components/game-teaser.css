@@ -1,0 +1,52 @@
+.gt { background: var(--color-bg-dark); border-top: 1px solid var(--white-08); border-bottom: 1px solid var(--white-08); padding-block: clamp(3rem,6vw,5rem); }
+
+.gt__inner { max-width: var(--content-width); margin-inline: auto; padding-inline: clamp(1.25rem,5vw,3rem); }
+
+.gt__header { margin-bottom: 2rem; }
+.gt__eyebrow { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--color-violet); margin-bottom: .5rem; }
+.gt__headline { font-family: var(--font-display); font-size: clamp(1.5rem,3vw,2.25rem); font-weight: 700; letter-spacing: -.03em; color: var(--color-white); }
+
+.gt__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.gt__card {
+  border: 1.5px solid var(--white-08);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  transition: border-color .2s;
+}
+.gt__card:hover { border-color: color-mix(in srgb, var(--color-violet) 50%, transparent); }
+.gt__card--featured {
+  border-color: color-mix(in srgb, var(--color-violet) 35%, transparent);
+  background: color-mix(in srgb, var(--color-violet) 5%, transparent);
+}
+
+.gt__card-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-violet); }
+.gt__card-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -.02em; color: var(--color-white); }
+.gt__card-desc { font-size: var(--text-sm); color: var(--on-dark-55); line-height: 1.65; flex: 1; }
+
+.gt__cta {
+  align-self: flex-start;
+  margin-top: .75rem;
+  display: inline-block;
+  padding: .6em 1.5em;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--color-violet), var(--color-rose));
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-decoration: none;
+  transition: opacity .15s, transform .15s;
+  white-space: nowrap;
+}
+.gt__cta:hover { opacity: .85; transform: translateY(-1px); }
+.gt__cta--secondary { background: transparent; border: 1.5px solid var(--white-08); color: var(--on-dark-55); }
+.gt__cta--secondary:hover { border-color: var(--color-violet); color: var(--color-white); opacity: 1; }
+
+@media (max-width: 600px) {
+  .gt__cards { grid-template-columns: 1fr; }
+}

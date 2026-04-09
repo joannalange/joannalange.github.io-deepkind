@@ -1,0 +1,207 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Zaprojektuj swoją AI — DeepKind"
+  description="Gra o etyce AI. Podejmij 5 decyzji projektowych i sprawdź, jaką AI budujesz."
+>
+
+  <section class="gh">
+    <div class="gw">
+      <p class="g-eyebrow">DEEPKIND // INTERAKTYWNIE</p>
+      <h1 class="g-title">Zaprojektuj swoją AI</h1>
+      <p class="g-sub">5 decyzji. Realne dylematy. Sprawdź, co budujesz.</p>
+    </div>
+  </section>
+
+  <section class="gb">
+    <div class="gw">
+      <div class="game-card" id="game">
+
+        <!-- Question screen -->
+        <div id="q-screen">
+          <div class="g-progress">
+            <span id="q-num" class="g-progress__label">Pytanie 1 z 5</span>
+            <div class="g-progress__track"><div class="g-progress__fill" id="g-fill"></div></div>
+          </div>
+          <p id="q-context" class="g-context"></p>
+          <p id="q-text" class="g-question"></p>
+          <div id="g-options" class="g-options"></div>
+          <button id="g-next" class="g-btn" disabled>Dalej →</button>
+        </div>
+
+        <!-- Results screen -->
+        <div id="r-screen" hidden>
+          <p class="g-result-eyebrow">Twoja AI to:</p>
+          <h2 id="r-title" class="g-result-title"></h2>
+          <p id="r-desc" class="g-result-desc"></p>
+          <div class="g-scores" id="g-scores"></div>
+          <div class="g-result-actions">
+            <button id="g-restart" class="g-btn">Zagraj jeszcze raz</button>
+            <a href="/" class="g-link">← Strona główna</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+const QUESTIONS = [
+  {
+    context: 'Cel systemu',
+    q: 'Co optymalizuje Twoja AI?',
+    opts: [
+      { label: 'Czas spędzony w aplikacji — im więcej, tym lepiej', s: [2,0,0] },
+      { label: 'Zadowolenie użytkownika po zakończeniu sesji', s: [1,2,1] },
+      { label: 'Ograniczenie zmęczenia cyfrowego', s: [0,2,2] },
+    ],
+  },
+  {
+    context: 'Dane treningowe',
+    q: 'Skąd pochodzi wiedza Twojej AI?',
+    opts: [
+      { label: 'Publiczny internet — szybko, dużo, tanio', s: [2,0,0] },
+      { label: 'Zróżnicowany panel ekspertów z różnych kultur', s: [1,1,2] },
+      { label: 'Dane użytkowników — wyłącznie za ich zgodą', s: [0,2,2] },
+    ],
+  },
+  {
+    context: 'Obsługa błędów',
+    q: 'Twoja AI popełnia błąd. Co robisz?',
+    opts: [
+      { label: 'Minimalizujesz informację, by chronić wizerunek', s: [2,0,0] },
+      { label: 'Informujesz użytkownika, ale bez szczegółów', s: [1,1,1] },
+      { label: 'Wyjaśniasz co poszło nie tak i dajesz możliwość korekty', s: [0,2,2] },
+    ],
+  },
+  {
+    context: 'Prywatność',
+    q: 'Jak traktujesz dane użytkowników?',
+    opts: [
+      { label: 'Zbierasz wszystko — dane to paliwo AI', s: [2,0,0] },
+      { label: 'Tylko dane potrzebne do działania systemu', s: [1,1,1] },
+      { label: 'Minimum danych i pełna przejrzystość co do każdego z nich', s: [0,1,2] },
+    ],
+  },
+  {
+    context: 'Nadzór',
+    q: 'Kto podejmuje ostateczną decyzję?',
+    opts: [
+      { label: 'AI — jest szybsza i mniej omylna niż człowiek', s: [2,0,0] },
+      { label: 'AI rekomenduje, człowiek zatwierdza ważne decyzje', s: [1,2,1] },
+      { label: 'Człowiek zawsze decyduje — AI tylko dostarcza informacji', s: [0,1,2] },
+    ],
+  },
+];
+
+const RESULTS = [
+  {
+    test: (e,m,t) => e >= 7,
+    title: 'Maszyna wzrostu',
+    desc: 'Twoja AI jest skuteczna i szybka — ale zimna. Optymalizuje wyniki, nie ludzi. Taka technologia istnieje i przynosi zyski, lecz zostawia ślad, którego nie widać w raporcie kwartalnym.',
+    color: 'var(--color-coral)',
+  },
+  {
+    test: (e,m,t) => m >= 7 && t >= 7,
+    title: 'Życzliwa AI',
+    desc: 'Twoja AI stawia człowieka w centrum. Jest wolniejsza i bardziej ostrożna — ale buduje zaufanie. To technologia, której DeepKind szuka: skuteczna i empatyczna jednocześnie.',
+    color: 'var(--color-mint)',
+  },
+  {
+    test: (e,m,t) => t >= 7 && e <= 4,
+    title: 'Strażnik zasad',
+    desc: 'Twoja AI jest przejrzysta i ostrożna do granic możliwości. Może być wolna, ale nigdy nie zaskoczy użytkownika. W świecie pełnym czarnych skrzynek — to rzadkość.',
+    color: 'var(--color-violet)',
+  },
+  {
+    test: () => true,
+    title: 'Pragmatyczna AI',
+    desc: 'Twoja AI szuka złotego środka między efektywnością a troską o człowieka. To realistyczne podejście — każdy kompromis ma cenę, warto wiedzieć jaką.',
+    color: 'var(--color-gold)',
+  },
+];
+
+const AXES = ['Efektywność', 'Empatia', 'Zaufanie'];
+const MAX = [10, 9, 10];
+
+let qi = 0, sel = null;
+const scores = [0, 0, 0];
+
+const qNum   = document.getElementById('q-num');
+const qCtx   = document.getElementById('q-context');
+const qText  = document.getElementById('q-text');
+const opts   = document.getElementById('g-options');
+const next   = document.getElementById('g-next');
+const fill   = document.getElementById('g-fill');
+const qScr   = document.getElementById('q-screen');
+const rScr   = document.getElementById('r-screen');
+
+function render() {
+  const q = QUESTIONS[qi];
+  qNum.textContent  = `Pytanie ${qi + 1} z ${QUESTIONS.length}`;
+  qCtx.textContent  = q.context;
+  qText.textContent = q.q;
+  fill.style.width  = `${(qi / QUESTIONS.length) * 100}%`;
+  opts.innerHTML = '';
+  sel = null;
+  next.disabled = true;
+
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'g-option';
+    btn.textContent = o.label;
+    btn.addEventListener('click', () => {
+      opts.querySelectorAll('.g-option').forEach(b => b.classList.remove('g-option--sel'));
+      btn.classList.add('g-option--sel');
+      sel = i;
+      next.disabled = false;
+    });
+    opts.appendChild(btn);
+  });
+}
+
+function showResults() {
+  fill.style.width = '100%';
+  qScr.hidden = true;
+  rScr.hidden = false;
+
+  const [e, m, t] = scores;
+  const result = RESULTS.find(r => r.test(e, m, t));
+
+  document.getElementById('r-title').textContent = result.title;
+  document.getElementById('r-desc').textContent  = result.desc;
+  rScr.style.setProperty('--result-color', result.color);
+
+  const scoresEl = document.getElementById('g-scores');
+  scoresEl.innerHTML = '';
+  [e, m, t].forEach((v, i) => {
+    const pct = Math.round((v / MAX[i]) * 100);
+    scoresEl.innerHTML += `
+      <div class="g-score-row">
+        <span class="g-score-label">${AXES[i]}</span>
+        <div class="g-score-track"><div class="g-score-bar" style="--bar-width:${pct}%"></div></div>
+        <span class="g-score-pct">${pct}%</span>
+      </div>`;
+  });
+}
+
+next.addEventListener('click', () => {
+  if (sel === null) return;
+  QUESTIONS[qi].opts[sel].s.forEach((v, i) => { scores[i] += v; });
+  qi++;
+  if (qi < QUESTIONS.length) render();
+  else showResults();
+});
+
+document.getElementById('g-restart').addEventListener('click', () => {
+  qi = 0; sel = null; scores.fill(0);
+  rScr.hidden = true; qScr.hidden = false;
+  render();
+});
+
+render();
+</script>
