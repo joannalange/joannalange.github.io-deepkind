@@ -1,0 +1,264 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const posts: { slug: string; title: string; date: string; category: string; excerpt: string }[] = [
+  // Add posts here when ready
+];
+
+const categories = ['Technologia', 'Kobiety w tech', 'Dobrostan', 'Przywództwo', 'AI i etyka'];
+---
+
+<BaseLayout
+  title="Blog — DeepKind Foundation"
+  description="Refleksje, analizy i opowieści o technologii, empatii i odpowiedzialnym budowaniu przyszłości."
+>
+
+  <!-- Hero -->
+  <section class="blog-hero">
+    <div class="blog-wrap">
+      <p class="blog-eyebrow">DEEPKIND // BLOG</p>
+      <h1 class="blog-hero__title">Myśli, które<br/>warto przemyśleć</h1>
+      <p class="blog-hero__sub">Refleksje o technologii, empatii i odpowiedzialnym budowaniu przyszłości.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="blog-body">
+    <div class="blog-wrap">
+
+      <!-- Category filters -->
+      <nav class="blog-filters" aria-label="Kategorie">
+        <button class="blog-filter blog-filter--active">Wszystkie</button>
+        {categories.map(cat => (
+          <button class="blog-filter">{cat}</button>
+        ))}
+      </nav>
+
+      <!-- Posts grid -->
+      {posts.length > 0 ? (
+        <ol class="blog-grid">
+          {posts.map(post => (
+            <li class="blog-card">
+              <a href={`/blog/${post.slug}`} class="blog-card__link">
+                <span class="blog-card__category">{post.category}</span>
+                <h2 class="blog-card__title">{post.title}</h2>
+                <p class="blog-card__excerpt">{post.excerpt}</p>
+                <span class="blog-card__date">{post.date}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <div class="blog-empty">
+          <div class="blog-empty__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="10" width="32" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="15" y1="19" x2="33" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="15" y1="25" x2="28" y2="25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="15" y1="31" x2="23" y2="31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="blog-empty__heading">Wpisy wkrótce</h2>
+          <p class="blog-empty__text">Pracujemy nad pierwszymi artykułami. Zapisz się do newslettera, żeby dostać powiadomienie jako pierwsza/-y.</p>
+          <a href="/#contact" class="blog-empty__cta">Zapisz się do newslettera →</a>
+        </div>
+      )}
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .blog-wrap {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 3rem);
+  }
+
+  /* ── Hero ── */
+  .blog-hero {
+    background: var(--color-bg-dark);
+    padding-block: clamp(5rem, 8vw, 8rem);
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .blog-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--on-dark-30);
+    margin-bottom: 1rem;
+  }
+
+  .blog-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    background: linear-gradient(135deg, var(--color-violet), var(--color-rose));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .blog-hero__sub {
+    font-size: var(--text-lg);
+    color: var(--on-dark-55);
+    margin-top: 1rem;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  /* ── Body ── */
+  .blog-body {
+    background: var(--color-bg-base);
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  /* ── Filters ── */
+  .blog-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .blog-filter {
+    padding: 0.4em 1em;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--ink-12);
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .blog-filter:hover {
+    border-color: var(--color-violet);
+    color: var(--color-violet);
+  }
+  .blog-filter--active {
+    background: var(--color-violet);
+    border-color: var(--color-violet);
+    color: var(--color-white);
+  }
+
+  /* ── Grid ── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .blog-card {
+    background: var(--color-white);
+    border: 1px solid var(--ink-10);
+    border-radius: var(--radius-lg);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .blog-card:hover {
+    box-shadow: 0 8px 32px var(--ink-10);
+    transform: translateY(-2px);
+  }
+
+  .blog-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.75rem;
+    height: 100%;
+  }
+
+  .blog-card__category {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-violet);
+  }
+
+  .blog-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .blog-card__excerpt {
+    font-size: var(--text-sm);
+    color: var(--color-text-dim);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .blog-card__date {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-dim);
+    opacity: 0.6;
+  }
+
+  /* ── Empty state ── */
+  .blog-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-block: clamp(3rem, 6vw, 5rem);
+    gap: 1.25rem;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .blog-empty__icon {
+    width: 56px;
+    height: 56px;
+    color: var(--color-text-dim);
+    opacity: 0.4;
+  }
+
+  .blog-empty__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  .blog-empty__text {
+    font-size: var(--text-base);
+    color: var(--color-text-dim);
+    line-height: 1.65;
+  }
+
+  .blog-empty__cta {
+    display: inline-block;
+    padding: 0.65em 1.5em;
+    border-radius: var(--radius-pill);
+    background: var(--color-violet);
+    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .blog-empty__cta:hover {
+    background: color-mix(in srgb, var(--color-violet) 85%, black 15%);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .blog-filters { gap: 0.4rem; }
+  }
+</style>
